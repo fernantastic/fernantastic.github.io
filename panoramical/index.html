@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PANORAMICAL - presented by Polytron, Finji and Indie Fund</title>
+    
+    <link href='style.css' rel='stylesheet' type='text/css'>
+    <link href='css/featherlight.css' rel='stylesheet' type='text/css'>
+    <link href='css/featherlight.gallery.css' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Hind:300,500,700' rel='stylesheet' type='text/css'>
+    
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.lazyload.min.js"></script>
+
+    <script src="js/TweenMax.min.js"></script>
+    <script src="js/countdown.min.js"></script>
+    <script src="js/ScrollMagic.js"></script>
+    <script src="js/animation.gsap.js"></script>
+   	<!--<script src="js/debug.addIndicators.js"></script>-->
+
+    <script src="js/seamlessloop.js"></script>
+    <script src="js/featherlight.min.js"></script>
+    <script src="js/featherlight.gallery.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/imagesloaded.min.js"></script>
+
+    <!-- AddThisEvent -->
+    <script src="js/ate.min.js"></script>
+    <link href='css/addthisevent.theme2.css' rel='stylesheet' type='text/css'>
+
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+	<meta property="og:title" content="PANORAMICAL">
+    <meta property="og:description" content="A collection of interactive musical landscapes for PC & Mac, presented by Polytron, Finji and Indie Fund.">
+    <meta property="og:image" content="http://kevinw.github.io/pano/img/embedimage.jpg">
+    <meta property="og:url" content="http://www.panoramic.al">
+    <meta property="og:type" content="product">
+
+    <meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@panoramical">
+	<meta name="twitter:title" content="PANORAMICAL">
+	<meta name="twitter:description" content="PANORAMICAL is a collection of interactive musical landscapes for PC & Mac, presented by Polytron, Finji and Indie Fund.">
+	<meta name="twitter:image" content="http://kevinw.github.io/pano/img/embedimage.jpg">
+
+</head>
+
+<body>
+
+	<div style="display:none;" itemscope itemtype="http://schema.org/SoftwareApplication">
+      <h2 itemprop="name">PANORAMICAL</h2>
+      <h2 itemprop="applicationCategory">Game</h2>
+      <h2 itemprop="applicationSubCategory">Independent</h2>
+      <p itemprop="description">A collection of interactive musical landscapes for PC & Mac, presented by Polytron, Finji and Indie Fund.</p>
+      <img itemprop="image" src="http://kevinw.github.io/pano/img/embedimage.jpg" />
+    </div>
+	
+	<!--
+	<bgvideo id="bgvideo" tabindex="0" autobuffer="autobuffer" preload="preload">
+	
+	  <source type="video/webm; codecs=&quot;vp8, vorbis&quot;" src="http://www.html5rocks.com/tutorials/video/basics/Chrome_ImF.webm"></source>
+	  <source type="video/ogg; codecs=&quot;theora, vorbis&quot;" src="http://www.html5rocks.com/tutorials/video/basics/Chrome_ImF.ogv"></source>
+	 
+	  <p>Sorry, your browser does not support the &lt;bgvideo&gt; element.</p>
+	</bgvideo>
+	-->
+	<div id="bgfallback"></div>
+
+	<!--
+	<video id="bgvid" tabindex="0" autobuffer="autobuffer" preload="preload">
+	  <source type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="http://kevinw.github.io/pano/vid/websitebg.mp4"></source>
+	</video>
+	-->
+
+	<div style="width:100%; height:100%; background-color:rgba(0,0,0,0.7); position:fixed; top:0; left:0; right:0; bottom:0; z-index:-999;"></div>
+
+	
+
+	<div id="wrapper">
+
+		<div id="trailer" class="scrollable" style="background-color:#000000; height:100vh;">
+			<iframe style="width:100%; height:88%;" id="firstvideo" src="http://player.vimeo.com/video/139601727?title=0&byline=0&portrait=0&autoplay=1&api=1&color=ffecb8&hd=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+		</div>
+		
+		<div id="arrows" class="scrollable" style="margin-top:15px; text-align:center;">
+			<span id="arrowstext">⇣</span>
+		</div>
+
+		<div id="intro" class="scrollable" style="height: 800px;">
+			<div class="paraxify bg-blur" style="min-height: 800px;" data-speed="0.1"></div>
+			<img class="pintocenter" id="logoimage" style="height:250px;" src="http://kevinw.github.io/pano/img/logo.png" />
+			<div class="pintocenter" id="logotagline">a collection of places<br />that <strong>morph to your touch</strong></div>
+		</div>
+
+		<div id="features" style="padding-right:5%; padding-left:5%; position:relative;">
+
+			<div class="scrollable content" style="margin-top:120px;">
+				<div style="font-size: 24px; color:#dddfea; text-align:left;">
+					PANORAMICAL is a new kind of videogame about discovering <strong>beautiful moments</strong>.<br /><br />
+					<!--Immerse yourself in <strong>musical synaesthetic alien vistas</strong> and control them like an <strong>ambient disco-god</strong>.<br/><br/>-->
+					Explore incredible digital landscapes that change to your command in an immersive musical adventure through space and time.
+				</div>
+				
+				<div class="featurelist">
+					<p><strong>15 unique interactive landscapes</strong>, each with their own visual style and dynamic music, a new experience in every play</p>
+					<p><strong>Unique controls</strong>: every change creates a new audiovisual result</p>
+					<p><strong>Dynamic interactive soundtrack</strong> by the award-winning musician behind <a href="http://twistedtreegames.com/proteus/" target="_blank">Proteus</a></p>
+					<p>Bonus environments produced by renowned <strong>guest artists</strong></p>
+					<p><strong>Capture and share</strong> your favourite moments from inside the game</p>
+				</div>
+			</div>
+
+			<div class="scrollable content feature">
+				<div class="feature-block">
+					<video class="videothumbnail" id="scrollvid2" tabindex="0" autobuffer="autobuffer" preload="preload">
+						<!--<source type="video/ogg; codecs=&quot;theora, vorbis&quot;" src="http://kevinw.github.io/pano/vid/grow1.ogv"></source>-->
+						<source  type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="http://kevinw.github.io/pano/vid/grow1.mp4"></source>
+						<source type="video/webm; codecs=&quot;vp8, vorbis&quot;" src="http://kevinw.github.io/pano/vid/grow1.webm"></source>
+					</video>
+				</div>
+				<div class="feature-text feature-right">
+					Manipulate controls to morph the visuals and sounds in front of you, exploring all the combinations.
+				</div>
+			</div>
+
+			<div class="scrollable content feature">
+				<div class="feature-text feature-left">
+					Explore sights and sounds to find <strong>beautiful moments</strong> at your own pace.
+				</div>
+				<div class="feature-block">
+					<video class="videothumbnail" id="scrollvid3" tabindex="0" autobuffer="autobuffer" preload="preload">
+						<!--<source type="video/ogg; codecs=&quot;theora, vorbis&quot;" src="http://kevinw.github.io/pano/vid/grow1.ogv"></source>-->
+						<source  type="video/mp4; codecs=&quot;mp4a.40.2&quot;" src="http://kevinw.github.io/pano/vid/grow2.mp4"></source>
+						<source type="video/webm; codecs=&quot;vp8, vorbis&quot;" src="http://kevinw.github.io/pano/vid/grow2.webm"></source>
+					</video>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="scrollable" style="margin-top:50px;">
+      		<div class="imageseparator paraxify bg-eeep" ></div>
+		</div>
+
+		<div id="buy" class="scrollable" style="padding-top: 100px;">
+
+			<div id="launched">
+				<div class="content">
+					<div class="title" style="border: 4px solid #f46050; padding:20px; font-size:42px; font-weight:400; border-radius:4px; margin-left:auto; margin-right:auto; width:500px;">Buy PANORAMICAL</div>
+					<!--<h1 style="margin: 30px;">Available Now</h1>-->
+					<p style="font-size:16px; margin-top:5px;">as a digital download for <strong>Windows</strong> and <strong>Mac</strong></p>
+
+			    	<div style="margin-top: 50px; width:552px; margin-left:auto; margin-right: auto;">
+						<div>
+							<iframe class="widgetitch" src="http://itch.io/embed/35912" width="552" height="167" frameborder="0"></iframe>
+							<iframe class="widgethumble" style="display:none;" src="https://www.humblebundle.com/widget/v2/product/panoramical/3d2ed?theme=light" width="480" height="330" style="border: none;" scrolling="no" frameborder="0"></iframe>
+						</div>
+						<div class="flexbox" style="height:30px; width:262px; margin-left:auto; margin-right: 0; margin-top:10px; justify-content:center; -webkit-justify-content: center;">
+					    	<!--<div class="flexboxitem" style="font-size:15px; margin-right:15px; 	">also on:</div>-->
+							<a href="#" class="flexboxitem itch_tab active-buy-widget"><img src="http://kevinw.github.io/pano/img/logo_itchio.svg" height="25px" /></a>
+					        <a class="flexboxitem humble_tab" href="#"><img src="http://kevinw.github.io/pano/img/logo_humble.png" height="35px" /></a>
+							<a class="flexboxitem" target="_blank" href="http://store.steampowered.com/app/284260/"><img src="http://kevinw.github.io/pano/img/steam.png" height="20px" /></a>
+					    </div>
+					</div>
+					
+				</div>
+				
+				<a href="https://www.youtube.com/watch?v=ym5ybqkCVX8" title="What is PANORAMICAL?" target="_blank"><img src="http://kevinw.github.io/pano/img/whatisvidthumb.jpg" width="60%" style="margin-top:100px; margin-bottom:20px;  margin-left:auto; margin-right:auto;" /></a>
+			</div>
+
+		</div>
+
+		
+		<!--
+		<div class="scrollable" style="margin-top:50px;">
+      		<div class="imageseparator paraxify bg-horizon"></div>
+		</div>
+		-->
+
+
+		<div class="scrollable" style="margin-top:80px;">
+			<p class="title" style="font-size:25px; margin-bottom:0px;">Showcased in 40+ museums and festivals around the world</p>
+
+			<div class="accolade-container" style="margin-top:10px;">
+				<div class="accolade-item"><span class="accolade-subtitle">Nominated for</span><br/><span class="accolade-title">Best Audio, Best Visual<br/> Design, Nuovo Award</span><br/><span class="accolade-subtitle">Independent Games Festival 2016</span></div>
+				<div class="accolade-item"><span class="accolade-subtitle">Winner</span><br/><span class="accolade-title">Best Audio</span><br/><span class="accolade-subtitle">AzPLAY, Bilbao, Spain</span></div>
+				<div class="accolade-item"><span class="accolade-title">SF MoMA</span><br/><span class="accolade-subtitle">San Francisco</span></div>
+				<div class="accolade-item"><span class="accolade-title">XOXO</span><br/><span class="accolade-subtitle">Portland</span></div>
+				<div class="accolade-item"><span class="accolade-title">EMP Museum</span><br/><span class="accolade-subtitle">Seattle</span></div>
+				<div class="accolade-item"><span class="accolade-title">IndieCade</span><br/><span class="accolade-subtitle">Los Angeles</span></div>
+				
+			</div>
+
+			<p class="title" style="font-size:25px; margin-top:60px; margin-bottom:0;">featuring bonus content by international collaborators:</p>
+
+			<div class="accolade-container" style="margin-top:0px;">
+				<div class="accolade-item"><p class="accolade-title"><a href="http://www.richardeflanagan.com" target="_blank">Richard Flanagan</a></p><p class="accolade-subtitle">FRACT<br/>&nbsp;</p></div>
+				<div class="accolade-item"><a href="http://doseonesite.tumblr.com/" target="_blank"><p class="accolade-title">doseone</p></a><p class="accolade-subtitle">Anticon, <br/>Samurai Gunn</p></div>
+				<div class="accolade-item"><a href="http://mrdiv.tumblr.com/" target="_blank"><p class="accolade-title">Mr Div</p></a><p class="accolade-subtitle">Mr Div<br/>&nbsp;</p></div>
+		     	<div class="accolade-item"><a href="http://baiyon.com/english/" target="_blank"><p class="accolade-title">Baiyon</p></a><p class="accolade-subtitle">Pixeljunk Eden, <br/>Pixeljunk 4am</p></div>
+		     	<div class="accolade-item"><a href="http://v21.io/" target="_blank"><p class="accolade-title">George Buckenham</p></a><p class="accolade-subtitle">Punch the Custard, <br/>Mutazione</p></div>
+				<div class="accolade-item"><a href="http://www.jukiokallio.com" target="_blank"><p class="accolade-title">Jukio Kallio</p></a><p class="accolade-subtitle">KOZILEK, <br/>Nuclear Throne</p></div>
+			</div>
+			
+
+			<!--
+			<p style="line-height:10px;"></p>
+
+			<div class="accolade-container" style="font-size:14px; margin-top:40px;">
+				<div class="accolade-item"><span class="accolade-title">ALT.CTRL.GDC</span><br/><span class="accolade-subtitle">San Francisco</span></div>
+				<div class="accolade-item"><span class="accolade-title">The Art Gallery of Ontario</span><br/><span class="accolade-subtitle">Toronto</span></div>
+				<div class="accolade-item"><span class="accolade-title">Game Science Center</span><br/><span class="accolade-subtitle">Berlin</span></div>
+				<div class="accolade-item"><span class="accolade-title">IndieCade East</span><br/><span class="accolade-subtitle">New York</span></div>
+				<div class="accolade-item"><span class="accolade-title">Day Of The Devs</span><br/><span class="accolade-subtitle">San Francisco</span></div>
+				<div class="accolade-item"><span class="accolade-title">Bit Bash</span><br/><span class="accolade-subtitle">Chicago</span></div>
+				<div class="accolade-item"><span class="accolade-title">A MAZE</span><br/><span class="accolade-subtitle">Berlin</span></div>
+				<div class="accolade-item"><span class="accolade-title">GameCity</span><br/><span class="accolade-subtitle">Nottingham</span></div>
+				<div class="accolade-item"><span class="accolade-title">Fantastic Arcade</span><br/><span class="accolade-subtitle">Austin</span></div>
+				<div class="accolade-item"><span class="accolade-title">Hovergarden</span><br/><span class="accolade-subtitle">Melbourne</span></div>
+				<div class="accolade-item"><span class="accolade-title">Incubate</span><br/><span class="accolade-subtitle">The Netherlands</span></div>
+				<div class="accolade-item"><span class="accolade-title">ConnectFest</span><br/><span class="accolade-subtitle">Buenos Aires</span></div>
+				<div class="accolade-item"><span class="accolade-title">The Prince of Arcade</span><br/><span class="accolade-subtitle">Montreal</span></div>
+				
+			</div>
+			-->
+
+			<div style="margin-top:80px;">
+	            <div class="quotebox" style="margin-left: 10%;">
+	              <p class="quotebox-quote">"Panoramical will change the way you conceive of sound"</p>
+	              <p class="quotebox-name">- Leigh Alexander, <a href="http://boingboing.net/2015/09/18/panoramical-will-change-the-wa.html" target="_blank">boingboing.net</a></p>
+	            </div>
+	            <div class="quotebox" style="margin-right: 10%;">
+	              <p class="quotebox-quote">"a mental and perhaps spiritual journey through realms of sound and light"</p>
+	              <p class="quotebox-name">- Mike Fahey, <a href="http://kotaku.com/panoramical-is-a-trippy-journey-of-light-and-sound-1732422687" target="_blank">kotaku.com</a></p>
+	            </div>
+	            <div class="quotebox" style="margin-left: 10%;">
+	                <p class="quotebox-quote">"You don't simply play this game--you orchestrate an audiovisual performance"</p>
+	                <p class="quotebox-name">- Kris Graft, <a href="http://gamasutra.com/view/news/264759/Road_to_the_IGF_Ramallo_and_Kanagas_Panoramical.php" target="_blank">gamasutra.com</a></p>
+	            </div>
+	         </div>
+
+		</div>
+
+		<div id="media" class="scrollable" style="padding-top:50px;">
+			<h2 class="sectiontitle" style="margin-bottom:40px; margin-left:90px;">Media</h2>
+			<!--
+			<div style="width:100%; margin-bottom:20px;">
+				<video class="microteaser" autobuffer="autobuffer" preload="preload" autoplay="true" loop="true" muted="true"><source  type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="http://kevinw.github.io/pano/vid/microteasers/eep_1.mp4"></source></video>
+				<video class="microteaser" autobuffer="autobuffer" preload="preload" autoplay="true" loop="true" muted="true"><source  type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="http://kevinw.github.io/pano/vid/microteasers/absract_1.mp4"></source></video>
+				<video class="microteaser" autobuffer="autobuffer" preload="preload" autoplay="true" loop="true" muted="true"><source  type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="http://kevinw.github.io/pano/vid/microteasers/tutorial_1.mp4"></source></video>
+				<video class="microteaser" autobuffer="autobuffer" preload="preload" autoplay="true" loop="true" muted="true"><source  type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="http://kevinw.github.io/pano/vid/microteasers/worldcolor_1.mp4"></source></video>
+				<video class="microteaser" autobuffer="autobuffer" preload="preload" autoplay="true" loop="true" muted="true"><source  type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="http://kevinw.github.io/pano/vid/microteasers/horizon_1.mp4"></source></video>
+				<video class="microteaser" autobuffer="autobuffer" preload="preload" autoplay="true" loop="true" muted="true"><source  type="video/mp4; codecs=&quot;avc1.42E01E, mp4a.40.2&quot;" src="http://kevinw.github.io/pano/vid/microteasers/dark_1.mp4"></source></video>
+			</div>
+			-->
+			
+
+			<div class="thumbnailgrid">
+			  <div class="thumbnailgrid-sizer"></div>
+			  <section data-featherlight-gallery data-featherlight-filter="a">
+
+				<a class="thumbnailgrid-item gallery thumbnailgrid-item--width2" href="http://kevinw.github.io/pano/img/media/Panoramical_2015-05-30_12-17-09.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/Panoramical_2015-05-30_12-17-09_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_16-01-49.gif"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_16-01-49.gif"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-07-14_17-17-58.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-07-14_17-17-58_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_15-57-26.gif"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_15-57-26.gif"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-20-09.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-20-09_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-08-46.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-08-46_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery thumbnailgrid-item--width2" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_15-55-32.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_15-55-32_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-09-25.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-09-25_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-07-10_19-19-45.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-07-10_19-19-45_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-34-47.gif"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-34-47.gif"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-22_17-21-33.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-22_17-21-33_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery thumbnailgrid-item--width2" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-07-07_19-29-39.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-07-07_19-29-39_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_15-45-40.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_15-45-40_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-17-24.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-17-24_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_16-01-40.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_16-01-40_thumb.jpg"></a>
+				<!--
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-14-54.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-14-54_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery thumbnailgrid-item--width2" href="http://kevinw.github.io/pano/img/media/Panoramical_2015-05-22_10-32-58.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/Panoramical_2015-05-22_10-32-58_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-31-14.gif"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-31-14.gif"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-18-26.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-18-26_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery thumbnailgrid-item--width2" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_16-01-21.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_16-01-21_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_15-51-10.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_15-51-10_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-47-36.gif"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-47-36.gif"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/Panoramical_2015-05-22_10-42-13.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/Panoramical_2015-05-22_10-42-13_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-07-07_19-14-25.gif"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-07-07_19-14-25.gif"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-06-25_19-33-53.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-06-25_19-33-53_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-51-24.gif"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-51-24.gif"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-26-18.gif"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-23_09-26-18.gif"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-22_17-16-06.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-22_17-16-06_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/horizon3.jpg"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/horizon3_thumb.jpg"></a>
+				<a class="thumbnailgrid-item gallery" href="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_15-54-23.gif"><img class="lazy" data-original="http://kevinw.github.io/pano/img/media/PANORAMICAL_2015-08-20_15-54-23.gif"></a>
+				-->
+
+				</section>
+
+			</div>
+			
+		</div>
+
+		<div class="scrollable" style="margin-top:100px;">
+
+			<div class="alsobuy">
+				
+	      		<div style="background-color: black; background-image:url('http://kevinw.github.io/pano/img/proversionbg1_low.jpg'); background-position: right top; background-size: cover; padding-top:30px; padding-bottom:40px;">
+	      			<span style="font-size:18px;">Also available</span>
+	      			<p class="title" style="font-size:48px; margin:10px;">PANORAMICAL: Pro License</p>
+	      				<p style="font-size:22px; text-align:center;"><strong>an exclusive edition for DJs, VJs and audiovisual performers.</strong></p>
+	      			<div class="flexboxitem" style="min-width:400px; background-color:rgba(0,0,0,0.8); padding:30px; border-radius:8px; width:68%; margin-left:auto; margin-right:auto; margin-bottom:15px; text-align:left;">
+		      			<p style="font-family:'Hind', sans-serif; font-weight:100;">
+		      				<ul style="font-size:18px; line-height:28px;">
+		      				<li>Use PANORAMICAL in your own performances.</li>
+		      				<li>Feed, mash and repurpose its visuals with <strong>Syphon-enabled</strong> video-routing support.</li>
+		      				<li>Control PANORAMICAL's 18-dimensional spaces using your own <strong>OSC interfaces</strong>.</li>
+		      				<li>Let PANORAMICAL find beautiful worlds by itself while you perform.</li>
+		      				<li>Get <strong>Direct Support</strong> from its developers and all future updates.</li>
+		      				</ul>
+		      			</p>
+		      			<div style="text-align: center"><iframe src="http://itch.io/embed/36668?dark=true" width="552" height="167" frameborder="0"></iframe></div>
+	      				<p style="font-size:20px; text-align:right; margin-top:0; margin-bottom:0;"><a href="http://finji.itch.io/panoramical-pro" target="_blank"><strong>Find out more...</strong></a></p>
+	      			</div>
+
+	      		</div>
+			</div>
+		</div>
+
+
+		<div id="faq" class="scrollable content" style="padding-top:50px; margin-bottom:50px;">
+			<h2 class="sectiontitle">Frequently Asked Questions</h2>
+			<div class="faqbox">
+				<p class="faqquestion">Do I need a special controller to play PANORAMICAL?</p>
+				<p class="faqanswer"><strong>No, you can play with a standard Keyboard and Mouse setup</strong> or use any games controller. <br />Optionally, you can use a MIDI-enabled device like a sound mixer board to play with analog controls.</p>
+			</div>
+			<div id="requirements-faqbox" class="faqbox">
+				<p class="faqquestion">Will PANORAMICAL run on my computer?</p>
+				<div class="faqanswer">
+					<p>Any computer from the last 8 years should run PANORAMICAL. A gaming-capable computer is recommended for smoother gameplay.</p>
+					<div class="flexbox">
+						<div class="faqrequirement flexboxitem">
+							<p style="font-size:18px;">Minimum Requirements</p>
+							<p>	PC OS: Windows XP SP 2+<br/>
+								Mac OS: OS X v10.8 Mountain Lion or later<br/>
+								Processor: 1 GHz CPU<br/>
+								Memory: 1GB RAM<br/>							
+								Graphics: Built-in graphics like Intel HD Graphics 4000<br/>
+								Hard Drive: 750 MB HD Space</p>
+						</div>
+						<div class="faqrequirement flexboxitem">
+							<p style="font-size:18px;">Recommended Requirements</p>
+							<p> PC OS: Windows 7 or later<br/>
+								Mac OS: OS X v10.8 Mountain Lion or later<br/>
+								Processor: 2 GHz CPU<br/>
+								Memory: 2GB RAM<br/>				
+								Graphics: a gaming-capable graphics card<br/>
+								Hard Drive: 750 MB HD Space</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="faqbox">
+				<p class="faqquestion">Will my MIDI controller work with PANORAMICAL?</p>
+        <p class="faqanswer">You can play with any MIDI device that has analog controls (like faders or knobs). Make sure to check the <a href="#requirements-faqbox" id="requirements-link">minimum system requirements</a>.<br />
+				PANORAMICAL uses 18 analog inputs, but you can use less controls if your device doesn't have as many.</p>
+			</div>
+			<div class="faqbox">
+				<p class="faqquestion">Can I request a press copy for review?</p>
+				<p class="faqanswer">Yes! You can request a copy <a href="https://dodistribute.com/access/k0zIS0ol4U/" target="_blank">here</a> or check out our <a href="http://finji.co/about/sheet.php?p=panoramical" target="_blank">Press Kit</a>.</p>
+			</div>
+			<div class="faqbox">
+				<p class="faqquestion">I have an issue with the game, where can I find technical support?</p>
+				<p class="faqanswer">Please <a href="mailto:fernando.ramallo@gmail.com">contact us</a>.</p>
+			</div>
+			
+		</div>
+
+			
+		
+		<div class="scrollable" style="height:250px; margin-top:100px;">
+			<!--
+	      <h2>created by</h2>
+	      <div class="flexbox" style="margin-top:20px;">
+	        <div class="flexboxitem author">
+	          <p class="author-name">FERNANDO RAMALLO</p>
+	          <p class="author-bio"><a href="http://www.byfernando.com" target="_blank">Fernando Ramallo</a> is an argentine independent designer and maker that constantly tinkers with abstract graphics, generative visuals and strange interactive installations.
+	          </p>
+	        </div>
+	        <div class="flexboxitem author">
+	          <p class="author-name">DAVID KANAGA</p>
+	          <p class="author-bio"><a href="http://www.davidkanaga.com" target="_blank">David Kanaga</a> is an award-winning composer of dynamic and procedural musical scores, including those for island exploring <a href="http://www.visitproteus.com/" target="_blank">Proteus</a> and synaesthetic racing game <a href="http://www.dyadgame.com" target="_blank">Dyad</a>.
+	          </p>
+	        </div>
+	      </div>
+	      -->
+
+	      <div class="flexbox" style="margin-top:20px; margin-right:90px; margin-left:90px;">
+	        <div class="flexboxitem">
+	          <p align="left" style="font-size:20px; font-weight:400;">Created by <a href="http://www.byfernando.com" target="_blank">Fernando Ramallo</a> & <a href="http://www.davidkanaga.com" target="_blank">David Kanaga</a></p>
+	        </div>
+	        <div class="flexboxitem">
+	          	<span style="font-size: 20px;">Presented by</span><br />
+			
+				<div style="text-align:center; margin-top: 40px;">
+					<div style="display:inline-block;margin-left:0px;"><a href="http://www.polytroncorporation.com" title="POLYTRON CORPORATION" target="_blank"><img style="height:90px;" src="http://kevinw.github.io/pano/img/logo_polytron.png" /></a></div>
+					<div style="display:inline-block;margin-left:50px;"><a href="http://finjigames.com/" title="Finji Games" target="_blank"><img style="height:90px;" src="http://kevinw.github.io/pano/img/logo_finji.png" /></a></div>
+					<div style="display:inline-block;margin-left:50px;"><a href="http://www.indie-fund.com" target="_blank"><img style="height:60px;" src="http://kevinw.github.io/pano/img/if.png" /></a></div>
+				</div>
+
+	        </div>
+	      </div>
+		
+
+			
+	      <!--
+			<div class="scrollable" style="margin-top: 100px;">
+				<h2 style="margin-bottom: 50px;">and featuring collaborations with</h2>
+				<div class="collaborator" style="background-image:url('http://kevinw.github.io/pano/img/ss_scenerichard.jpg');">
+		          <div class="collabgrad"></div>
+			      <div><a href="http://www.richardeflanagan.com" target="_blank"><p class="collaboratorname">Richard Flanagan</p><p class="collaboratordetail">FRACT</p></a></div>
+			      <div><a href="http://doseonesite.tumblr.com/" target="_blank"><p class="collaboratorname">doseone</p><p class="collaboratordetail">Anticon, Samurai Gunn, Gun Godz</p></a></div>	
+			    </div>
+
+			  <div class="collaborator" style="background-image:url('http://kevinw.github.io/pano/img/ss_scenematt.jpg');">
+		          <div class="collabgrad"></div>
+			      <div><a href="http://mrdiv.tumblr.com/" target="_blank"><p class="collaboratorname">Mr Div</p><p class="collaboratordetail">Mr Div</p></a></div>
+			      <div><a href="http://baiyon.com/english/" target="_blank"><p class="collaboratorname">Baiyon</p><p class="collaboratordetail">Pixeljunk Eden, 4am</p></a></div>
+
+			  </div>
+
+		      <div class="collaborator" style="background-image:url('http://kevinw.github.io/pano/img/ss_scenev21.gif');">
+		          <div class="collabgrad"></div>
+			      <div><a href="http://v21.io/" target="_blank"><p class="collaboratorname">George Buckenham</p><p class="collaboratordetail">Punch the Custard, Mutazione</p></a></div>
+			      <div><a href="http://www.jukiokallio.com" target="_blank"><p class="collaboratorname">Jukio Kallio</p><p class="collaboratordetail">KOZILEK, LUFTRAUSERS, Nuclear Throne</p></a></div>
+
+		      </div>
+		    </div>
+		    -->
+	    </div>
+
+
+		<div class="scrollable" style="padding-bottom:60px;">
+			<span><a href="http://www.facebook.com/panoramical" target="_blank">FACEBOOK</a> | <a href="http://www.twitter.com/panoramical" target="_blank">TWITTER</a> | <a href="http://sketchbook.panoramic.al" target="_blank">TUMBLR</a> | <a href="mailto:fernando.ramallo@gmail.com" target="_blank">CONTACT</a> | <a href="http://finji.co/about/sheet.php?p=panoramical" target="_blank" title="Press Info">PRESSKIT</a></span>
+			<!--<br/>
+			<img src="http://kevinw.github.io/pano/img/logo_fk.svg" height="80px" style="margin-top:20px;"/>-->
+		</div>
+
+
+
+		<div class="footer">
+			<a href="#" onclick="toggleMute(); return false;"><div id="speakericoncontainer"><img id="speakericon" src="http://kevinw.github.io/pano/img/speakericon.png" ></div></a>
+			<a href="#trailer" class="footersection" id="footersection_trailer">TRAILER</a>
+			<a href="#intro" class="footersection" id="footersection_features">ABOUT</a>
+			<a href="#buy" class="footersection" id="footersection_buy">BUY</a>
+			<!--<a href="#authors" class="footersection" id="footersection_authors">CREATORS</a>-->
+			<a href="#media" class="footersection" id="footersection_media">MEDIA</a>
+			<a href="#faq" class="footersection" id="footersection_faq">FAQ</a>
+		</div>
+
+		
+
+		<div id="releasedSign">
+			<strong>Out Now</strong> <br/><span style="font-size:18px;">for PC & Mac</span>
+			<a href="#buy"><div class="buybutton">BUY</div></a>
+		</div>
+		
+	</div>
+	
+	<script>
+var tabIsVisible = true;
+var embedIsPlaying = false;
+var updateGlobalVolume;
+
+// store tabs
+  var widgetHumble = $(".widgethumble");
+  var widgetItch = $(".widgetitch");
+  var widgetFadeDuration = 200;
+  var humbleTab = $(".humble_tab");
+  var itchTab = $(".itch_tab");
+
+  humbleTab.on("click", function(e) {
+    humbleTab.addClass("active-buy-widget");
+   	itchTab.removeClass("active-buy-widget");
+    widgetItch.fadeOut(widgetFadeDuration, function() { widgetHumble.fadeIn(widgetFadeDuration); });
+    e.preventDefault();
+  });
+  itchTab.on("click", function(e) {
+    itchTab.addClass("active-buy-widget");
+    humbleTab.removeClass("active-buy-widget");
+    widgetHumble.fadeOut(widgetFadeDuration, function() { widgetItch.fadeIn(widgetFadeDuration); });
+    e.preventDefault();
+  });
+
+  function mobilecheck() {
+    var check = false;
+    (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4)))check = true})(navigator.userAgent||navigator.vendor||window.opera);
+    return check;
+  }
+
+  function toggleFaq() {
+    $(this).find('.faqanswer').slideToggle('fast');
+    $(this).toggleClass("faqexpanded");
+  }
+
+  function openRequirements() {
+    var box = $("#requirements-faqbox");
+    if (!box.hasClass("faqexpanded"))
+      toggleFaq.call(box[0]);
+  }
+
+	$(function() {
+    
+
+    if (mobilecheck())
+      $("#bgvid").remove(); // remove the video on mobile
+
+    $(".faqbox").click(toggleFaq);
+    $("#requirements-link").click(function (e) {
+      e.stopPropagation();
+      openRequirements();
+    });
+
+		var bgvid = document.getElementById('bgvid');
+		if (bgvid) {
+			bgvid.play();
+			bgvid.muted = true;
+			bgvid.loop = true;
+		}
+
+		var scrollvid1 = document.getElementById('scrollvid1');
+		if (scrollvid1) {
+			scrollvid1.pause();
+			scrollvid1.loop = false;
+		}
+
+		var scrollvid2 = document.getElementById('scrollvid2');
+		if (scrollvid2) {
+			scrollvid2.pause();
+			scrollvid2.loop = false;
+		}
+
+		var scrollvid3 = document.getElementById('scrollvid3');
+		if (scrollvid3) {
+			scrollvid3.pause();
+			scrollvid3.loop = false;
+		}
+
+		// audio loops
+		/*
+		var loops = new Array();
+		for (var i = 0; i < 2; i++) {
+			loops[i] = new SeamlessLoop();
+			loadLoop(loops[i], 'http://kevinw.github.io/pano/audio/loop-0' + (i+1) + '.ogg', i);
+		}
+
+
+		function loadLoop(loop, uri, i) {
+			loop.addUri(uri, -1, i, true);
+			loop.callback(onSoundsLoaded);
+			loop.volume = 0.5;
+		}
+		*/
+
+		var globalVolume = 0;
+
+		var loops = new Array();
+		var loops_loaded = 0;
+		for (var i = 0; i < 10; i++) {
+			loops[i] = new SeamlessLoop();
+			loops[i].addUri('http://kevinw.github.io/pano/audio/loop-0' + (i+1) + (loops[i].is.safari ? '.m4a' : '.ogg'));//'http://kevinw.github.io/pano/audio/loop-0' + (i+1) + (loops[i].is.safari ? '.m4a' : '.ogg'));
+			loops[i].volume(0);
+			loops[i].autoplay = false;
+			loops[i].callback(onSoundLoaded);
+			loops[i].globalVolume(globalVolume);
+		}
+
+		function onSoundLoaded() {
+			loops_loaded++;
+			if (loops_loaded == loops.length) {
+				for (var i = 0; i < loops.length; i++) {
+					loops[i].start();
+				}
+
+        globalVolume = 0;
+        toggleMute();
+			}
+		}
+
+    updateGlobalVolume = function() {
+      var realGlobalVolume = globalVolume;
+      if (!tabIsVisible || embedIsPlaying)
+        realGlobalVolume = 0;
+			for (var i = 0; i < loops.length; i++)
+				loops[i].globalVolume(realGlobalVolume);
+			$("#speakericon").css('opacity', realGlobalVolume < 1 ? 0.98 : 0.48);
+    }
+		
+
+		window.toggleMute = function() {
+			//console.debug("toggle mute");
+			globalVolume = globalVolume > 0 ? 0 : 1;
+      updateGlobalVolume();
+    };
+
+		function scrollVideo(vid, time, scrollSpeed, repeat) {
+			if (!vid || vid.readyState <= 0)
+	  			return;
+	  		var t = time * scrollSpeed;
+	  		if (repeat) {
+	  			t = t % 1;
+	  		}
+	  		else
+	  		{
+	  			t = Math.min(Math.max(t, 0), 1);
+	  		}
+			var currentTime = t * vid.duration;
+	  		vid.currentTime = currentTime;
+		}
+
+
+		Number.prototype.clamp = function(min, max) {
+		  return Math.min(Math.max(this, min), max);
+		};
+
+		function CrossfadeValue(Index, Total, Ratio) {
+			Ratio *= Total-1;
+			var value = 0;
+			if (Ratio < Index)
+				value = (1 - (Index - Ratio)).clamp(0,1);
+			else
+				value = (1 - (Ratio - Index)).clamp(0,1);
+			return value;
+		}
+
+		
+		var footer = $(".footer");
+		var releasedSign = $("#releasedSign");
+		function showFooter(percent) {
+			var height = footer.height();
+			//var val = (-height + height*percent) + "px";
+			var val = (-height * (1-percent) - 3) + "px";
+			footer.css('top', val);
+			//footer.css('opacity', 0 + percent * 1);
+			releasedSign.css('opacity', 0 + percent * 1);
+		}
+
+
+		$("#media-previous").click(function(e) { moveMedia(-1); });
+		$("#media-next").click(function(e) { moveMedia(1); });
+
+		function moveMedia(direction) {
+			console.log("select " + direction);
+		}
+
+
+
+		function onSectionProgress(index, progress) {
+			/*
+			var total = 6;
+			var r = (index / total) + progress * (1/total);
+			console.debug("ratio " + r);
+			for (var i = 0; i < loops.length; i++) {
+				loops[i].volume(CrossfadeValue(i+1, loops.length+1, r));
+				//console.debug("setting " + i + " to vol " + CrossfadeValue(i, loops.length, e.progress));
+			}
+			*/
+		}
+
+
+		var controller = new ScrollMagic.Controller({ });
+
+		// scroll video
+		if (scrollvid1) {
+			new ScrollMagic.Scene({
+				triggerElement: '#scrollvid1',
+				offset: -400,
+				duration: $("#scrollvid1").height()	+ 900
+			})
+			.addTo(controller)
+			.on("progress", function (e) { 
+				scrollVideo(scrollvid1, e.progress, 1.5, true);
+			});
+		}
+
+		// scroll video
+		if (scrollvid2) {
+			new ScrollMagic.Scene({
+				triggerElement: '#scrollvid2',
+				offset: -150,
+				duration: $("#scrollvid2").height()	+ 300
+			})
+			.addTo(controller)
+			.on("progress", function (e) { 
+				scrollVideo(scrollvid2, e.progress, 1, false);
+			});
+		}
+		if (scrollvid3) {
+			new ScrollMagic.Scene({
+				triggerElement: '#scrollvid3',
+				offset: -200,
+				duration: $("#scrollvid3").height()	+ 350
+			})
+			.addTo(controller)
+			.on("progress", function (e) { 
+				scrollVideo(scrollvid3, e.progress, 1, false);
+			});
+		}
+		
+		// footer
+		new ScrollMagic.Scene({
+			triggerElement: '#trailer',
+			duration: 250,
+			offset: 400
+		})
+		.addTo(controller)
+		.on("progress", function (e) { 
+			showFooter(e.progress);
+		});
+		showFooter(0);
+
+		new ScrollMagic.Scene({triggerElement: "#intro", duration: 400, offset:-200})
+		.setTween(TweenMax.to("#arrows", 0.5, {opacity:0}))
+		//.addIndicators({name:"logo in"})
+		.addTo(controller);
+
+
+		// section toggles
+		new ScrollMagic.Scene({triggerElement: "#trailer", duration: $("#intro").position().top - $("#trailer").position().top})
+				.setClassToggle("#footersection_trailer", "active") // add class toggle
+				.on("progress", function (e) { onSectionProgress(0, e.progress);  })
+				//.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		new ScrollMagic.Scene({triggerElement: "#intro", duration: $("#buy").position().top - $("#intro").position().top})
+				.setClassToggle("#footersection_features", "active") // add class toggle
+				.on("progress", function (e) { onSectionProgress(1, e.progress); })
+				//.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		/*new ScrollMagic.Scene({triggerElement: "#authors", duration: $("#media").position().top - $("#authors").position().top})
+				.setClassToggle("#footersection_authors", "active") // add class toggle
+				.on("progress", function (e) { onSectionProgress(2, e.progress); })
+				//.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);*/
+		new ScrollMagic.Scene({triggerElement: "#buy", duration: $("#media").position().top - $("#buy").position().top})
+				.setClassToggle("#footersection_buy", "active") // add class toggle
+				.on("progress", function (e) { onSectionProgress(3, e.progress); })
+				//.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		new ScrollMagic.Scene({triggerElement: "#media", duration: $("#faq").position().top - $("#media").position().top})
+				.setClassToggle("#footersection_media", "active") // add class toggle
+				.on("progress", function (e) { onSectionProgress(4, e.progress); })
+				//.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		new ScrollMagic.Scene({triggerElement: "#faq", duration: $("#faq").height()})
+				.setClassToggle("#footersection_faq", "active") // add class toggle
+				.on("progress", function (e) { onSectionProgress(5, e.progress); })
+				//.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		
+
+		// speaker icon
+		$("#speakericoncontainer").hover(function() {
+			$(this).css('opacity', 1);
+			}, function() {
+			$(this).css('opacity', 0.85);
+		});
+		new ScrollMagic.Scene({triggerElement: "#intro", duration: $("#intro").height() * 0.5, offset:$("#intro").height() * 0.5})
+				//.on("progress", function (e) { $("#speakericon").css('height', (12 - 5 * e.progress) + '%'); })
+				//.addIndicators() // add indicators (requires plugin)
+				.addTo(controller);
+		
+
+		// buy
+		$(".buybutton").hover(function() {
+			$(this).css('background-color', 'rgba(255,0,0,0.32)');
+			}, function() {
+			$(this).css('background-color', 'rgba(255,0,0,0.0)');
+		});
+
+		//media
+		$("#media").hover(function() {
+			$(".large-btns_nav").css('opacity', 0.3);
+			}, function() {
+			$(".large-btns_nav").css('opacity', 0.0);
+		});
+
+		/*
+		// pin the logo to the container
+		new ScrollMagic.Scene({triggerElement: "#intro", duration: $('#intro').height()})
+		.setPin("#logoimage")
+		//.setPin("#logotagline")
+		.addTo(controller);
+		*/
+
+		
+		// fade logo in, out
+		new ScrollMagic.Scene({triggerElement: "#intro", duration: 1300, offset:-300})
+			.setTween(TweenMax.to("#logoimage", 0.5, {opacity:1, ease: Cubic.easeInOut, yoyo:true, repeat:1}))
+			.on("progress", function (e) { 
+				$("#logoimage").css('top', 90 - (e.progress) * 85 + '%');
+			})
+			//.addIndicators({name:"logo in"})
+			.addTo(controller);
+
+		new ScrollMagic.Scene({triggerElement: "#intro", duration: 800, offset:200})
+			.setTween(TweenMax.to("#logotagline", 0.5, {opacity:1, ease: Cubic.easeInOut, yoyo:true, repeat:1}))
+			.on("progress", function (e) { 
+				$("#logotagline").css('top', 80 - (e.progress) * 60 + '%');
+			})
+			//.addIndicators({name:"tagline in"})
+			.addTo(controller);
+
+		/*
+		
+		var bgvideoScene = new ScrollMagic.Scene({
+			triggerElement: "#scenebgvideo"
+		})
+		.addIndicators()
+		.addTo(controller);
+
+		*/
+
+		// audio
+      function updateLoopVolumes() {
+        var percent = $(window).scrollTop() / $(document).height(); // percent down the page
+        var progress = (($(window).scrollTop() + percent*window.innerHeight) / $(document).height()); // emulate the "progress" var from ScrollMagic
+
+				for (var i = 0; i < loops.length; i++) {
+					loops[i].volume(CrossfadeValue(i+1, loops.length, progress));
+					//console.debug("setting " + i + " to vol " + CrossfadeValue(i, loops.length, progress));
+				}
+				
+				// mute embedded video (only works on web)
+				var mainvideovolume = CrossfadeValue(0, loops.length, progress);
+				//console.log("setting main video volume to " + mainvideovolume);
+				document.getElementById("firstvideo").contentWindow.postMessage('{"method":"setVolume", "value":' + mainvideovolume + '}','*');
+      }
+
+      $(window).on("scroll", updateLoopVolumes);
+		
+
+
+		// thumbnail grid
+		var grid = document.querySelector('.thumbnailgrid');
+
+		var msnry = new Masonry( grid, {
+			itemSelector: '.thumbnailgrid-item',
+			columnWidth: '.thumbnailgrid-sizer',
+			percentPosition: true,
+			gutter: 0,
+			transitionDuration: 0
+		});
+
+
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
+    // make sure we don't call layout() on the masonry stuff too often                                        
+    var updateMasonry = debounce(function() { msnry.layout(); }, 250);
+
+		// layout as they load
+		imagesLoaded(document.querySelector('.thumbnailgrid')).on('progress', function(instance, image) {
+      updateMasonry();
+		});
+
+		$('.gallery').featherlightGallery({
+			galleryFadeIn: 100, 
+			galleryFadeOut: 100, 
+			openSpeed:    100,
+			closeSpeed:   100,
+			nextIcon: '>',
+			previousIcon: '<'
+		});
+
+		//countdown
+
+		var launched = $('#launched');
+		var releasedSign = $('#releasedSign');
+		var unlaunched = $('#unlaunched');
+
+		function setCountdownText() {
+			var release = new Date(Date.UTC(2015, 8, 17, 17));
+			var timespan = countdown(null, release, countdown.WEEKS | countdown.DAYS | countdown.HOURS | countdown.MINUTES | countdown.SECONDS, 5 );
+
+function plural(value, many, one) { 
+  if (value == 0) return "";
+  var str = value == 1 ?  one : many;
+  return value.toString() + " " + str + "<br />";
+  }
+
+			var s = [
+			  plural(timespan.weeks, "weeks", "week"),
+        plural(timespan.days, "days", "day"),
+        plural(timespan.hours, "hours", "hour"),
+        plural(timespan.minutes, "minutes", "minute"),
+        plural(timespan.seconds, "seconds", "second")
+      ].join("").toUpperCase();
+
+			if (document.getElementById("countdowntext") != null)
+				document.getElementById("countdowntext").innerHTML = s;
+ 
+ 			if (timespan.value < 0) {
+ 				// releasedSign
+ 				releasedSign.css('display', '');
+ 				launched.css('display', '');
+ 				unlaunched.css('display', 'none');
+ 				clearInterval(countdownInterval);
+
+			} else {
+				// upcoming
+				releasedSign.css('display', 'none');
+				launched.css('display', 'none');
+ 				unlaunched.css('display', '');
+			}
+		}
+		var countdownInterval = setInterval(function(){setCountdownText();}, 1000);
+ 		setCountdownText();
+
+ 		
+
+		function randrange(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+    // LAZY LOADING
+
+    // lazy load all images marked with class "lazy"
+    $("img.lazy").lazyload({
+      load: updateMasonry, // refresh masonry layout when each image loads
+      effect : "fadeIn",
+      placeholder: "http://kevinw.github.io/pano/img/lazyplaceholder.png"
+    });
+
+    // when everything else is loaded, load lazy images
+    $(window).load(function() {
+      $("img.lazy").trigger("appear");
+      updateLoopVolumes();
+    })
+
+    updateLoopVolumes();
+
+
+	});
+
+(function() {
+  var hidden = "hidden";
+
+  // Standards:
+  if (hidden in document)
+    document.addEventListener("visibilitychange", onchange);
+  else if ((hidden = "mozHidden") in document)
+    document.addEventListener("mozvisibilitychange", onchange);
+  else if ((hidden = "webkitHidden") in document)
+    document.addEventListener("webkitvisibilitychange", onchange);
+  else if ((hidden = "msHidden") in document)
+    document.addEventListener("msvisibilitychange", onchange);
+  // IE 9 and lower:
+  else if ("onfocusin" in document)
+    document.onfocusin = document.onfocusout = onchange;
+  // All others:
+  else
+    window.onpageshow = window.onpagehide
+    = window.onfocus = window.onblur = onchange;
+
+  function onchange (evt) {
+    var v = "visible", h = "hidden",
+        evtMap = {
+          focus:v, focusin:v, pageshow:v, blur:h, focusout:h, pagehide:h
+        };
+
+    evt = evt || window.event;
+    var className;
+    if (evt.type in evtMap)
+      className = evtMap[evt.type];
+    else
+      className = this[hidden] ? "hidden" : "visible";
+
+    tabIsVisible = className === 'visible';
+    if (updateGlobalVolume) updateGlobalVolume();
+  }
+
+  // set the initial state (but only if browser supports the Page Visibility API)
+  if( document[hidden] !== undefined )
+    onchange({type: document[hidden] ? "blur" : "focus"});
+})();
+	
+    </script>
+    <script type="text/javascript" src="js/paraxify.js"></script>
+    <script>myParaxify = paraxify('.paraxify');</script>
+</body>
+</html>
