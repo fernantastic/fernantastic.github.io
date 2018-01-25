@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Use scripting to control playback</title>
+        <!-- <meta name="author" content="Your Name"> -->
+        <link rel="stylesheet" type="text/css" href="fernandoramallo.github.io/doodlestudio95/documentation/css/style.css" media="screen">
+        <!-- <link rel="stylesheet" type="text/css" href="fernandoramallo.github.io/doodlestudio95/documentation/css/skeleton.css" media="screen"> -->
+        <link rel="stylesheet" type="text/css" href="fernandoramallo.github.io/doodlestudio95/documentation/css/pygments.css" media="screen">
+        <link href='http://fonts.googleapis.com/css?family=Open Sans:400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Walter Turncoat' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div id="header"><div class="headercontent">
+            <img src="fernandoramallo.github.io/doodlestudio95/documentation/images/header-line.gif" height="20" />
+            <a href="fernandoramallo.github.io/doodlestudio95/documentation">The <span style="font-size: 1.3em; font-weight: bold;">Doodle Studio 95!</span> Manual</a>
+            <img src="fernandoramallo.github.io/doodlestudio95/documentation/images/header-line.gif" height="20" />
+        </div></div>
+        <div id="site" class="container">
+            <div id="toc">
+
+  
+  
+  
+    
+    
+      
+    
+      
+      
+        <p><a href="/pages/about/">About</a></p>
+      
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      
+        <p><a href="/pages/gallery/">Gallery</a></p>
+      
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+      <p>
+         <a href="https://assetstore.unity.com/" target="_blank">
+          Buy Doodle Studio 95</a></p>
+    
+     
+  
+
+  
+   <h3>Getting Started</h3>  
+  
+    
+    
+      
+    
+      
+    
+      
+    
+      
+      
+    <ul>
+        <li class="">
+        <a href="/pages/gettingstarted/installation/">Installation and Requirements</a>
+      </li>
+    </ul>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      
+    <ul>
+        <li class="">
+        <a href="/pages/gettingstarted/quickstart/">How to use</a>
+      </li>
+    </ul>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+     
+  
+
+  
+   <h3>Tutorials</h3>  
+  
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      
+    <ul>
+        <li class="">
+        <a href="/pages/tutorials/tut-record/">Using the Record button to animate with the mouse</a>
+      </li>
+    </ul>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      
+    <ul>
+        <li class="">
+        <a href="/pages/tutorials/tut-symmetry/">Using Symmetry</a>
+      </li>
+    </ul>
+    
+      
+    
+      
+      
+    <ul>
+        <li class="">
+        <a href="/pages/tutorials/tut-drawwhileplay/">Drawing over an animation while it's playing</a>
+      </li>
+    </ul>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+     
+  
+
+   <hr> 
+  
+  
+     
+  
+
+  
+   <h3>Reference</h3>  
+  
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      
+    <ul>
+        <li class="">
+        <a href="/pages/components/drawingwindow/">The Drawing Window</a>
+      </li>
+    </ul>
+    
+      
+    
+      
+    
+      
+    
+      
+      
+    <ul>
+        <li class="">
+        <a href="/pages/components/animator/">Doodle Animator Component</a>
+      </li>
+    </ul>
+    
+      
+    
+      
+    
+      
+      
+    <ul>
+        <li class="">
+        <a href="/pages/components/animationfile/">Doodle Animation File</a>
+      </li>
+    </ul>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      
+    <ul>
+        <li class="">
+        <a href="/pages/components/preferences/">Preferences</a>
+      </li>
+    </ul>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+     
+  
+
+   <hr> 
+  
+  
+     
+  
+
+  
+   <h3>Advanced Tutorials</h3>  
+  
+    
+    
+      
+    
+      
+    
+      
+      
+    <ul>
+        <li class="active">
+        <a href="/pages/tutorials-advanced/tut-scripting/">Use scripting to control playback</a>
+      </li>
+    </ul>
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      
+    <ul>
+        <li class="">
+        <a href="/pages/tutorials-advanced/tut-sceneviewdraw/">Draw on the Scene View</a>
+      </li>
+    </ul>
+    
+      
+    
+    
+     
+  
+
+   <hr> 
+  
+  
+     
+  
+
+  
+  
+  
+    
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+      <p>
+         <a href="mailto:fernando.ramallo@gmail.com" target="_blank">
+          Contact</a></p>
+    
+     
+  
+</div>
+            <div id="content"><h1 id="use-scripting-to-control-playback">Use scripting to control playback</h1>
+
+<p>Scripting for Doodle Studio 95! is inspired by Flash’s playback methods.</p>
+
+<h3 id="methods">Methods</h3>
+
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="n">DoodleAnimator</span> <span class="n">animator</span> <span class="p">=</span> <span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">DoodleAnimator</span><span class="p">&gt;();</span>
+
+<span class="n">animator</span><span class="p">.</span><span class="nf">Play</span><span class="p">();</span> <span class="c1">// Plays from start to finish, uses the animator's playback settings
+</span>
+<span class="n">animator</span><span class="p">.</span><span class="nf">Pause</span><span class="p">();</span> <span class="c1">// Stops playing and keeps the animation visible
+</span><span class="n">animator</span><span class="p">.</span><span class="nf">Stop</span><span class="p">();</span> <span class="c1">// Stops playing and hides the animation
+</span>
+<span class="n">animator</span><span class="p">.</span><span class="nf">GotoAndPlay</span><span class="p">(</span><span class="m">3</span><span class="p">);</span> <span class="c1">// Starts playback at frame 3
+</span>
+<span class="n">animator</span><span class="p">.</span><span class="nf">GotoAndPause</span><span class="p">(</span><span class="m">3</span><span class="p">);</span> <span class="c1">// Moves the playhead to frame 3 and pauses
+</span>
+<span class="c1">// Call inside a coroutine to starts playback at 0 and pauses at the last frame
+// and wait until the animation is finished
+</span><span class="k">yield</span> <span class="k">return</span> <span class="n">animator</span><span class="p">.</span><span class="nf">PlayAndPauseAt</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="p">-</span><span class="m">1</span><span class="p">));</span> 
+
+<span class="n">animator</span><span class="p">.</span><span class="nf">ChangeAnimation</span><span class="p">(</span><span class="n">newAnimationFile</span><span class="p">);</span> <span class="c1">// Changes the animation
+</span></code></pre>
+</div>
+
+<h3 id="chainanimationscs">ChainAnimations.cs</h3>
+<p>Use this component to play a sequence of animations in a row.</p>
+
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="na">[RequireComponent(typeof(DoodleAnimator))]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">ChainAnimations</span> <span class="p">:</span> <span class="n">MonoBehaviour</span> <span class="p">{</span>
+
+  <span class="k">public</span> <span class="n">DoodleAnimationFile</span><span class="p">[]</span> <span class="n">m_Animations</span><span class="p">;</span>
+  <span class="p">[</span><span class="nf">Header</span><span class="p">(</span><span class="s">"Settings"</span><span class="p">)]</span>
+  <span class="k">public</span> <span class="kt">bool</span> <span class="n">m_PlayOnStart</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+  <span class="k">public</span> <span class="kt">bool</span> <span class="n">m_Loop</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+
+  <span class="k">void</span> <span class="nf">Start</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">m_PlayOnStart</span><span class="p">)</span>
+      <span class="nf">Play</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">IEnumerator</span> <span class="nf">PlaySequence</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">DoodleAnimator</span> <span class="n">animator</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">DoodleAnimator</span><span class="p">&gt;();</span>
+    <span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">i</span> <span class="p">&lt;</span> <span class="n">m_Animations</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// Set the new animation
+</span>      <span class="n">animator</span><span class="p">.</span><span class="nf">ChangeAnimation</span><span class="p">(</span><span class="n">m_Animations</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+      <span class="c1">// Play the animation and wait until it's finished
+</span>      <span class="k">yield</span> <span class="k">return</span> <span class="n">animator</span><span class="p">.</span><span class="nf">PlayAndPauseAt</span><span class="p">();</span>
+      <span class="c1">// Advanced to the next animation
+</span>      <span class="n">i</span><span class="p">++;</span>
+      <span class="c1">// Loop if we've reached the end
+</span>      <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="p">&gt;=</span> <span class="n">m_Animations</span><span class="p">.</span><span class="n">Length</span> <span class="p">&amp;&amp;</span> <span class="n">m_Loop</span><span class="p">)</span>
+        <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">animator</span><span class="p">.</span><span class="nf">Stop</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="k">public</span> <span class="k">void</span> <span class="nf">Play</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">StopAllCoroutines</span><span class="p">();</span>
+    <span class="nf">StartCoroutine</span><span class="p">(</span><span class="nf">PlaySequence</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+</div>
+        </div>
+        
+    </body>
+</html>
+
