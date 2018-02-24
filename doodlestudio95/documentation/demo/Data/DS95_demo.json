@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 1073741824,
+"dataUrl": "DS95_demo.data.unityweb",
+"asmCodeUrl": "DS95_demo.asm.code.unityweb",
+"asmMemoryUrl": "DS95_demo.asm.memory.unityweb",
+"asmFrameworkUrl": "DS95_demo.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36"
+}
