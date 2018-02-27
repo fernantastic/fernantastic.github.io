@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Recording a sound (beta) *</title>
+        <title>Useful scripts</title>
         <!-- <meta name="author" content="Your Name"> -->
         <link rel="stylesheet" type="text/css" href="/doodlestudio95/documentation/css/style.css" media="screen">
         <!-- <link rel="stylesheet" type="text/css" href="/doodlestudio95/documentation/css/skeleton.css" media="screen"> -->
@@ -269,7 +269,7 @@
       
       
     <ul>
-        <li class="">
+        <li class="active">
         <a href="/doodlestudio95/documentation/pages/tutorials/scripts/">Useful scripts</a>
       </li>
     </ul>
@@ -555,15 +555,45 @@
      
   
 </div>
-            <div id="content"><h1 id="recording-a-sound-beta-">Recording a sound (beta) *</h1>
+            <div id="content"><h1 id="useful-scripts">Useful scripts</h1>
 
-<h2 id="images">Images</h2>
+<h3 id="play-using-unscaled-time">Play using unscaled time</h3>
 
-<p><img src="https://apod.nasa.gov/apod/image/1801/VDB142-ESO-1024.jpg" width="300" /></p>
+<p>Add this script to a <a href="/doodlestudio95/documentation/pages/components/animator">Doodle Animator</a> to make it play using unscaled time so you can play animations normally in a pause menu.</p>
 
-<h2 id="video">Video</h2>
+<div class="language-c# highlighter-rouge"><pre class="highlight"><code><span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">DoodleStudio95</span><span class="p">;</span>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fIhyOeMGQN4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+<span class="k">namespace</span> <span class="nn">DoodleStudio95Examples</span> <span class="p">{</span>
+<span class="c1">///
+///		Workaround to have a DoodleAnimator use unscaled time, so you can
+///		play animations in a pause menu
+///
+</span><span class="na">[RequireComponent(typeof(DoodleAnimator))]</span>
+<span class="k">public</span> <span class="k">class</span> <span class="nc">DoodleAnimateOnUnscaledTime</span> <span class="p">:</span> <span class="n">MonoBehaviour</span> <span class="p">{</span>
+
+	<span class="n">DoodleAnimator</span> <span class="n">animator</span><span class="p">;</span>
+
+	<span class="k">void</span> <span class="nf">Start</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="n">animator</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">DoodleAnimator</span><span class="p">&gt;();</span>
+		<span class="c1">// Pause the animator so its playback script doesn't override this
+</span>		<span class="n">animator</span><span class="p">.</span><span class="nf">GoToAndPause</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+	<span class="p">}</span>
+	
+	<span class="k">void</span> <span class="nf">Update</span> <span class="p">()</span> <span class="p">{</span>
+		<span class="kt">int</span> <span class="n">frame</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+		<span class="c1">// Get the frame number we need to be at, passing unscaled time
+</span>		<span class="n">animator</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="nf">GetFrameAt</span><span class="p">(</span><span class="k">out</span> <span class="n">frame</span><span class="p">,</span> <span class="n">Time</span><span class="p">.</span><span class="n">unscaledTime</span><span class="p">,</span> <span class="n">animator</span><span class="p">.</span><span class="n">speed</span><span class="p">,</span> 
+			<span class="n">animator</span><span class="p">.</span><span class="n">PlaybackMode</span><span class="p">,</span> <span class="n">animator</span><span class="p">.</span><span class="n">FramesPerSecond</span><span class="p">);</span>
+		<span class="c1">// Set the animator to the right frame
+</span>		<span class="n">animator</span><span class="p">.</span><span class="nf">SetFrame</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
+
 </div>
         </div>
         
