@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Troubleshooting</title>
+        <title>Import an animation from another software</title>
         <!-- <meta name="author" content="Your Name"> -->
         <link rel="stylesheet" type="text/css" href="/doodlestudio95/documentation/css/style.css" media="screen">
         <!-- <link rel="stylesheet" type="text/css" href="/doodlestudio95/documentation/css/skeleton.css" media="screen"> -->
@@ -479,7 +479,7 @@
       
       
     <ul>
-        <li class="">
+        <li class="active">
         <a href="/doodlestudio95/documentation/pages/tutorials-advanced/tut-importanimation/">Import an animation from another software</a>
       </li>
     </ul>
@@ -575,21 +575,35 @@
      
   
 </div>
-            <div id="content"><h2 id="known-issues">Known Issues</h2>
+            <div id="content"><h1 id="import-an-animation-from-another-software">Import an animation from another software</h1>
 
-<ul>
-  <li><strong>The Doodle Studio 95 folder needs to be at the root of your project.</strong></li>
-  <li><strong>No undo support for certain actions</strong>, like adding or removing a frame, or drawing over several frames while playing.</li>
-  <li><strong>Very long animations might slow down Unity or even cause crashes</strong> (20+ frames in Smooth setting). We’re working on improving loading times and memory management.</li>
-  <li><strong>Maximizing another window while Doodle is open slows down Unity</strong> while your work is temporarily saved.</li>
-  <li><strong>Some keyboard shortcuts aren’t available while drawing on the Scene View</strong></li>
-  <li><strong>The (Draw Preview) object doesn’t get deleted</strong> in exceptional situations (like deleting the Doodle Studio folders). Restart Unity to make it go away.</li>
-</ul>
+<p>You can create or edit animations in a different software and import them into Doodle Studio as sprite sheets.</p>
 
-<h2 id="contact-us">Contact us</h2>
+<p>If the texture is imported as a series of Sprites where each sprite is a different frame, you can convert it to a Doodle Animation File.</p>
 
-<p>Please <a href="mailto:fernando.ramallo@gmail.com?subject=Doodle Studio 95! Troubleshooting">contact us</a> for any help, allow a few business days for replies.<br />
-  <em>If you’re writing regarding a crash or errors, please attach the latest <a href="https://docs.unity3d.com/Manual/LogFiles.html">Unity Editor log</a>.</em></p>
+<p>(skip to step 7 if you already have imported each frame as a Sprite)</p>
+<h3 id="convert-a-texture-into-a-series-of-sprites">Convert a texture into a series of Sprites</h3>
+
+<ol>
+  <li>Click the texture in the Project window and set the import settings as follows:
+    <ul>
+      <li>Texture Type to “Sprite (2D and UI)”</li>
+      <li>Sprite Mode to “Multiple”</li>
+    </ul>
+  </li>
+  <li>Open the Sprite Editor</li>
+  <li>Click on Slice, at the top left corner of the sprite editor</li>
+  <li>Set Type to Grid By Cell Count, and set the Column and Row fields to how many frames per column and per row your sprite sheet has</li>
+  <li>Click Slice</li>
+  <li>Close the Sprite Editor and hit Apply
+Now your texture should have one sprite per frame, we can convert it to a doodle animation file:</li>
+</ol>
+
+<h3 id="convert-to-a-doodle-animation-file">Convert to a Doodle Animation File</h3>
+
+<p>Right click your texture it in the Project window and select Doodle Studio 95 &gt; Convert to Animation File.</p>
+
+<p>Now your animation can be edited and used with Doodle Studio!</p>
 </div>
         </div>
         
