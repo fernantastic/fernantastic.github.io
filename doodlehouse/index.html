@@ -1,1 +1,76 @@
-Doodle House!
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Open Sans", sans-serif;
+            background-image: url("images/bg.png");
+            background-repeat: repeat;
+            color: black;
+            font-size: large;
+            text-align: justify;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3vh;
+            height: 100vh;
+        }
+        
+        .box {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgb(235, 235, 235);
+            /* border-radius: 30px; */
+            box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0.1);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer a {
+            margin: 0 30px;
+            font-size: large;
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="box">
+            <div class="content">
+                <p>Doodle Studio: World Creator is a fun lo-fi app for doodling 3D worlds and games, coming to iPad & PC. ✏️ 🏡</p>
+                <img src="images/ddwc.gif" alt="Animated GIF" style="width: 100%; height: auto; border-radius: 20px;">
+            </div>
+            <!-- <p style="width:100%; height:140px; background-image: url('images/wide.png'); background-size: contain;"></p> -->
+            <div class="footer">
+                <p>Follow our progress!</p>
+                <a href="https://www.tiktok.com/@doodlehousefun">TikTok</a>
+                <a href="https://twitter.com/doodlehaus">Twitter</a>
+            </div>
+        </div>
+        <p style="height:80px; text-align: center;display:inline-flex; bottom: 10px; position:fixed">
+            <img src="images/logo.gif" alt="Logo">
+        </p>
+    </div>
+
+    <script>
+        // Add the Google Fonts stylesheet dynamically
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://fonts.googleapis.com/css2?family=Open+Sans&display=swap';
+        document.head.appendChild(link);
+    </script>
+</body>
+</html>
