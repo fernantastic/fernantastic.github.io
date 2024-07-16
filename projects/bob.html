@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Simulation Game</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+        #game-area {
+            position: relative;
+            width: 800px;
+            height: 600px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+        #box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 100px;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            z-index: 10;
+        }
+        .bug {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+        }
+        @keyframes crawl {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(var(--dx), var(--dy));
+            }
+        }
+        @keyframes wiggle {
+            0%, 100% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            25% {
+                transform: translate(-50%, -50%) rotate(-10deg);
+            }
+            50% {
+                transform: translate(-50%, -50%) rotate(10deg);
+            }
+            75% {
+                transform: translate(-50%, -50%) rotate(-10deg);
+            }
+        }
+        .wiggle {
+            animation: wiggle 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-area">
+        <svg id="box" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100">
+            <rect width="200" height="100" fill="#d2a679" stroke="#800000" stroke-width="4" rx="10" ry="10"/>
+        </svg>
+    </div>
+
+    <script>
+        const box = document.getElementById('box');
+        const gameArea = document.getElementById('game-area');
+
+        function createBug(x, y, dx, dy, delay = 0) {
+            const bug = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+            bug.setAttribute("class", "bug");
+            bug.setAttribute("viewBox", "0 0 10 10");
+
+            // Randomly select a bug type
+            const bugType = Math.random();
+            if (bugType < 0.33) {
+                bug.innerHTML = `
+                    <circle cx="5" cy="5" r="2" fill="green"/>
+                    <line x1="0" y1="5" x2="3" y2="5" stroke="black" stroke-width="1"/>
+                    <line x1="7" y1="5" x2="10" y2="5" stroke="black" stroke-width="1"/>
+                    <line x1="5" y1="0" x2="5" y2="3" stroke="black" stroke-width="1"/>
+                    <line x1="5" y1="7" x2="5" y2="10" stroke="black" stroke-width="1"/>
+                    <line x1="3" y1="3" x2="4" y2="4" stroke="black" stroke-width="1"/>
+                    <line x1="6" y1="6" x2="7" y2="7" stroke="black" stroke-width="1"/>
+                    <line x1="3" y1="7" x2="4" y2="6" stroke="black" stroke-width="1"/>
+                    <line x1="6" y1="4" x2="7" y2="3" stroke="black" stroke-width="1"/>
+                `;
+            } else if (bugType < 0.66) {
+                bug.innerHTML = `
+                    <rect x="4" y="1" width="2" height="8" fill="brown"/>
+                    <rect x="1" y="4" width="8" height="2" fill="brown"/>
+                `;
+            } else {
+                bug.innerHTML = `
+                    <circle cx="5" cy="5" r="2" fill="black"/>
+                    <line x1="5" y1="0" x2="5" y2="3" stroke="black" stroke-width="1"/>
+                    <line x1="5" y1="7" x2="5" y2="10" stroke="black" stroke-width="1"/>
+                    <line x1="0" y1="5" x2="3" y2="5" stroke="black" stroke-width="1"/>
+                    <line x1="7" y1="5" x2="10" y2="5" stroke="black" stroke-width="1"/>
+                    <line x1="2" y1="2" x2="3" y2="3" stroke="black" stroke-width="1"/>
+                    <line x1="7" y1="7" x2="8" y2="8" stroke="black" stroke-width="1"/>
+                    <line x1="2" y1="8" x2="3" y2="7" stroke="black" stroke-width="1"/>
+                    <line x1="7" y1="3" x2="8" y2="2" stroke="black" stroke-width="1"/>
+                `;
+            }
+
+            bug.style.left = x + 'px';
+            bug.style.top = y + 'px';
+            bug.style.setProperty('--dx', dx + 'px');
+            bug.style.setProperty('--dy', dy + 'px');
+            bug.style.animation = `crawl ${2 + Math.random() * 4}s linear ${delay}s forwards`;
+
+            gameArea.appendChild(bug);
+        }
+
+        function releaseBugs() {
+            const boxRect = box.getBoundingClientRect();
+            const gameAreaRect = gameArea.getBoundingClientRect();
+            const startX = boxRect.left + boxRect.width / 2 - gameAreaRect.left;
+            const startY = boxRect.top + boxRect.height / 2 - gameAreaRect.top;
+
+            for (let i = 0; i < 20; i++) {
+                const endX = Math.random() * gameArea.clientWidth;
+                const endY = Math.random() * gameArea.clientHeight;
+                const dx = endX - startX;
+                const dy = endY - startY;
+
+                // Create a lead bug
+                createBug(startX, startY, dx, dy);
+
+                // Randomly decide if this bug should have followers
+                if (Math.random() < 0.3) {
+                    const numFollowers = Math.floor(Math.random() * 5) + 1;
+                    for (let j = 1; j <= numFollowers; j++) {
+                        const followerDelay = j * 0.2;
+                        createBug(startX - j * 15, startY - j * 15, dx, dy, followerDelay);
+                    }
+                }
+            }
+        }
+
+        box.addEventListener('click', () => {
+            box.classList.add('wiggle');
+            releaseBugs();
+            setTimeout(() => box.classList.remove('wiggle'), 500);
+        });
+    </script>
+</body>
+</html>
