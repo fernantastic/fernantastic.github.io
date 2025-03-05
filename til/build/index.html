@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>index</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<h1 id="fernando-ramallos-learnings">Fernando Ramallo’s Learnings</h1>
+<p>This is a collection of my learnings.</p>
+<p>See also * <a href="https://fernantastic.github.io">My portfolio</a>
+* <a href="https://github.com/fernantastic">My GitHub</a> * <a
+href="https://www.linkedin.com/in/fernando-ramallo/">My LinkedIn</a></p>
+<p>
+<div class="theme-switch-wrapper">
+    <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+    </label>
+    <em>Toggle Dark Mode</em>
+</div>
+
+<style>
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.theme-switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+.theme-switch input {
+  display: none;
+}
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+.slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+input:checked + .slider {
+  background-color: #66bb6a;
+}
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+.slider.round {
+  border-radius: 34px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+em {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e6e6e6;
+}
+body.dark-mode a {
+  color: #3391ff;
+}
+body.dark-mode .markdown-body {
+  color: #e6e6e6;
+  background-color: #1a1a1a;
+}
+body.dark-mode .markdown-body blockquote {
+  color: #bebebe;
+  border-left-color: #444;
+}
+body.dark-mode .markdown-body h1,
+body.dark-mode .markdown-body h2,
+body.dark-mode .markdown-body h3,
+body.dark-mode .markdown-body h4,
+body.dark-mode .markdown-body h5,
+body.dark-mode .markdown-body h6 {
+  color: #e6e6e6;
+  border-bottom-color: #444;
+}
+body.dark-mode .markdown-body hr {
+  background-color: #444;
+}
+body.dark-mode .markdown-body table tr {
+  background-color: #1a1a1a;
+  border-top-color: #444;
+}
+body.dark-mode .markdown-body table tr:nth-child(2n) {
+  background-color: #222;
+}
+body.dark-mode .markdown-body table td,
+body.dark-mode .markdown-body table th {
+  border-color: #444;
+}
+body.dark-mode .markdown-body code {
+  background-color: #222;
+  color: #e6e6e6;
+}
+body.dark-mode .markdown-body pre {
+  background-color: #222;
+  border-color: #444;
+}
+</style>
+
+<script>
+const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        document.body.classList.remove('dark-mode');
+        localStorage.setItem('theme', 'light');
+    }    
+}
+
+toggleSwitch.addEventListener('change', switchTheme, false);
+
+// Check for saved user preference, if any, on load
+const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+        document.body.classList.add('dark-mode');
+    }
+}
+</script>
+</p>
+<h2 id="learnings">Learnings</h2>
+<p><ul>
+  <li><a href="posts/something.html" target="_blank">Something</a></li>
+</ul></p>
+<h2 id="about-me">About me</h2>
+<p>I’m a software engineer with a passion for building products that
+help people.</p>
+<p>I’m currently the CTO of <a href="https://softr.io">Softr</a>, a
+platform for building internal tools.</p>
+<p>Before that, I was a Senior Staff Software Engineer at <a
+href="https://meta.com">Meta</a>, where I worked on the Instagram
+app.</p>
+<h4 id="section">-</h4>
+<p>css by <a
+href="https://github.com/otsaloma/markdown-css">otsaloma</a></p>
+</body>
+</html>
