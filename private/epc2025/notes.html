@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>epc2025</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/fernantastic/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.18/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><html><head><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body></body></html>
+    </head>
+    <body for="html-export" >
+      <div class="crossnote markdown-preview  "  >
+      
+<h1 id="epc-2025-breda">EPC 2025 BREDA </h1>
+<h3 id="0945-the-procedural-system-behind-dungeon-alchemist---karel-crombecq">09.45 The Procedural System behind Dungeon Alchemist - Karel Crombecq </h3>
+<p>furnished room generator</p>
+<p>Priority override: place windows<br>
+Biggest challenge: generating a slanted roof. Used Stray skeleton algorithm. Hell implementation.</p>
+<h3 id="1015-ashwathy-revi---creative-support-for-game-writing-llms">10.15 Ashwathy Revi - Creative support for game writing, LLMs </h3>
+<p>AI based tools for narrative design.<br>
+Games aren't stories &gt; they are story spaces</p>
+<p>Using LLM analytically instead of generatively.</p>
+<p><strong>Simulate playthrough Tool</strong><br>
+HTML based. choose quest, simulates playthrough, delivers analysis. Each click is a different random configuration of the quest, all valid.<br>
+Explore issues &gt; Picks up anything that feels off about this particular playthrough in this order.<br>
+"In the Silla's Apartment questn, Emaron was not explicitly informed about the emblem"<br>
+Severity Rating</p>
+<p>detects</p>
+<ul>
+<li>tone shifts, character inconsistncy. player/character knowledge. redundancies. contracdictions. abruptness. confusion for the player. when something feels "off"</li>
+</ul>
+<p><strong>Log analysis Tool</strong></p>
+<p>telemetry and raw lugs hide a lot that can be inferred about emergent play.<br>
+Narratively summarize, meaningful events, social interactions.<br>
+Makes inferences</p>
+<p>Q: how do you fit the log to the llm to account for the model's context window?<br>
+Q: gameplay video? or player position/game state across time? input?</p>
+<blockquote>
+<p>IDEA: Hose of custom logs during play, into a file. Let the LLM figure out whas should be a variable, forr dialog or gameplay.</p>
+</blockquote>
+<blockquote>
+<p>What is "Lore drift"?</p>
+</blockquote>
+<h3 id="1115-slater-victoroff---why-you-should-open-soucrce">11.15 Slater Victoroff - Why you should open soucrce </h3>
+<p><em>How do we move faster?</em></p>
+<p>A rising tide floats all boats.<br>
+2012 academic paper "We need to be more open"</p>
+<p>"If it doesn't have a license, you can't use it" &gt;Default<br>
+For most people, MIT,BSD,Apache, the right choice<br>
+CC made for art, not tech.</p>
+<p><em>But how do I get paid?</em></p>
+<p>Tech Art is in high demand, salary growing over time.<br>
+If I'm giving away my code/art then everyone "gets paid more".</p>
+<blockquote>
+<p><a href="https://github.com/MythicaAI/scenetalk">https://github.com/MythicaAI/scenetalk</a><br>
+HDA generated on the web without a houdini license.</p>
+</blockquote>
+<p>Q: What to open source or not?<br>
+A reason not to open source a whole game as a monolith is that it is not very useful as a monolith.<br>
+What to open source comes down to deciding what should be open source.<br>
+When you have a very clear set of tools, "I can open source this one tool". It has to be intentional.<br>
+Open sourcing does not mean every part of what you built is open source. It can be selective. "Where there are good opportunities to have standards is where there are good opportunities for OS".<br>
+What is reusable here.</p>
+<p>For parts that are under NDA you can have a submodule with your private code and only release public stuff.</p>
+<h3 id="1145-1230-len-white--christian-sparks---building-the-world-of-hyper-light-breaker-in-houdini-and-unreal">11:45-12:30 Len White &amp; Christian Sparks - Building the World of Hyper Light Breaker in Houdini and Unreal </h3>
+<p><a href="https://www.youtube.com/watch?v=nWufEJ1Ava0"><img src="https://img.youtube.com/vi/nWufEJ1Ava0/0.jpg" alt=""></a></p>
+<p>Studio: Heartmachine<br>
+<a href="https://www.heartmachine.com/">https://www.heartmachine.com/</a></p>
+<p><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Frpgamer.com%2Fwp-content%2Fuploads%2F2024%2F06%2Fhyper-light-breaker_2024-06-08_013-scaled.jpg&amp;f=1&amp;nofb=1&amp;ipt=dc043dcdfff756d32251b9e615d97c3cb4a4505e19826ee6d517cc1a9b4360b6" alt=""></p>
+<p>randomized worlds<br>
+generates the world about to travel to while player is in the handcrafted hub.<br>
+starts in a handcrafted bunker, then lift to surface that is generated.<br>
+1x1km world</p>
+<p>"stylized"<br>
+terrain is selected from pre made terrains made in houdini.<br>
+ruins are handcrafted by env. artists</p>
+<ul>
+<li>terrain painting &gt; houdini &gt; 25 variants
+<ul>
+<li>includes mesh, viable position, texture maps for how and where things get placed, non random placements</li>
+</ul>
+</li>
+<li>then unreal prep
+<ul>
+<li>
+<p>constraint of 20 seconds of building the world in low spec hardware (steam deck)</p>
+</li>
+<li>
+<p>asset tables</p>
+<ul>
+<li>generate dense points (100,000) on terrain, discard invalid ones. then python for each asset checks if that asset can go in those points? like beach .... think each row has rules and asset checks the rules for each point? and then all the data gets stored in custom data structure. runs on a headless unreal, takes 1h. painful cause it takes so long every time terrain changes.</li>
+</ul>
+</li>
+<li>
+<p>most of this happens non runtime, in python</p>
+</li>
+</ul>
+</li>
+<li>unreal gen
+<ul>
+<li>runtime</li>
+</ul>
+</li>
+</ul>
+<p>"dec-ing" placing things in the world</p>
+<p>tool in python+qt running inside unreal</p>
+<p>Jump Flooding algorithm to generate SDFs / distance field textures out of a mask.<br>
+allowed for evaluating things like evaluate flatness of terrain in the gpu<br>
+this still happens offline, but speeds up</p>
+<p>data maps to support generation, coming out of houdini<br>
+bio mask, controlm ap, heigh map, normal, ocean water map, path map, watermap<br>
+pathmap: coming out of thoudini encodes distance and direction to the nearest path. streetlamp, has to be on a path, reads the path map on offline point baking to determine all the places.</p>
+<p>discovered, generating terrain from noise fields. became clear the designers needed more control (lol surprise)<br>
+directed procedural. gave artists 'complete control'.. all our terrains read a PSD file. number of layers, green dryland, yellow beaches, red reserved spaces to flatten and add points of interest for combat, little blobs boss hills, blue paths literally paths in the terrain. and another layer for biome mask.</p>
+<p>houdini loads photoshop files and reads the layers!!</p>
+<p>in houdini from the psd:</p>
+<ol>
+<li>trace the bitmap layers</li>
+<li>extrude basic elevation. finds nearest point of water, gets thickness, extrudes more inland. flatten boss hills.</li>
+<li>procedural build boss hills. adds to heightfield (we are now working on heightfield)</li>
+<li>flatten POI regions</li>
+<li>adds platforms to get back from the water into the terrain. with rules (if height to terrain is &gt; x)</li>
+<li>water</li>
+<li>adds path. projects onto terrain from psd data, finds where to make bridges, etc.</li>
+<li>becomes a mesh</li>
+<li>there is always one cave, boolean to cut cave opening.</li>
+<li>assign materials from biome mask + transition between biome</li>
+<li>exports data associated with that mesh (those data maps)</li>
+</ol>
+<p>interesting constraint:for gameplay they needed flat areas and cliffs. so no slopes. informed the terrain generation.</p>
+<p>in houdini, PDG network. like a chain</p>
+<blockquote>
+<p>learn about wedging!</p>
+</blockquote>
+<p>now the unreal realtime generation.</p>
+<p>created a version of a prefab (now unreal has player actors?). for example a rock that has bushes and rocks around it. realigns the pieces around the rock to adjust for terrain, etc.. they are blueprints.</p>
+<h3 id="1400-1430-jos-feenstra---polders-a-procedural-dutch-landscape-written-in-rust">14:00-14:30 Jos Feenstra - POLDERS: A Procedural Dutch Landscape written in Rust </h3>
+<p><a href="http://Geofront.nl">Geofront.nl</a><br>
+5 year project.</p>
+<h3 id="1430-1500-dmytro-kucherenko---zibravdb-compression-and-realtime-rendering-of-openvdb">14:30-15:00 Dmytro Kucherenko - ZibraVDB: Compression and Realtime Rendering of OpenVDB </h3>
+<p>ZibraVDB.<br>
+VDB rendering, optimized. Plugin for Unreal, Housini, SDK, Maya and USD next.</p>
+<p>It's very fancy.</p>
+<h3 id="1530-1600-remco-van-de-ven--michael-van-den-berg---procedural-generation-in-prologue-go-wayback">15:30-16:00 Remco van de Ven &amp; Michael van den Berg - Procedural Generation in Prologue: Go Wayback! </h3>
+<p><a href="https://www.youtube.com/watch?v=IbRDB5ygQ6U"><img src="http://img.youtube.com/vi/IbRDB5ygQ6U/0.jpg" alt=""></a></p>
+<p>early experiments, visual experiments. art team references concepts. we built vignette envirnoments. turned out to be visual targets down the line.</p>
+<p>Final Brief: 64km2, different w each playhroguh. MLgenerated map. Survival game mechanics. Very art directability. forest/weather are main obstacles/antagonists.</p>
+<p>"small team" 20-25 people. 3 people on generation</p>
+<p>terrain gen:</p>
+<ol>
+<li>collect real world terrain data, cut files up</li>
+<li>got results didnt like, too noisy, no gameplay goals we had in mind.</li>
+<li>set up houdini network to adjust files to fit out visul and gameplay needs: masking (layering masks like occlusion or direction maps) and running erosion passes.<br>
+new dataset that made terrain better like multi heights</li>
+</ol>
+<p>then mL training</p>
+<p>then ue implementation / agents something?</p>
+<p>populating:<br>
+goals:</p>
+<ul>
+<li>generate belieable forest that constrains to gameplay/visuals</li>
+<li>fast loading</li>
+<li>nothing on the cloud, local</li>
+<li>resilient ml model</li>
+</ul>
+<p>"abiotic data"<br>
+first plan:houdini generates texxtures with spawn data. fell through.</p>
+<p>switched to UE PCG to spawn things, problems,</p>
+<blockquote>
+<p><a href="https://github.com/Nebukam/PCGExtendedToolkit">https://github.com/Nebukam/PCGExtendedToolkit</a></p>
+</blockquote>
+<p><strong>solution</strong>:<br>
+tiny vignette "scene tile". a hexagonal tile with a chunk of forest and foliage. we tile it.<br>
+looked natural, positive feedback.</p>
+<p>tile-based procgen.</p>
+<p>project onto terrain. mask them out where they shouldnt be water or cliffs.</p>
+<p><strong>incredible looking</strong></p>
+<ol>
+<li>ml heightmap generation</li>
+<li>generate data (textures with color:biome, river, etc.)</li>
+<li>propagate data into tile instance, e.g. change of forest here</li>
+<li>place instances. clip out river, cliff, etc.</li>
+</ol>
+<p>closeby objects (rocks youll see up close) also sample the data</p>
+<p>created point clouds? pcg settings &gt;euw &gt; data table</p>
+<p>Learnings:<br>
+Pros:</p>
+<ul>
+<li>direct art directability.</li>
+<li>artist set sress directly on the game. democratizing the progress of the game. anyone can make a tile and see it in the game immediately.</li>
+<li>no need to make different rules for different biomes. if we want a new biome just make new tiles.</li>
+<li>easy to test out different ideas.<br>
+Cons:</li>
+<li>variety is limited to number of tiles. altho infinite procedural variety but its all the same. more bang for your buck</li>
+<li>tiles dont always conform to the underylying masks</li>
+<li>players may regonize tiles on multiple play thorughs.</li>
+<li>land mark copying. player might make mental note of a location by its features and orient themselves based on that and now they see it again but get disoriented (altho "that happens in real life")</li>
+</ul>
+<p>Q: Hoy many tile per biome? Transition biomes?<br>
+20 tiles per biomes. Smaller foliage tiles too.<br>
+we do blending of tiles. if the designation is 50% spruce and 50% othertree we swap the individual trees on a single tile.</p>
+<p>Q: manipulation of tiles?<br>
+hex tile because you can spin it 6 times. altho artists wanted more control.</p>
+<p>Q: far rendering?<br>
+niagara particle system with proxies not exactly at location of the tiles but using same data)(?)<br>
+now just billboards</p>
+<h3 id="1600-1630-nikola-damjanov---creative-ember-from-nodevember-to-december">16:00-16:30 Nikola Damjanov - Creative Ember from Nodevember to December </h3>
+<p><a href="https://www.instagram.com/damjanmx/">https://www.instagram.com/damjanmx/</a></p>
+<blockquote>
+<p>EPC2022 living procedurally talk</p>
+</blockquote>
+<p>Nodevember:annual event a community event last through november, prompts, one prompt every 2 day. generate something in response to that prompt. should be done with nodes.</p>
+<p>learned houdini gen then repeat the pattern.</p>
+<blockquote>
+<p>Check MotionFXview in houdini, great waveform!!</p>
+</blockquote>
+<p>oxtree for a escher animation</p>
+<blockquote>
+<p>Octree lavrenov HDA</p>
+</blockquote>
+<p>he has very goo wip animations wth just screenshots during the process, sometimes from the same viewpoint</p>
+<p><em><strong>great function for infinite zoom, or infinite animation</strong></em></p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>pow(1/pow(scl,num),($FF-1)/$FEND)
+</code></pre><p>y = (1/scale<sup>number)</sup>(time/duration)</p>
+<blockquote>
+<p>Watch Scavengers Hunt:masterclass in art direction</p>
+</blockquote>
+<hr>
+<h2 id="---friday---">--------------  FRIDAY  ----------------- </h2>
+<hr>
+<h3 id="0932---procedural-map-creation-from-sensor-datatraditional-and-gaussian-splatting-worlflows">09:32 - Procedural Map Creation from Sensor Data:Traditional and Gaussian Splatting Worlflows </h3>
+<p>Vehicle sim company<br>
+<a href="https://www.appliedintuition.com/">https://www.appliedintuition.com/</a></p>
+<p>Sensor sim, toolset, to safely test for autonomous vehicles</p>
+<p>data sources</p>
+<ul>
+<li>lidar aerial scans, from drones or aircraft, large area in a single scan. terrain can be obstructed by foliage or obstacles.</li>
+<li>drive scan:lidar sensors attached to vehicles driving a path on or off road. high precision.</li>
+</ul>
+<h4 id="first-way-of-generating-terrain">first way of generating terrain </h4>
+<p><strong>flow:</strong><br>
+input data &gt; pre process &gt; lidar automation &gt; generate terrain, instances<br>
+also gen bespoke geometry into static meshes<br>
+all combined in unreal</p>
+<p><strong>pre process step:</strong><br>
+reduce data load and density into tiles. utilize PDG</p>
+<blockquote>
+<p>what is PDG</p>
+</blockquote>
+<p>artists work on tiles</p>
+<p>problems: clients send files in all types of formats. data can be missing. python conversion helps</p>
+<p><strong>terrain gen</strong></p>
+<ul>
+<li>we assign normals to the point cloud via point cloud normals node in houdini</li>
+<li>use infection algo, cluster neighboring points (dot product of current N to the neighbor N)</li>
+<li>remove points that dont make it into a cluster to reduce processing</li>
+</ul>
+<p><strong>ground extraction</strong><br>
+*iteratte on clusters and maek larger clusters if dot of N is in threshold</p>
+<ul>
+<li>remove clusteres with too few points<br>
+*clean up</li>
+</ul>
+<p><strong>terrain projection</strong></p>
+<p>heighfield to mesh<br>
+*clean up pruning points not identified as ground</p>
+<ul>
+<li>sample point cloud within a specified radius to find average height</li>
+<li>2-3cm accuracy in areas of interest where data exists<br>
+*fallback to saterllite data on areas with little or no information</li>
+</ul>
+<blockquote>
+<p>idea scatter brushes of terrain modifications for detail at near field</p>
+</blockquote>
+<p><strong>detailing</strong></p>
+<ul>
+<li>roads: mimic terrain projection but need specific uvs</li>
+<li>foliage:use points not tagged as ground, can make assumptions to spawn trees/bushes</li>
+<li>mostly automated, 90%,</li>
+</ul>
+<hr>
+<h4 id="newer-way-of-generating-terrain-neural">newer way of generating terrain: neural </h4>
+<p>2cm 3cm accuracy<br>
+Neural sim, ai based simulation. auto generate 3d realistic worlds from imagery:lidar etc.<br>
+photogrammetry-like, gaussian splatting</p>
+<p>looks very high fidelity</p>
+<ul>
+<li>capture: vehicle, person with hand 360 cam, vehicle with lidar, drone/"other" with lidar</li>
+</ul>
+<blockquote>
+<p>Insta360 X4 on a stick, 360 camera</p>
+</blockquote>
+<p>360 cam  outputs equirectangular, has significant distortion.<br>
+discard the sky.</p>
+<p>drone:Zenmuse L2 - DJI</p>
+<ul>
+<li>fairly dense. very accurate</li>
+</ul>
+<p>lidar/pointcloud</p>
+<ul>
+<li>aerial or vehicl</li>
+<li>3D geologcated pointcloud: extremely dense. position, color, semantic labels?</li>
+</ul>
+<p><strong>pre process the data</strong></p>
+<p>take images and depth maps (estimated from rgb image)., maybe lidar. produce "In/Extrinsics", oes into model.</p>
+<p>in a shader, simulate four camera, project the 360 image onto a sphere, the cameras take four pictures. to account for distortion.</p>
+<p>generate depth from rgb images. tool to visualize depth as point clouds on top of 3d space, to check they are accurate.</p>
+<p>take estimated depth maps and "remap" them ?</p>
+<p>auto mask people out with a model, but sometimes manually.</p>
+<blockquote>
+<p>Q: simulate people? it is 'supported', dunno what that means</p>
+</blockquote>
+<p>they take info about camera ('intrinsics', pos orientation lens) to undistort lens</p>
+<p>goes into model.</p>
+<p><strong>training</strong></p>
+<ol>
+<li>initialize scene: model takes: poses (cam intrinsics), pointcloud, images</li>
+<li>initialize gaussians. take point cloud, attach discs to it. every point has position, quaternion, scale, color (first rgb then )</li>
+<li>training steps, add noise to the points and render, compare render to ground truth (picture), iterate a ton.</li>
+<li>output:a point cloud with pos, quat, scale, spherical harmonics (color that is view dependent)</li>
+</ol>
+<p><strong>post processing</strong></p>
+<ol>
+<li>tile the point cloud</li>
+<li>remove seams</li>
+<li>metadata generation for the simulation</li>
+<li>cleanup: remove gaussian that collide with the ego (the vehicle that took the data), use cam 'extrinsics' eg the path the camera took</li>
+</ol>
+<hr>
+<p>Q:how do you extract the lighting?<br>
+can't taklkb aotu. gaussians can cast shadows on dyn actors and viceversa. lighting changes not supportd rn.</p>
+<p>training process 'quite fast'. 2000 images used to take 1hr40min. now takes 15 min.</p>
+<p><img src="https://cdn.prod.website-files.com/65a18946e9e2b208e9f824af/67e2cdf7cd43db1c921d581d_ai-for-mining-massive-autonomy-datasets-thumbnail-min.jpg" alt=""></p>
+<h3 id="1000-1030-larissa-davidova---one-of-the-many-ways-to-build-a-procedural-city">10:00-10:30 Larissa Davidova - One of the Many Ways to Build a Procedural City </h3>
+<p><a href="https://store.steampowered.com/app/2859220/Vuntra_City/">https://store.steampowered.com/app/2859220/Vuntra_City/</a><br>
+youtube chanel: <a href="https://www.youtube.com/@VuntraCity">https://www.youtube.com/@VuntraCity</a></p>
+<p><a href="https://www.youtube.com/watch?v=H-cL8zlNsGI"><img src="https://img.youtube.com/vi/H-cL8zlNsGI/0.jpg" alt=""></a></p>
+<p>compromises<br>
+"one of the many ways" to create a procedural city</p>
+<p><strong>goals</strong></p>
+<ul>
+<li>wanted to make a backdrop for continuous driving, wanted to drive for "a very long time". current game cities but can't drive for tool ong. i wanted to drive for hours.</li>
+<li>i'd like to get off at any point and enter any building there</li>
+<li>once i enter the building i want to take the elevator and go to any floor</li>
+<li>and then enjoy the scenery and great views</li>
+<li>i don't want the same interior anywhere, so has to have variety</li>
+<li>it has to run in VR.</li>
+</ul>
+<p>didnt have the requirement to make a life like city or one that resembled a real one.</p>
+<p><strong>construction</strong></p>
+<p>first<br>
+had to decide what size and layout of the city. could've done infinite but that was unncesary so i made it large but finite (size is arbitrary)<br>
+20x20km worked well</p>
+<p>then<br>
+decide on the style: modern?futuristic. quaint traditional european erquires specific assets. or, modern glass steel design easy to generate. could go with futuristic but decided i want something modeern-ish, a bit futuristic but not too far.</p>
+<p>then<br>
+layout. most obvious would be a grid. the grid would be noticeable, buildings are kinda the same size or number of cells. you get very long street, that make vistas far into the distance and then see that there's nothing really there in the end. i wanted to avoid that<br>
+next option would be something voronoi like, some irregular grid. would work well but complication i wanted to generate interiors, it's hard to generate interiors when buildings have random shapes.<br>
+decided to make it simple and make rectangles. i was looking  . square treemap.all streets end somewhere.<br>
+Squareified Treemaop algorithm,<br>
+because theye are rectangles i can subdivide the blocks into building and subdivide the buidlings into interior and subdivide the interiors into rooms, using the same algo.</p>
+<p>the city is a self replicating fractal.</p>
+<p>then<br>
+decide on how.<br>
+didnt want precomputation to avoid data to store and load. i would generate at runtime, in more detail the closer to the player.</p>
+<p>implemented city building block object, all objects inherit from. base class for everything.<br>
+creates a low detail model when it spawns.  has a distance setting.<br>
+when player is in range transitions into a hight detail model and spawns its children. ieach child is also an instance of the same class.<br>
+e.g. if thi s is a building the low detilm model will be the building with just shader, the high detail model is walls and window. then spawns children of floor and ceilings and rooms and that is low detail model of interior. then when in interior the high res furniture spawns.</p>
+<p>had to also implemetn a separation between data and representation in the world.<br>
+model is limiting to find out any information anything that is located aoutside the detail zone.<br>
+implemented a global topology object which generates all the geometry data from a single seed. it doesn't store data. whenever an object requests data from topology it generates the data on the fly.<br>
+then there is the representation (objects that actually request the data from the topology class), they are all instance os th building block from earlier. they all know where to spawn and what to spawnt because they request the data from the topology.</p>
+<p>there are limits fro how many objects can spawn in every frame.</p>
+<p>i also want to spawn props, bottles in bar, or a book with procedural titlees.<br>
+they can be picked up, thrown, or used.<br>
+what id t is alnother layer for the data, that stores modification to all the interactive items ("item modification registrey") world item initialized, has it been modified?spawns on its modified position unless its been destroyed. if it hasnt been modified it generates a location.<br>
+so if you return to the place the item is generated in the position its been thrown at.</p>
+<p>navigation and pathfinding.<br>
+pathfinding was a challenge.<br>
+everything is low detail, i can't pathfind from one ond of the city to another because i don't know what's there, hasnt been generated.<br>
+my solution for now is to have a partial graph pathfinding that only pathfinds to what is loaded currently and makes some assumption for what's after and updates as you go. not prefect.</p>
+<p>requirements fulfilled!</p>
+<ul>
+<li>i haev a backdrop for continous driving</li>
+<li>i have buildings and interiors in every frloow</li>
+<li>there are great view from top floors</li>
+<li>high interior variety</li>
+</ul>
+<hr>
+<p>Q: transitin from low to high rez?<br>
+they are custom written for each case, e.g. buidlings. i spawn completely differnt  things bw a low res building. wrote a custom shader to have a simple shader based version of a wall. when trhe transition happens i have a smooth transition, a lot of manual finetuning kind of match altho they dont match perfectly.</p>
+<p>Q: nanite?<br>
+considered it, turned out unnecesary, designed for straight lines and flat surfaces so nanite doesnt help. i dont have that much complex geomerty. not justified.<br>
+for pcg, i kinda started this project when it was eperimental. i implemented all the same stuff myself by the time it stopped being experimental. im curious about it.</p>
+<h3 id="1100-1130-adrien-logut---revisiting-snake---pcg-at-runtime-in-ue5">11:00-11:30 Adrien Logut - Revisiting Snake - PCG at Runtime in UE5 </h3>
+<p>PCG at runtime</p>
+<p>plugin, went out of beta on 5.4<br>
+graph system, has access to unreal resource 9landscape actor)<br>
+extensible and interoerable</p>
+<p>obvious first use is scattering trees,</p>
+<p>released plugin biomecore to design biomes.</p>
+<p>now there are more examples for props, spline meshes for cables, geometryscripts to build meshses with pcg, high density asteroid field<br>
+(most of it editor only)<br>
+lets see at runtime</p>
+<p>can do custom hlsl</p>
+<p>5.6 will have support for raytracing ..</p>
+<h3 id="1130-1230-student-showcase">11:30-12:30 Student Showcase </h3>
+<p>Procedural embroidery tool: <a href="https://roxana-moshashai.artstation.com/projects/wrBVxX">https://roxana-moshashai.artstation.com/projects/wrBVxX</a><br>
+Substance Painter, has graph nodes for custom brushes</p>
+<hr>
+<p>"Now we are coming to the end of our presentation, but first I want to reflect..."<br>
+soundsl ike chatgpt</p>
+<p>"very inspired by tiny glade and townscaper"</p>
+<hr>
+<p>create a grid from a spline:</p>
+<ol>
+<li>draw spline</li>
+<li>create offsets right and left of the line</li>
+<li>sample those offsets</li>
+</ol>
+<p>considered SDFs instead of spline offsets. ended up going with "another way of doing it"</p>
+<hr>
+<p>Wave Function Collapse<br>
+modified to<br>
+Hierarchical Seamntic WFC</p>
+<hr>
+<p>Generating billboards</p>
+<p>made text in a shader<br>
+generate font atlas as asset, uv sample in the shader as squares with color<br>
+think this is what textemshpro does<br>
+single file: packs diffreent characters in RGBA channel<br>
+each character mapped to a uv</p>
+<hr>
+<p>Sahar Yousefi<br>
+<a href="https://www.artstation.com/saharinax">https://www.artstation.com/saharinax</a><br>
+muscle system</p>
+<video width="640" height="360" controls="">
+    <source src="https://cdn.artstation.com/p/video_sources/002/544/481/muscelgen-skin-rig-sim-1.mp4" type="video/mp4">
+</video>
+<p>Incredible<br>
+She is very talented</p>
+<p><img src="https://cdn.80.lv/api/upload/content/06/67f772b26a006.jpg" alt=""></p>
+<hr>
+<h3 id="1330-1400-matt-estela---apex-101">13:30-14:00 Matt Estela - Apex 101 </h3>
+<p>Matt Estela from SideFX</p>
+<p>Apex 101<br>
+"It's not as hard as you think"</p>
+<blockquote>
+<p>Houdini HIVE in Toronto, September 23-25 + extra day. What we would've done at siggraph, move them to Toronto. 5 min walk from their office, some stuff at their office. Staff is there.</p>
+</blockquote>
+<blockquote>
+<p>SideFX discord server</p>
+</blockquote>
+<p>kinefx, slow for big things.<br>
+apex is fast.</p>
+<p>Rig Pos node,</p>
+<p>nodes as attributes. graphs viewed as geometry</p>
+<blockquote>
+<p>did they.. use their modeling engine to build their grephs??</p>
+</blockquote>
+<p>points and lines and attributes</p>
+<p>New Pane Tab  &gt;Animation &gt;Apex Network View</p>
+<p>can be made<br>
+manually in graph view<br>
+Apex Edit Graph node &gt;rig them up, just like SOPs<br>
+the geometry spreadsheet shows you what's going on:show the apex nodes are representations of the geometry</p>
+<p>or.. make them procedurally<br>
+Add @callback attribute<br>
+Attribute Wrangle &gt;<br>
+<code>s@callback= 'TransformObject';</code></p>
+<p>you can put @callback on anything<br>
+testgeometry &gt; attribute wrangle w s@callback</p>
+<p>vex is not ideal for making apex rigs just in vex, not fun.</p>
+<p>how do you rig it?<br>
+Apex Invoke Graph.</p>
+<p>python is good for it. vex is long and complicated, python is shorter cleaner more elegant.<br>
+But<br>
+Apexscript. it's python with frills.<br>
+optimized for making node graphs. looks tastes just like python.</p>
+<p>because riggers use pyhon a lot, it made sense to make this flavor of python for it.</p>
+<p>has all of Sops<br>
+Sop verbs</p>
+<p>kind of becoming</p>
+<p>Apexscript node:</p>
+<ul>
+<li>make sure Header enabled, Template to Graph</li>
+<li>Bind to Geometry set to geo<br>
+Bind Output Geometry to outpout:geo</li>
+<li>change Visualizer to Output 1<br>
+then i can start making nodes in the script input</li>
+</ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>input = graph.addNode('parms', '__parmss__')
+output = graph.addNode('output', '__output__')
+graph.sort(True)
+</code></pre><p>Apex Autorig component<br>
++<br>
+Apex scene animate node</p>
+<p><strong>What is apex?</strong></p>
+<ul>
+<li>points and attributes</li>
+<li>points represent nodes in a graph</li>
+<li>apex graph can contain rig logic, sop, motion edit tools, even graphs themselvs</li>
+<li>can be mae in various way</li>
+<li>only cook when you want</li>
+<li>autorig nodes ar wrapped up apexscript</li>
+<li>original focus was rigging but it is spreading to other tools</li>
+</ul>
+<p>Most examples on <a href="https://www.cgwiki.xyz">https://www.cgwiki.xyz</a><br>
+Most answers will be "Good questoin i don't know"</p>
+<hr>
+<p>Q: Why is this useful?<br>
+you build stuff in SOPs and gets complicated, performance tanks, then give up cant do much.<br>
+Now you can take my big sop chain, turn it sideways, feed it into APEX and now it's more performant.<br>
+Rather than having HDAs they can now just be geometry because they're just points and attributes.<br>
+You can identify ins and out and insert logic in between prats of the graph.<br>
+It's setting the groundwork for how houdini will go, which is more performant.</p>
+<h3 id="1400-1430-joey-faulkner--patrick-mccaffrey---project-artemis-generating-worlds-from-the-top-down-and-the-bottom-up-with-machine-learning">14:00-14:30 Joey Faulkner &amp; Patrick McCaffrey - Project Artemis: Generating Worlds from the Top Down and the Bottom Up with Machine Learning </h3>
+<p>playerunknowns</p>
+<p>MLresearch team. research engineers.</p>
+<p><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.videogameschronicle.com%2Ffiles%2F2024%2F12%2Fpreface-1440x812.jpeg&amp;f=1&amp;nofb=1&amp;ipt=110d0f6a2980315bcfa670d64d3d5c68b86f082c93f9dca5f6aa2f756d710a90" alt=""></p>
+<p>go way back (game) &gt; preface (tech demo) &gt; artemis</p>
+<p>generative machine learning:</p>
+<ul>
+<li>take a dataset (inputs and outputs) and learns to imitate it</li>
+</ul>
+<p>too stage:</p>
+<ol>
+<li>learning (gpu weeks)</li>
+<li>doing (gpu seconds)</li>
+</ol>
+<p>ML models are capable. but they are not creative, dont want to explore, there are no levers(we have to add spoons to training data, etc.)</p>
+<p>came up with concept: guided generation.<br>
+principle</p>
+<ul>
+<li>people are creative.</li>
+<li>ML is scalable, can exist in runs on gpus</li>
+</ul>
+<p>We want to make MLmodels design them to work with creative people.<br>
+Each interesting idea leads to many interesting output.<br>
+The input is a sketch or an idea, a non detailed version. the model can take that sketch and random noise and generate that is random but unique and ifts that sketch.</p>
+<p>for prologue:<br>
+elevation and water are important gameplay features.<br>
+artist draws a river and mountain area sketch<br>
+we combine that with ML and creates hi res landscape (see other talk). the bits that take time is created by the model but the idea is made by the artist.</p>
+<p>landscapes are interesting, playable, but diverse. all the maps encoded the gameplay of the sketch (e.g. the river going this way across the map).<br>
+the maps feel different every time.<br>
+users haven't complained the maps were repetitive.</p>
+<p>on top of that, we found, we could iterate quickly(e.g. make the rivers smaller after player feedback</p>
+<p>problems:</p>
+<ul>
+<li>weird generation. generated flat area of mountain, can't change the model so we added a post process to check for weird areas, generate again.</li>
+<li>some completely unpredictable generations: a massive obelisk/square area.</li>
+</ul>
+<p>upsides:</p>
+<ul>
+<li>includes natural features by accident (bc training sdata was real world data), real drainage networks when we made a big river in the sketch so it knew to make smaller rivers to drain, we never asked it to do it.</li>
+<li></li>
+</ul>
+<p>that was generating 'bottom up'</p>
+<hr>
+<p>now 'top down', generating a whole world</p>
+<p>preface (tech demo gor globe)</p>
+<p>generating</p>
+<ol>
+<li>generate a full map of the world offline, including layers from real gis data.<br>
+when player goes to a region MLmodel at runtime generates an upscale veresion.</li>
+</ol>
+<p>using Upscaling Models with a quadtree Running in the engine.<br>
+upscaling 1km2 down to 1m2<br>
+Using Superresolution image generation ML literature.<br>
+uses a quadtree and an upscaling model, each time it splits the tile and increasing the resolution by two times.</p>
+<p>Basemap is generated offline. Just so we can explore the space.</p>
+<p>ML generates a heightmap, a satellite texture(for long distance view)<br>
+then we procedurally generate</p>
+<ul>
+<li>biome label map</li>
+<li>tree density masks<br>
+to place assets</li>
+</ul>
+<p>heightmap generator:<br>
+trained using real GIS data, blured. the input is the blurered version and learns to look like the high resolution. so the ml model generates detail heightmap.</p>
+<p>we used saterllite texture data and elevation, but it would generate forests or deserts in weird places.</p>
+<p>so then we included tree density and biome labels from GIS data, so the model knows where there wshould be trees.</p>
+<p>Challenges with scaling:</p>
+<ul>
+<li>no consistency between generated layers</li>
+<li>generated tiles didnt blend between each other</li>
+</ul>
+<p>to add consistency:</p>
+<ol>
+<li>we start with an input contour</li>
+<li>we do procedural stuff to add biome labels, tree density masks</li>
+<li>all lead to generate satellite texture</li>
+</ol>
+<p>ML only outputs a fixed resolution 512px.<br>
+dunno how to explain this. it stacks generated tiles on top of each other, then blend them</p>
+<p>Whats next?</p>
+<ul>
+<li>so far we're in 2D(onto a globe)<br>
+experimenting w same pipeline, but sampling noise from a 3d space, project to a sphere, then project back to cube, our noise has been distorted. the outputs of ML model contains the same distortion, bc our training data included imagery across the world distorted in similar ways e.g near equator/poles. like other ML oddities.</li>
+</ul>
+<hr>
+<p>Q: populating the world with people down the road? npc generators?</p>
+<p>we can't talk about it</p>
+<h3 id="1430-1500-niklas-nygren---music-algorithm-smorgasbord">14:30-15:00 Niklas Nygren - Music Algorithm Smorgasbord </h3>
+<p>soundtrack generation at runtime, with an editor</p>
+<p>used in this game:<br>
+<a href="https://youtu.be/FzqfCSseiPE"><img src="https://img.youtube.com/vi/FzqfCSseiPE/0.jpg" alt=""></a></p>
+<p>and thisi game (out):<br>
+<a href="https://nifflas.itch.io/xenosphere">https://nifflas.itch.io/xenosphere</a></p>
+<p><img src="https://www.everythingprocedural.com/wp-content/uploads/2025/01/EPC2025_Niklas_Nygren_Screenshot.png" alt=""></p>
+<p><strong>What it is: node of modules connected  to each other</strong></p>
+<p>Step ( a number that goes up ), drives all algos</p>
+<p>has little expressions on parameters eg. Delay = 3 + Chance(0.1)</p>
+<p>Some node types</p>
+<ul>
+<li>
+<p><strong>Delay</strong>: wait a few steps and then send a signal</p>
+</li>
+<li>
+<p><strong>harmonizer</strong>: adds aditional things after. started with takes a note outputs a chord. now based on the velocity adds extra nodes.</p>
+</li>
+<li>
+<p><strong>Rainbow</strong>: takes input array and randomize the order. give it an arpeggiator and randomizes the note order.</p>
+</li>
+<li>
+<p><strong>Democratic beat</strong>:  twitter polls, asked 'lets make a drum together', people voted on each step, kick hihat clap etc.</p>
+</li>
+<li>
+<p><strong>Desire</strong>: There's a random chance it will play its notes, but every step its desire to play increases.</p>
+</li>
+<li>
+<p><strong>Tweet randomizer</strong>: for truly random numbers: asked twitter users for number sequences</p>
+</li>
+<li>
+<p><strong>Awkward</strong>: how awkward would this note sound at this moment? the root note of the scale is awkward=0, a note outside the scale gets awkward=1, etc etc.<br>
+.</p>
+</li>
+</ul>
+<blockquote>
+<p>how to perform a level audio + a drummer (on stage?)</p>
+</blockquote>
+<blockquote>
+<p>how to use digitakt for soundtrack logic?</p>
+</blockquote>
+<blockquote>
+<p>how to use bass guitar, analogness in audio or visual procedural node stuff? string as controller, feed float into computer</p>
+</blockquote>
+<hr>
+<p>Q: How do you keep track of all the modules?<br>
+I look at the code for the modules to remember what they do.<br>
+Since it's me right now I just do whatever!</p>
+<p>Q: Can we try it?<br>
+Almost everything you do in the software will result in the software stopping. It has very little tolerance.</p>
+<h3 id="1530-1600-simon-verstrate---lego-horizon-adventures-procedural-optimization">15:30-16:00 Simon Verstrate - LEGO Horizon Adventures: Procedural Optimization </h3>
+<p>Simon is a houdini legend, btw</p>
+<p>@ Studio Gobo<br>
+prev @SideFX</p>
+<blockquote>
+<p>What is curvature map for?</p>
+</blockquote>
+<blockquote>
+<p>Learn some basic Substance Painter</p>
+</blockquote>
+<h3 id="1600-1630-eetu-martola---generating-the-world-of-pax-dei">16:00-16:30 Eetu Martola - Generating the World of Pax Dei </h3>
+<p>company: mainframe<br>
+indie/startup w 62 people<br>
+mmo</p>
+<p>medieval sandbox mmo w large open world<br>
+unreal 5.4.4</p>
+<p><a href="https://playpaxdei.com/en-us">https://playpaxdei.com/en-us</a><br>
+<a href="https://themainframe.com/en/">https://themainframe.com/en/</a></p>
+<p><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftryhardguides.com%2Fwp-content%2Fuploads%2F2023%2F03%2Fpax-dei-1.jpg&amp;f=1&amp;nofb=1&amp;ipt=7226b298bf7ae44e51c6f0a7e9ee407d8bf3b9dc63f6be67f84c23890c61db1d" alt=""></p>
+<p>procedurally assisted</p>
+<p>fractals are boring after 10 seconds. how to make a human to make interesting decisions and not the boring ones.</p>
+<p>make big changes without fear</p>
+<h4 id="human-inputs">human inputs </h4>
+<ul>
+<li>
+<p>crude world sculpt<br>
+very little detail<br>
+cheap to make changes to it</p>
+</li>
+<li>
+<p>map markup in QGIS<br>
+actual map making software, as a world editor<br>
+2D map, we mark the locations of the sites in the world<br>
+road connectivity<br>
+lakes<br>
+biome areas<br>
+data queried from houdini</p>
+</li>
+</ul>
+<p>tabular data in Sheets, which plants grow in which biome, weights, etc.</p>
+<ul>
+<li>generator<br>
+houdini inside unreal engine</li>
+</ul>
+<p>one monolithic HDA, run one per every cell<br>
+generates 2kmx2km it owns that cell</p>
+<p>it's a modularized system: one module makes lakes, one roads, etc.</p>
+<p>it was bad when everything depended on everything else (spaghetti)<br>
+now functional programming mindset. each module can only use the data from its input.</p>
+<p>inputs and outputs: landscape, masks, geometry, etc. on data pipes<br>
+any module can get info from its data pipes</p>
+<h4 id="init">init </h4>
+<ul>
+<li>large scale processing, some MLi think</li>
+<li>handmade level instances(eg a castle), footprint geo, modify the terrain around them.</li>
+<li>sea level lakes, drawn lakes from QGIS, automatic ponds from Gaea.</li>
+<li>bridges are modular and adapt to where they are put</li>
+<li>small sites and encounters, generated randomly in clusters, all have the same footprint (18m flat circle)</li>
+<li>streams module: pick random points above a certain height, stream down and if it hits a natural water body its saved</li>
+<li>roads: map data only has connectivity, but actual routes are generated. if the sites have a road connector toggle they are connected to the road network. in houdini it's easy and fast to do routefinding but if you do it in a loop it's slow.</li>
+<li>cliffs: heightfiels is boring. we instantiate pieces. only 4 pieces but they work fine</li>
+</ul>
+<p>-- scattering</p>
+<ul>
+<li>trees, bushes, debris</li>
+<li>"clustered not cluttered"</li>
+<li>biome tiles</li>
+</ul>
+<h4 id="output">output </h4>
+<p>generator outputs</p>
+<ul>
+<li>landscapes with layers</li>
+<li>sm instances</li>
+<li>levelinstances</li>
+<li>more: textures, player map, world config, physicsvolumes, blueptrings, road travel splines, etc. etc.</li>
+</ul>
+<p>pro tip about masks: we use 2d distance fields this is the distance to the nearest road</p>
+<h4 id="bro-cooker">bro (cooker) </h4>
+<p>python overseer for whole build process<br>
+loads levels, empties them out, set options, cooks hdas, runs postprocessing, then saves the level. each level is ists own job, sent to houdini HQueue controller.</p>
+<p>press a button in BRO hours latesr new world in unreal</p>
+<h4 id="highlights">highlights: </h4>
+<p><strong>biome tiles</strong><br>
+are close to what prologue is doing<br>
+big scales in landscape geometry, small scales in texture and scatter.<br>
+hole in "scale spectrum" (wavelength by transmittance chart)</p>
+<p>randomly scattering things of this size makes things look random.</p>
+<p>handcraft a library of hexagonal tiles with meshes<br>
+divide world in hexagonal grid<br>
+spawn tiles with random rotation</p>
+<p>landscape height is modified.</p>
+<p>satisfyis the goal of human designed naturl feeling, lmited huamn work, works in concert with tree and scattering systes.</p>
+<p>linear biome tiles: for linear features eg lakeside, roadside, wall. w</p>
+<p>we can explictliy draw linear things in QGIS, eg walls.</p>
+<p>copy random sections from library stirps, deform along linear landscape features<br>
+e.g. rocks on a cliff water side</p>
+<p><strong>terrain details</strong><br>
+we use Electronic Arts' GATAsystem. downloaded public domain training data.<br>
+old school GANs<br>
+<a href="https://github.com/electronicarts/siggraph-asia-2019-gata">https://github.com/electronicarts/siggraph-asia-2019-gata</a></p>
+<h4 id="issues">issues </h4>
+<p>world partition source of trouble. UE 5.4 is helping. one tile per actor meses up the pipeline.<br>
+unreal grass system works well by hand butmaking it update properly is a headache.</p>
+<p>houdini doesn't see uassets.</p>
+<p>houdini engine plugin is async and good for interactive use, but is bad for baking.</p>
+<p>bake time in unreal are high in unreal. 20 minutes for many cell, 4-5m in houdini the rest is unreal processing data.</p>
+<p>sensitivity in regeneration. when something changes in the beginning of th eprocess end result is different.</p>
+<p>running a live game from developing a new game from scratch. the pure generator approach has been great. but for running a live game it would need more like an editor.</p>
+<h4 id="results">results </h4>
+<p>25 min per cell, 10h per province generation time.<br>
+non tech artist can rebuild things without touching houdini<br>
+easy to make sweeping changes.</p>
+<hr>
+<p>we made cool tech where there are unreal servers for each province/cell, so as you walk around you are changed from one server to the other to get the data for that area, so we can have large mmo areas.</p>
+<p>POI placement, are marked on the handmade map.</p>
+<hr>
+<blockquote>
+<p>this conference makes me think that the new matrix movie nailed it with game devs are the world creators and it's weird</p>
+</blockquote>
+<blockquote>
+<p>try the hexagonal tiles to build a world thing!</p>
+</blockquote>
+
+      </div>
+      
+      
+    </body>
+    
+    
+    
+    
+    
+  </html>
