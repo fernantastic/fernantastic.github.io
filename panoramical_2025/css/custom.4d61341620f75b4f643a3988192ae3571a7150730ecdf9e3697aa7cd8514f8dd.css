@@ -1,0 +1,13 @@
+
+
+.fullwidth {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em 0;
+  }
+
+.body {
+    font-family: 'Fira Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+}

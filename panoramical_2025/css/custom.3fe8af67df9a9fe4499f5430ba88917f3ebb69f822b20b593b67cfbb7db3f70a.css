@@ -1,0 +1,16 @@
+
+
+.fullwidth {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em 0;
+  }
+
+.body {
+    line-height: 1.5;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    background-color: magenta;
+    font-family: 'Roboto Mono', 'Courier New', monospace;
+}
