@@ -1,0 +1,25 @@
+
+
+.fullwidth {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em 0;
+  }
+
+p {
+    line-height: 1.6em;
+    /* font-size: 16px; */
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    /* background-color: magenta; */
+    font-family: 'Roboto Mono', 'Courier New', monospace !important;
+}
+
+.caption {
+    font-size: 0.8em;
+    /* color: #666; */
+    text-align: right;
+    margin-top: -0.7em;
+    margin-bottom: 0.5em;
+}
