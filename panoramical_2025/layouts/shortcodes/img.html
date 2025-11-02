@@ -1,6 +1,0 @@
-<img 
-  src="{{ absURL (strings.TrimPrefix "/" (.Get 0)) }}" 
-  alt="{{ with .Get 1 }}{{ . }}{{ else }}{{ .Get 0 }}{{ end }}" 
-  style="width:100%; height:auto; display:block; margin:auto;"
->
-<div class="caption">{{ with .Get 1 }}{{ . }}{{ else }}{{ end }}</div>
