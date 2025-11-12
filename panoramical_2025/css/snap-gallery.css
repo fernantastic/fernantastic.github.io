@@ -1,0 +1,227 @@
+/*
+  SPDX-FileCopyrightText: 2024 Max Mehl <https://mehl.mx>
+  SPDX-License-Identifier: MIT
+*/
+.snap-gallery,
+.snap-slideshow {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-bottom: 15px;
+  grid-template-columns: repeat(var(--columns, 1), 1fr);
+  gap: var(--gap);
+}
+
+.snap-image {
+  cursor: var(--cursor);
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: var(--aspectratio);
+}
+
+.snap-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.snap-image .snap-numbertext {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  z-index: 2;
+}
+
+
+@keyframes fade {
+  from   { opacity: .4 }
+  to     { opacity: 1  }
+}
+
+.snap-slideshow .snap-image,
+.snap-lightbox .snap-lightbox-inner {
+  animation: 1s fade;
+}
+
+.snap-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  height: 100dvh;
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  user-select: none;
+}
+
+.snap-lightbox-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 90%;
+  max-height: 80%;
+  text-align: center;
+}
+
+.snap-media {
+  position: relative;
+  display: inline-block;
+  max-height: 80dvh;
+}
+
+.snap-media img {
+  max-height: 80dvh;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.snap-media .snap-numbertext {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+}
+
+.snap-caption {
+  margin-top: 8px;
+  bottom: 0em;
+  width: 100%;
+  font-size: 1.1em;
+  font-size: 0.8em;
+    /* font-style: italic; */
+color: #fff;
+text-align: center;
+margin-top: 0.0em;
+/* margin-bottom: 0.7em; */
+  padding: 1.0em;
+}
+
+.snap-slideshow .snap-caption {
+  position: absolute;
+  /* background: rgba(0, 0, 0, 0.5); */
+}
+
+@media screen and (max-width: 767px) {
+  .snap-slideshow .snap-caption {
+    display: none;
+  }
+}
+
+.snap-lightbox .snap-caption {
+  position: relative;
+  left: auto;
+  width: auto;
+  margin: 8px 0 0;
+  background: none;
+  padding: 0;
+  text-align: center;
+}
+
+.snap-prev,
+.snap-next {
+  color: #fff;
+  text-decoration: none ;
+  font-size: 30px;
+  position: absolute;
+  z-index: 800;
+  height: 100%;
+  width: 5%;
+  cursor: pointer;
+  border: none
+  
+}
+
+.snap-slideshow .snap-prev,
+.snap-slideshow .snap-next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 10%;
+  min-height: 50px;
+  min-width: 50px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+}
+
+.snap-slideshow .snap-prev:hover,
+.snap-slideshow .snap-next:hover {
+  transition: all .25s ease;
+  background-color: transparent;
+  border: none;
+}
+
+@media screen and (max-width: 767px) {
+  .snap-lightbox .snap-prev,
+  .snap-lightbox .snap-next {
+    width: 10%;
+  }
+}
+
+.snap-prev span,
+.snap-next span {
+  padding: 1%;
+  font-size: 2.0em;
+  filter: invert(0);
+}
+
+.snap-lightbox .snap-prev span,
+.snap-lightbox .snap-next span {
+  position: fixed;
+  top: 50%;
+}
+
+.snap-prev {
+  left: 0;
+}
+
+.snap-lightbox .snap-prev span {
+  left: .5%;
+}
+
+.snap-next {
+  right: 0;
+}
+
+.snap-lightbox .snap-next span {
+  right: .5%;
+}
+
+.snap-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  height: 50px;
+  width: 50px;
+  color: white;
+  font-size: 50px;
+  font-weight: bold;
+  z-index: 900;
+}
+
+.snap-close:hover,
+.snap-close:focus {
+  color: #999;
+  cursor: pointer;
+}
+

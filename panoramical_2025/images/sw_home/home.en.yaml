@@ -1,0 +1,11 @@
+- src: images/sw_home/00_bozar.gif
+  html:
+    title: 'Bozar Arcade, BOZAR, Brussels (2025)'
+- src: images/sw_home/10_sc.jpg
+  html:
+- src: images/sw_home/20_ft.jpg
+  html:
+    title: 'Fantastic Arcade, Austin, TX (2013)'
+- src: images/sw_home/40_pl.jpg
+  html:
+    title: 'Prince of Arcade, Montreal. (2012) Photo: Sagar Patel'
