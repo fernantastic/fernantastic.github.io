@@ -1,0 +1,69 @@
+<!--
+  SPDX-FileCopyrightText: 2024 Max Mehl <https://mehl.mx>
+  SPDX-License-Identifier: MIT
+-->
+{{- $imgs := .imgs -}}
+{{- $galno := .galno -}}
+<div class="snap-lightbox" id="snap-lightbox-{{ $galno }}" tabindex="-1"
+     onkeydown="handleLightboxKey(event, {{ $galno }})">
+  {{- range $i, $img := $imgs }}
+    <div class="snap-lightbox-inner">
+      <div class="snap-media">
+        {{- if gt (len $imgs) 1 }}
+          <div class="snap-numbertext">{{ add $i 1 }} / {{ len $imgs }}</div>
+        {{- end }}
+        <img
+          src="{{ relURL $img.src }}"
+          {{ range $attr, $value := $img.html -}}
+            {{ safeHTMLAttr $attr }}={{ $value }}
+          {{ end -}}
+        />
+      </div>
+      {{- with $img.html.title }}
+        <div class="snap-caption">{{ . }}</div>
+      {{- end }}
+    </div>
+  {{- end }}
+
+  <!-- Close and Next/Previous controls -->
+  <span class="snap-close" onclick="closeLightbox({{ $galno }})">&times;</span>
+
+  {{- if gt (len $imgs) 1 }}
+    <a class="snap-prev" onclick="moveLightboxItem({{ $galno }}, -1)"><span>&#10094;</span></a>
+    <a class="snap-next" onclick="moveLightboxItem({{ $galno }}, 1)"><span>&#10095;</span></a>
+  {{- end }}
+</div>
+
+<script>
+  function handleLightboxKey(event, galno) {
+    const lightbox = document.getElementById(`snap-lightbox-${galno}`);
+    if (!lightbox) return;
+
+    switch (event.key) {
+      case "ArrowLeft":
+        moveLightboxItem(galno, -1);
+        break;
+      case "ArrowRight":
+        moveLightboxItem(galno, 1);
+        break;
+      case "Escape":
+        closeLightbox(galno);
+        break;
+    }
+  }
+
+  function openLightbox(galno) {
+    const lightbox = document.getElementById(`snap-lightbox-${galno}`);
+    if (lightbox) {
+      lightbox.style.display = "flex";
+      lightbox.focus();
+    }
+  }
+
+  function closeLightbox(galno) {
+    const lightbox = document.getElementById(`snap-lightbox-${galno}`);
+    if (lightbox) {
+      lightbox.style.display = "none";
+    }
+  }
+</script>

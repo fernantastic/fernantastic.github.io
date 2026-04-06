@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode | default `en` }}">
+  {{ $sidebar := site.GetPage "/_sidebar" }}
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+    <script src="{{ "js/sidebar-shader.js" | relURL }}" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <div class="sidebar-name"><a href="."><p>Fernando Ramallo</p></a></div>
+          <div class="sidebar-shader-frame">
+            <canvas
+              class="sidebar-shader-canvas"
+              data-sidebar-shader="{{ "shaders/sidebar.frag" | relURL }}"
+            ></canvas>
+          </div>
+          {{ with $sidebar }}
+            <div class="sidebar-content content">
+              {{ .Content }}
+            </div>
+          {{ else }}
+            <div class="sidebar-content">
+              <p>Sidebar content not found.</p>
+            </div>
+          {{ end }}
+        </div>
+      </aside>
+      <main class="page">
+        {{ block "main" . }}{{ end }}
+      </main>
+    </div>
+  </body>
+</html>

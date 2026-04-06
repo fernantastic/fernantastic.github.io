@@ -1,0 +1,11 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Open Hugo site",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "open http://localhost:1313"
+    }
+  ]
+}

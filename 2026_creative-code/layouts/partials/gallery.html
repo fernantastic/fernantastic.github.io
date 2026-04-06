@@ -1,0 +1,53 @@
+<!--
+  SPDX-FileCopyrightText: 2024 Max Mehl <https://mehl.mx>
+  SPDX-License-Identifier: MIT
+-->
+{{- $imgs := .imgs -}}
+{{- $galno := .galno -}}
+<div class="snap-gallery" id="snap-gallery-{{ $galno }}"
+     style="--min-width:{{ default "200px" .minwidth }};--gap:10px;--cursor:{{ .cursor }};--aspectratio:{{ safeCSS (default "16/10" .aspectratio) }};"
+     data-number-of-images="{{ len $imgs }}">
+  {{- range $i, $img := $imgs }}
+  <div class="snap-image">
+    <img
+      src="{{ relURL $img.src }}"
+      {{ range $attr, $value := $img.html -}}
+        {{ safeHTMLAttr $attr }}={{ $value }}
+      {{ end -}}
+      onclick="openLightbox({{ $galno }});openLightboxItem({{ $galno }}, {{ add $i 1 }});" />
+  </div>
+  {{- end }}
+</div>
+
+
+<script>
+  // Function to calculate the number of columns for each gallery
+  function calculateColumns() {
+    // Select all snap-gallery instances
+    const galleries = document.querySelectorAll('.snap-gallery');
+
+    galleries.forEach(gallery => {
+      const minWidth = parseFloat(getComputedStyle(gallery).getPropertyValue('--min-width')); // Get the min-width from CSS
+      const gap = parseFloat(getComputedStyle(gallery).getPropertyValue('--gap')); // Get the gap from CSS
+      const galleryWidth = gallery.offsetWidth; // Get the width of the .snap-gallery div
+
+      // Calculate how many columns fit in the available gallery width
+      const columnsByWidth = Math.floor((galleryWidth + gap) / (minWidth + gap));
+
+      // Get the number of images in the gallery (passed as a data attribute)
+      const numberOfImages = parseInt(gallery.dataset.numberOfImages, 10);
+
+      // The number of columns should be the minimum of the calculated columns and the number of images
+      const columns = Math.min(columnsByWidth, numberOfImages);
+
+      // Set the number of columns to the gallery container
+      gallery.style.setProperty('--columns', columns);
+    });
+  }
+
+  // Run the calculation on page load
+  window.addEventListener('load', calculateColumns);
+
+  // Recalculate columns when the window is resized or the gallery div size changes
+  window.addEventListener('resize', calculateColumns);
+</script>

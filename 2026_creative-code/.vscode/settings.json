@@ -1,0 +1,31 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/.hugo_build.lock": true,
+    "**/node_modules": true,
+    "**/public": true,
+    "**/resources/_gen": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/public": true,
+    "**/resources/_gen": true
+  },
+  "files.associations": {
+    "*.html": "gohtml",
+    "*.toml": "toml"
+  },
+  "[gohtml]": {
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.wordWrap": "on"
+  },
+  "emmet.includeLanguages": {
+    "gohtml": "html"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  }
+}

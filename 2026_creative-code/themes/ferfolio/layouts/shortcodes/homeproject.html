@@ -1,0 +1,22 @@
+{{- $slug := .Get 0 -}}
+{{- $page := site.GetPage (printf "/projects/%s" $slug) -}}
+{{- if not $page -}}
+  {{- errorf "homeproject shortcode could not find project page for slug %q" $slug -}}
+{{- end -}}
+{{- $image := "" -}}
+{{- with index $page.Params "home_img" }}{{ $image = . | strings.TrimPrefix "/" }}{{ end -}}
+{{- $title := $page.Title -}}
+{{- with index $page.Params "home_title" }}{{ $title = . }}{{ end -}}
+{{- $subtitle := "" -}}
+{{- with index $page.Params "home_subtitle" }}{{ $subtitle = . }}{{ end -}}
+<article class="home-project">
+  <a class="home-project-media" href="{{ $page.RelPermalink }}">
+    {{- with $image }}
+      <img src="{{ . | relURL }}" alt="{{ $title }}">
+    {{- end }}
+  </a>
+  <h2 class="home-project-title">{{ $title }}</h2>
+  {{- with $subtitle }}
+    <p class="home-project-subtitle">{{ . }}</p>
+  {{- end }}
+</article>

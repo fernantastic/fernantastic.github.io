@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <article class="stack">
+    <header class="stack project-header">
+      <div class="project-title">{{ .Title | markdownify }}</div>
+      <div class="project-summary">
+        {{ with .Params.description }}
+          <div class="project-description project-content">{{ . | markdownify }}</div>
+        {{ end }}
+        {{ with .Params.side }}
+          <div class="project-side">{{ . | strings.TrimSpace | replaceRE "\r?\n" "<br>" | safeHTML }}</div>
+        {{ end }}
+      </div>
+    </header>
+    <section class="content project-content">
+      {{ .Content }}
+    </section>
+  </article>
+{{ end }}

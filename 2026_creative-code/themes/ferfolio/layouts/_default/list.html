@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <article class="stack">
+    <header class="stack">
+      <p><a href="{{ "/" | relURL }}">Home</a></p>
+      <h1>{{ .Title }}</h1>
+    </header>
+    <section class="content">
+      {{ .Content }}
+    </section>
+    {{ if .Pages }}
+      <section class="stack">
+        {{ range .Pages }}
+          <p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+        {{ end }}
+      </section>
+    {{ end }}
+  </article>
+{{ end }}

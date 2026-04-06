@@ -1,0 +1,6 @@
+name = "ferfolio"
+license = "MIT"
+description = "A minimal Hugo theme for a simple portfolio site."
+
+[author]
+  name = "fernantastic"
