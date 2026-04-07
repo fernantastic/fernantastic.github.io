@@ -1,0 +1,31 @@
+{{ $input := .Get 0 | strings.TrimSpace }}
+{{ $videoID := $input }}
+
+{{ if findRE `youtu\.be/|youtube\.com/` $input }}
+  {{ with urls.Parse $input }}
+    {{ if eq .Host "youtu.be" }}
+      {{ $videoID = strings.TrimPrefix "/" .Path }}
+    {{ else }}
+      {{ $v := index .Query "v" }}
+      {{ if $v }}
+        {{ $videoID = $v }}
+      {{ else if strings.Contains .Path "/embed/" }}
+        {{ $videoID = path.Base .Path }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ if $videoID }}
+  <figure class="project-youtube">
+    <div class="project-youtube-frame">
+      <iframe
+        src="https://www.youtube.com/embed/{{ $videoID | safeURL }}"
+        title="YouTube video"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </figure>
+{{ end }}

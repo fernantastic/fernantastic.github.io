@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.LanguageCode | default `en` }}">
   {{ $sidebar := site.GetPage "/_sidebar" }}
+  {{ $homeURL := "/" | relURL }}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,13 +13,15 @@
     <div class="shell">
       <aside class="sidebar">
         <div class="sidebar-inner">
-          <div class="sidebar-name"><a href="."><p>Fernando Ramallo</p></a></div>
-          <div class="sidebar-shader-frame">
-            <canvas
-              class="sidebar-shader-canvas"
-              data-sidebar-shader="{{ "shaders/sidebar.frag" | relURL }}"
-            ></canvas>
-          </div>
+          <div class="sidebar-name"><a href="{{ $homeURL }}"><p>Fernando Ramallo</p></a></div>
+          <a class="sidebar-shader-link" href="{{ $homeURL }}" aria-label="Go to homepage">
+            <div class="sidebar-shader-frame">
+              <canvas
+                class="sidebar-shader-canvas"
+                data-sidebar-shader="{{ "shaders/sidebar.frag" | relURL }}"
+              ></canvas>
+            </div>
+          </a>
           {{ with $sidebar }}
             <div class="sidebar-content content">
               {{ .Content }}

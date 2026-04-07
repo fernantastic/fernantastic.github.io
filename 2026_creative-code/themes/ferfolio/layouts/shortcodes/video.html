@@ -1,0 +1,28 @@
+{{ $src := .Get 0 | strings.TrimPrefix "/" }}
+{{ $base := strings.TrimSuffix (path.Ext $src) $src }}
+{{ $exts := slice ".webm" ".ogv" ".mp4" ".mov" ".avi" }}
+{{ $sources := slice }}
+{{ range $ext := $exts }}
+  {{ $candidate := printf "%s%s" $base $ext }}
+  {{ if os.FileExists (printf "/static/%s" $candidate) }}
+    {{ $sources = $sources | append $candidate }}
+  {{ end }}
+{{ end }}
+{{ if eq (len $sources) 0 }}
+  {{ $sources = $sources | append $src }}
+{{ end }}
+<figure class="project-video">
+  <video controls playsinline preload="metadata">
+    {{ range $video := $sources }}
+      {{ $ext := path.Ext $video }}
+      {{ $type := "" }}
+      {{ if eq $ext ".mp4" }}{{ $type = "video/mp4" }}{{ end }}
+      {{ if eq $ext ".webm" }}{{ $type = "video/webm" }}{{ end }}
+      {{ if eq $ext ".ogv" }}{{ $type = "video/ogg" }}{{ end }}
+      {{ if eq $ext ".mov" }}{{ $type = "video/quicktime" }}{{ end }}
+      {{ if eq $ext ".avi" }}{{ $type = "video/x-msvideo" }}{{ end }}
+      <source src="{{ $video | relURL }}"{{ with $type }} type="{{ . }}"{{ end }}>
+    {{ end }}
+    Your browser does not support the video tag.
+  </video>
+</figure>

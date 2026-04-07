@@ -4,14 +4,10 @@ title = "PANORAMICAL"
 home_img = "projects/panoramical/pano1.jpg"
 home_title = "Panoramical - Arthouse Game"
 home_subtitle = "Immersive experience, shown in 50+ exhibits"
-display_title = """
-PANORAMICAL
-"""
 side = """
 Roles:
 Game Design
 Game Development
-
 """
 description = """
 Panoramical (2015) is a collection of playful interactive landscapes: part art installation, part musical instrument.
@@ -24,10 +20,18 @@ Panoramical (2015) is a collection of playful interactive landscapes: part art i
 """
 +++
 
-{{< snap-gallery src="projects/panoramical" mode="slides" lightbox="false" metadata="sw_home.en" >}}
+{{< img "projects/panoramical/00_bozar.gif" "" >}}
+
+{{< youtube "ym5ybqkCVX8" >}}
 
 {{< img "projects/panoramical/pano1.jpg" "" >}}
+
+{{< img "projects/panoramical/image.jpg" "" >}}
 
 {{< img "projects/panoramical/pano2.jpg" "" >}}
 
 {{< img "projects/panoramical/pano3.jpg" "" >}}
+
+{{< img "projects/panoramical/pano_wip1.jpg" "" >}}
+
+{{< imgpair "projects/panoramical/pano_wip3.jpg" "projects/panoramical/pano_wip2.png" "62" >}}

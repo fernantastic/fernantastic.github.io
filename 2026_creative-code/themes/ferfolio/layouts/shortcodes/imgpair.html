@@ -1,0 +1,20 @@
+{{ $left := .Get 0 | strings.TrimPrefix "/" }}
+{{ $right := .Get 1 | strings.TrimPrefix "/" }}
+{{ $splitRaw := .Get 2 | default "50" }}
+{{ $split := int $splitRaw }}
+{{ if lt $split 20 }}{{ $split = 20 }}{{ end }}
+{{ if gt $split 80 }}{{ $split = 80 }}{{ end }}
+{{ $rightSplit := sub 100 $split }}
+
+<figure class="project-image-pair" style="--left-width: {{ $split }}%; --right-width: {{ $rightSplit }}%;">
+  <div class="project-image-pair-item">
+    {{ if $left }}
+      <img src="{{ $left | relURL }}" alt="{{ $left }}">
+    {{ end }}
+  </div>
+  <div class="project-image-pair-item">
+    {{ if $right }}
+      <img src="{{ $right | relURL }}" alt="{{ $right }}">
+    {{ end }}
+  </div>
+</figure>

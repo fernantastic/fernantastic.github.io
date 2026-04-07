@@ -1,4 +1,18 @@
 {{ define "main" }}
+  {{ $pages := where site.RegularPages "Section" "projects" }}
+  {{ $sorted := $pages.ByTitle }}
+  {{ $currentIndex := -1 }}
+  {{ range $index, $page := $sorted }}
+    {{ if eq $page.RelPermalink $.RelPermalink }}
+      {{ $currentIndex = $index }}
+    {{ end }}
+  {{ end }}
+  {{ $next := false }}
+  {{ if ge $currentIndex 0 }}
+    {{ if lt (add $currentIndex 1) (len $sorted) }}
+      {{ $next = index $sorted (add $currentIndex 1) }}
+    {{ end }}
+  {{ end }}
   <article class="stack">
     <header class="stack project-header">
       <div class="project-title">{{ .Title | markdownify }}</div>
@@ -14,5 +28,21 @@
     <section class="content project-content">
       {{ .Content }}
     </section>
+    {{ if or $next true }}
+      <nav class="project-pagination" aria-label="Project navigation">
+        <div class="project-pagination-slot project-pagination-slot-left">
+          <a class="project-pagination-link" href="{{ "/" | relURL }}">
+            <span class="project-pagination-label">&lt; BACK</span>
+          </a>
+        </div>
+        <div class="project-pagination-slot project-pagination-slot-right">
+          {{ with $next }}
+            <a class="project-pagination-link project-pagination-link-next" href="{{ .RelPermalink }}">
+              <span class="project-pagination-label">NEXT &gt;</span>
+            </a>
+          {{ end }}
+        </div>
+      </nav>
+    {{ end }}
   </article>
 {{ end }}
