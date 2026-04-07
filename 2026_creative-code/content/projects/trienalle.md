@@ -15,9 +15,10 @@ description = """
 I was invited to produce an expressive, experimental game for this 
 interactive exhibit. 
 
-My piece We Are Poems is "a swim through the queerest region of deep space where its inhabitants float and gravitate in bountiful joyous explosions of light".
+My piece *We Are Poems* is **"a swim through the queerest region of deep space where its inhabitants float and gravitate in bountiful joyous explosions of light"**.
 
-Find out more, and download for iOS, Android and PC at: [https://www.milanogamefestival.com/collection/](https://www.milanogamefestival.com/collection/)
+Find out more, and download for iOS, Android and PC at:
+- [https://www.milanogamefestival.com/collection/](https://www.milanogamefestival.com/collection/)
 """
 +++
 

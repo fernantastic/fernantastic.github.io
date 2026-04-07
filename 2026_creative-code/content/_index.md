@@ -7,12 +7,14 @@ url = "/"
 
 {{< homeproject "doodleworld" >}}
 
-{{< homeproject "panoramical" >}}
-
 {{< homeproject "vibecoding" >}}
+
+{{< homeproject "panoramical" >}}
 
 {{< homeproject "dosbox" >}}
 
 {{< homeproject "lookingglass" >}}
 
 {{< homeproject "trienalle" >}}
+
+{{< homeproject "xr" >}}

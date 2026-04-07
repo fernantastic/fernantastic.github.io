@@ -2,8 +2,8 @@
 draft = false
 title = "Doodle Studio - Art Maker for iOS"
 home_img = "projects/doodleworld/doodleworld.gif"
-home_title = "Doodle Studio - Art Maker for iOS"
-home_subtitle = "Mobile Prototyping, UX Design"
+home_title = "Doodle Studio - Art Maker for iOS and Unity"
+home_subtitle = "Mobile Prototyping, UX Design, Unity Plugin Development"
 side = """
 Roles:
 Mobile Prototyping
@@ -25,6 +25,10 @@ It features procedural placement tools and a fun quirky interface for making gam
 
 {{< imgpair "projects/doodleworld/ddwc3.jpg" "projects/doodleworld/ddwc1.gif" "41" >}}
 
+---
+
+## Doodle Studio for Unity
+
 The app is based on a commercial plugin for drawing inside of the Unity 3D editor I released in 2018.
 
 * See: [Doodle Studio 95! for Unity](https://assetstore.unity.com/packages/tools/painting/doodle-studio-95-108263)
@@ -33,6 +37,12 @@ The app is based on a commercial plugin for drawing inside of the Unity 3D edito
 
 {{< img "projects/doodleworld/doodle_window.png" "" >}}
 
-{{< img "projects/doodleworld/doodle_files.png" "" >}}
+{{< imgpair "projects/doodleworld/doodle_files.png" "projects/panoramical/tsath_supercut_hi.gif" "50" >}}
 
-{{< img "projects/panoramical/tsath_supercut_hi.gif" "" >}}
+---
+
+Doodle Studio was used in many games, specially on game jams. 
+
+A highlight was having one of my favorite game designers Stephen Thecatamites use it to create his award-winnind surrealist horror-comedy series [Anthology of the Killer](https://store.steampowered.com/app/3212530/Anthology_Of_The_Killer/),
+
+{{< youtube "_iNgSWbzAgg" >}}

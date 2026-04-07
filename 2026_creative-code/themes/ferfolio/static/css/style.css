@@ -1,10 +1,10 @@
 :root {
   color-scheme: light;
-  --bg: #ffffff;
+  --bg: #f8f8f8;
   --fg: #111111;
   --muted: #666666;
   --border: #e5e5e5;
-  --link: #0a66cc;
+  --link: #141414;
 }
 
 @font-face {
@@ -45,11 +45,11 @@ body {
 }
 
 .sidebar-name {
-    font-size: 2rem;
+    font-size: 2.6rem;
     font-weight: 800;
 }
 .sidebar-name a {
-    text-decoration: none;
+    /* text-decoration: none; */
     color: var(--fg)
 }
 
@@ -109,6 +109,27 @@ ol {
 
 a {
   color: var(--link);
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+hr {
+  /* border: 5rem; */
+  margin: 3rem 3rem;
+  border: 0;
+  height: .1rem;
+  display: block;
+  background: #000000;
+  /* background: linear-gradient(to right, transparent, #0a66cc, transparent); */
+}
+
+
+ul { 
+  padding-left: 2.5rem;
+  line-height: 1.7rem;
+}
+ul li::marker {
+  content: "🞑  ";
 }
 
 .content > :first-child {
@@ -186,6 +207,15 @@ img {
 .project-content {
     font-size: 1.1rem;
 }
+
+.project-content h1, h2 {
+  margin: 1.5rem 0;
+  margin-top: 2rem;
+}
+.project-content h3 {
+  margin: 1.0rem 0;
+}
+
 .project-image {
     width: 100%;
     margin: 2rem 0 2rem 0;
@@ -280,7 +310,6 @@ img {
 
 .project-pagination-link {
   color: #000000;
-  text-decoration: none;
   display: inline-flex;
   max-width: 100%;
 }
@@ -290,7 +319,7 @@ img {
 }
 
 .project-pagination-label {
-  font-size: 0.95rem;
+  font-size: 1.4rem;
   letter-spacing: 0.04em;
 }
 

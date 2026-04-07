@@ -5,11 +5,11 @@ import html
 import json
 import mimetypes
 import os
-import posixpath
 import re
 import shutil
 import subprocess
 import tempfile
+import traceback
 import urllib.parse
 from collections import OrderedDict
 from http import HTTPStatus
@@ -25,9 +25,17 @@ RAW_ASSETS_DIR = ROOT / "assets" / "raw-static-assets" / "projects"
 STATIC_ASSETS_DIR = ROOT / "static" / "projects"
 STATIC_DIR = ROOT / "static"
 PREPARE_SCRIPT = ROOT / "prepare-static-assets.sh"
+PREPARE_WINDOWS_SCRIPT = ROOT / "prepare-static-assets.bat"
 INDEX_FILE = CONTENT_DIR / "_index.md"
 SIDEBAR_FILE = CONTENT_DIR / "_sidebar.md"
 MAX_UPLOAD_BYTES = 1024 * 1024 * 1024
+MAX_ASSET_BYTES = 500 * 1024
+MAX_IMAGE_WIDTH = 1920
+MAX_IMAGE_HEIGHT = 1080
+OGV_MAX_WIDTH = 960
+WEBP_MAX_WIDTH = 500
+WEBP_FPS = 12
+WEBP_QUALITY = 82
 ALLOWED_UPLOAD_EXTENSIONS = {
     ".mp4",
     ".mov",
@@ -428,14 +436,305 @@ def save_home_order(order: List[str]) -> None:
     write_atomic(INDEX_FILE, front_matter + "\n\n" + body + "\n")
 
 
+def ensure_tool(name: str, hint: str | None = None) -> str:
+    path = shutil.which(name)
+    if path:
+        return path
+    message = f"{name} is required."
+    if hint:
+        message = f"{message} {hint}"
+    raise FileNotFoundError(message)
+
+
+def even_round(value: int) -> int:
+    return ((value + 1) // 2) * 2
+
+
+def ffmpeg_scale_filter(max_width: int) -> str:
+    return f"scale='min({max_width},iw)':-2:force_original_aspect_ratio=decrease"
+
+
+def ffprobe_dimensions(path: Path) -> tuple[int, int]:
+    ffprobe = ensure_tool("ffprobe", "Install ffmpeg.")
+    result = subprocess.run(
+        [
+            ffprobe,
+            "-v",
+            "error",
+            "-select_streams",
+            "v:0",
+            "-show_entries",
+            "stream=width,height",
+            "-of",
+            "csv=p=0:s=x",
+            str(path),
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    width_text, height_text = result.stdout.strip().split("x", 1)
+    return int(width_text), int(height_text)
+
+
+def ensure_parent_dir(path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+
+def is_up_to_date(src: Path, dest: Path) -> bool:
+    return dest.exists() and dest.stat().st_mtime >= src.stat().st_mtime
+
+
+def run_command(command: list[str]) -> None:
+    subprocess.run(command, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+
+def best_effort_command(command: list[str], dests: list[Path]) -> None:
+    try:
+        run_command(command)
+    except subprocess.CalledProcessError:
+        for dest in dests:
+            if dest.exists():
+                dest.unlink()
+
+
+def process_windows_image(src: Path, dest: Path) -> None:
+    ensure_parent_dir(dest)
+    if is_up_to_date(src, dest):
+        return
+    shutil.copy2(src, dest)
+
+
+def convert_windows_image_to_jpeg(src: Path, dest: Path) -> None:
+    magick = ensure_tool("magick", "Install ImageMagick.")
+    ensure_parent_dir(dest)
+    if is_up_to_date(src, dest):
+        return
+    command = [magick, str(src) + "[0]", "-auto-orient"]
+    width, height = ffprobe_dimensions(src) if src.suffix.lower() in VIDEO_EXTENSIONS else (0, 0)
+    if width > MAX_IMAGE_WIDTH or height > MAX_IMAGE_HEIGHT:
+        command.extend(["-resize", f"{MAX_IMAGE_WIDTH}x>"])
+    command.extend(["-strip", "-quality", "100", str(dest)])
+    run_command(command)
+
+
+def image_dimensions(path: Path) -> tuple[int, int]:
+    magick = ensure_tool("magick", "Install ImageMagick.")
+    result = subprocess.run(
+        [magick, "identify", "-format", "%w %h", str(path) + "[0]"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    width_text, height_text = result.stdout.strip().split(" ", 1)
+    return int(width_text), int(height_text)
+
+
+def convert_windows_video_to_mp4(src: Path, dest: Path) -> None:
+    ffmpeg = ensure_tool("ffmpeg", "Install ffmpeg.")
+    ensure_parent_dir(dest)
+    if is_up_to_date(src, dest):
+        return
+    run_command(
+        [
+            ffmpeg,
+            "-y",
+            "-i",
+            str(src),
+            "-vf",
+            ffmpeg_scale_filter(MAX_IMAGE_WIDTH),
+            "-c:v",
+            "libx264",
+            "-profile:v",
+            "high",
+            "-pix_fmt",
+            "yuv420p",
+            "-preset",
+            "medium",
+            "-crf",
+            "21",
+            "-movflags",
+            "+faststart",
+            "-an",
+            str(dest),
+        ]
+    )
+
+
+def convert_windows_video_to_webm(src: Path, dest: Path) -> None:
+    ffmpeg = ensure_tool("ffmpeg", "Install ffmpeg.")
+    ensure_parent_dir(dest)
+    if is_up_to_date(src, dest):
+        return
+    best_effort_command(
+        [
+            ffmpeg,
+            "-y",
+            "-i",
+            str(src),
+            "-vf",
+            ffmpeg_scale_filter(MAX_IMAGE_WIDTH),
+            "-c:v",
+            "libvpx-vp9",
+            "-pix_fmt",
+            "yuv420p",
+            "-row-mt",
+            "1",
+            "-b:v",
+            "0",
+            "-crf",
+            "33",
+            "-an",
+            str(dest),
+        ],
+        [dest],
+    )
+
+
+def convert_windows_video_to_ogv(src: Path, dest: Path) -> None:
+    ffmpeg = ensure_tool("ffmpeg", "Install ffmpeg.")
+    ensure_parent_dir(dest)
+    if is_up_to_date(src, dest):
+        return
+    best_effort_command(
+        [
+            ffmpeg,
+            "-y",
+            "-i",
+            str(src),
+            "-vf",
+            ffmpeg_scale_filter(OGV_MAX_WIDTH),
+            "-c:v",
+            "libtheora",
+            "-q:v",
+            "5",
+            "-an",
+            str(dest),
+        ],
+        [dest],
+    )
+
+
+def convert_windows_video_to_webp(src: Path, dest: Path) -> None:
+    ffmpeg = ensure_tool("ffmpeg", "Install ffmpeg.")
+    ensure_parent_dir(dest)
+    best_effort_command(
+        [
+            ffmpeg,
+            "-y",
+            "-i",
+            str(src),
+            "-vf",
+            f"fps={WEBP_FPS},scale='min({WEBP_MAX_WIDTH},iw)':-2:force_original_aspect_ratio=decrease:flags=lanczos",
+            "-quality",
+            "90",
+            "-compression_level",
+            "4",
+            "-q:v",
+            str(WEBP_QUALITY),
+            "-loop",
+            "0",
+            "-an",
+            str(dest),
+        ],
+        [dest],
+    )
+
+
+def process_windows_asset_file(src: Path) -> None:
+    rel = src.relative_to(RAW_ASSETS_DIR)
+    base = rel.with_suffix("")
+    ext = src.suffix.lower()
+    size = src.stat().st_size
+    if ext == ".gif" or ext == ".webp":
+        process_windows_image(src, STATIC_DIR / rel)
+        return
+    if ext in {".jpg", ".jpeg", ".png"}:
+        if size <= MAX_ASSET_BYTES:
+            process_windows_image(src, STATIC_DIR / rel)
+        else:
+            width, height = image_dimensions(src)
+            if width > MAX_IMAGE_WIDTH or height > MAX_IMAGE_HEIGHT:
+                magick = ensure_tool("magick", "Install ImageMagick.")
+                dest = STATIC_DIR / base.with_suffix(".jpg")
+                ensure_parent_dir(dest)
+                run_command(
+                    [
+                        magick,
+                        str(src) + "[0]",
+                        "-auto-orient",
+                        "-resize",
+                        f"{MAX_IMAGE_WIDTH}x>",
+                        "-strip",
+                        "-quality",
+                        "100",
+                        str(dest),
+                    ]
+                )
+            else:
+                process_windows_image(src, STATIC_DIR / rel)
+        return
+    if ext == ".mp4":
+        convert_windows_video_to_mp4(src, STATIC_DIR / base.with_suffix(".mp4"))
+        convert_windows_video_to_webm(src, STATIC_DIR / base.with_suffix(".webm"))
+        convert_windows_video_to_ogv(src, STATIC_DIR / base.with_suffix(".ogv"))
+        convert_windows_video_to_webp(src, STATIC_DIR / base.with_suffix(".webp"))
+
+
+def run_prepare_assets_windows(slug: str | None = None, paths: List[str] | None = None) -> None:
+    targets: list[Path] = []
+    if paths:
+        targets = [(ROOT / path).resolve() for path in paths]
+    elif slug:
+        targets = [RAW_ASSETS_DIR / slugify(slug)]
+    else:
+        targets = [RAW_ASSETS_DIR]
+
+    files: list[Path] = []
+    for target in targets:
+        if target.is_dir():
+            files.extend(path for path in target.rglob("*") if path.is_file() and path.name != ".DS_Store")
+        elif target.is_file():
+            files.append(target)
+
+    for file_path in files:
+        process_windows_asset_file(file_path)
+
+
+def find_git_bash() -> str:
+    candidates = [
+        Path(os.environ.get("ProgramFiles", "")) / "Git" / "bin" / "bash.exe",
+        Path(os.environ.get("ProgramFiles(x86)", "")) / "Git" / "bin" / "bash.exe",
+        Path(os.environ.get("LocalAppData", "")) / "Programs" / "Git" / "bin" / "bash.exe",
+    ]
+    for candidate in candidates:
+        if str(candidate) and candidate.exists():
+            return str(candidate)
+    bash_on_path = shutil.which("bash")
+    if bash_on_path and os.path.normcase(bash_on_path) != os.path.normcase(str(Path(os.environ.get("SystemRoot", "C:\\Windows")) / "System32" / "bash.exe")):
+        return bash_on_path
+    raise FileNotFoundError("Git Bash was not found. Install Git for Windows or add its bash.exe to PATH.")
+
+
+def to_git_bash_path(bash_exe: str, path: Path) -> str:
+    return subprocess.check_output(
+        [bash_exe, "--noprofile", "--norc", "-lc", 'cygpath -u "$1"', "bash", str(path)],
+        text=True,
+    ).strip()
+
+
 def run_prepare_assets(slug: str | None = None, paths: List[str] | None = None) -> None:
+    if os.name == "nt":
+        run_prepare_assets_windows(slug=slug, paths=paths)
+        return
+    args: List[str] = []
     command = ["bash", str(PREPARE_SCRIPT)]
     if paths:
         for path in paths:
-            command.append(str((ROOT / path).resolve()))
+            args.append(str((ROOT / path).resolve()))
     elif slug:
-        command.append(str(RAW_ASSETS_DIR / slugify(slug)))
-    subprocess.run(command, cwd=str(ROOT), check=True)
+        args.append(str(RAW_ASSETS_DIR / slugify(slug)))
+    subprocess.run(command + args, cwd=str(ROOT), check=True)
 
 
 def handle_uploads(slug: str, form: cgi.FieldStorage) -> Dict:
@@ -460,7 +759,7 @@ def handle_uploads(slug: str, form: cgi.FieldStorage) -> Dict:
             shutil.copyfileobj(item.file, handle)
         saved.append(str(destination.relative_to(ROOT)).replace(os.sep, "/"))
 
-    run_prepare_assets(paths=saved)
+    run_prepare_assets(slug=safe_slug)
     return {
         "saved": saved,
         "image_options": list_image_options(),
@@ -811,6 +1110,41 @@ input, textarea, select {
   display: grid;
   gap: 0.75rem;
 }
+.body-insert {
+  display: flex;
+  justify-content: center;
+}
+.body-insert-menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding: 0.35rem 0.45rem;
+  border: 1px dashed var(--line);
+  border-radius: 999px;
+  background: #faf7f2;
+}
+.body-insert-actions {
+  display: inline-flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+.body-insert-actions[hidden] {
+  display: none;
+}
+.body-insert-toggle {
+  min-width: 2.2rem;
+  min-height: 2.2rem;
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+.body-insert-actions button {
+  padding: 0.45rem 0.7rem;
+  font-size: 0.85rem;
+  border-radius: 999px;
+}
 .body-block {
   border: 1px solid var(--line);
   border-radius: 0.75rem;
@@ -1101,10 +1435,52 @@ function blockVideoOptions(selected) {
   return html;
 }
 
+function defaultBlock(type = "markdown") {
+  if (type === "image") return { type: "image", path: "" };
+  if (type === "image_pair") return { type: "image_pair", left_path: "", right_path: "", split: "50" };
+  if (type === "video") return { type: "video", path: "" };
+  if (type === "youtube") return { type: "youtube", value: "" };
+  return { type: "markdown", content: "" };
+}
+
+function currentBodyBlocks() {
+  return [...els.bodyBlocks.querySelectorAll(".body-block")];
+}
+
+function createInsertControl(insertIndex) {
+  const wrap = document.createElement("div");
+  wrap.className = "body-insert";
+  wrap.dataset.insertIndex = String(insertIndex);
+  wrap.innerHTML = `
+    <div class="body-insert-menu">
+      <button class="body-insert-toggle" type="button" aria-expanded="false" aria-label="Add block here">+</button>
+      <div class="body-insert-actions" hidden>
+        <button type="button" data-block-type="markdown">Markdown</button>
+        <button type="button" data-block-type="image">Image</button>
+        <button type="button" data-block-type="image_pair">Image Pair</button>
+        <button type="button" data-block-type="video">Video</button>
+        <button type="button" data-block-type="youtube">YouTube</button>
+      </div>
+    </div>
+  `;
+  const toggle = wrap.querySelector(".body-insert-toggle");
+  const actions = wrap.querySelector(".body-insert-actions");
+  toggle.addEventListener("click", () => {
+    const isOpen = !actions.hasAttribute("hidden");
+    if (isOpen) actions.setAttribute("hidden", "");
+    else actions.removeAttribute("hidden");
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+  });
+  actions.querySelectorAll("button[data-block-type]").forEach((button) => {
+    button.addEventListener("click", () => insertBodyBlockAt(insertIndex, button.dataset.blockType));
+  });
+  return wrap;
+}
+
 function createBodyBlock(block = { type: "markdown", content: "" }) {
   const row = document.createElement("div");
   row.className = "body-block";
-  row.draggable = true;
+  row.draggable = false;
   row.dataset.type = block.type;
 
   let content = `<textarea class="body-block-markdown" rows="8">${escapeHtml(block.content || "")}</textarea>`;
@@ -1148,8 +1524,29 @@ function createBodyBlock(block = { type: "markdown", content: "" }) {
     ${content}
   `;
 
+  const dragHandle = row.querySelector(".drag-handle-button");
+  dragHandle.addEventListener("mousedown", () => {
+    row.draggable = true;
+  });
+  dragHandle.addEventListener("mouseup", () => {
+    row.draggable = false;
+  });
+  dragHandle.addEventListener("mouseleave", () => {
+    row.draggable = false;
+  });
+  dragHandle.addEventListener("keydown", (event) => {
+    if (event.key === " " || event.key === "Enter") {
+      row.draggable = true;
+    }
+  });
+  dragHandle.addEventListener("keyup", () => {
+    row.draggable = false;
+  });
   row.addEventListener("dragstart", () => row.classList.add("dragging"));
-  row.addEventListener("dragend", () => row.classList.remove("dragging"));
+  row.addEventListener("dragend", () => {
+    row.classList.remove("dragging");
+    row.draggable = false;
+  });
   row.addEventListener("dragover", (event) => {
     event.preventDefault();
     const dragging = els.bodyBlocks.querySelector(".dragging");
@@ -1159,10 +1556,8 @@ function createBodyBlock(block = { type: "markdown", content: "" }) {
     els.bodyBlocks.insertBefore(dragging, after ? row.nextSibling : row);
   });
   row.querySelector(".remove-block").addEventListener("click", () => {
-    row.remove();
-    if (!els.bodyBlocks.children.length) {
-      renderBodyBlocks([{ type: "markdown", content: "" }], []);
-    }
+    const remaining = currentBodyBlocks().filter((node) => node !== row);
+    renderBodyBlockNodes(remaining.length ? remaining : [createBodyBlock(defaultBlock("markdown"))]);
   });
   if (block.type === "image") {
     const select = row.querySelector(".body-block-image");
@@ -1191,14 +1586,26 @@ function createBodyBlock(block = { type: "markdown", content: "" }) {
   return row;
 }
 
-function renderBodyBlocks(blocks) {
+function renderBodyBlockNodes(blockNodes) {
   els.bodyBlocks.innerHTML = "";
-  blocks.forEach((block) => {
-    els.bodyBlocks.appendChild(createBodyBlock(block));
+  blockNodes.forEach((node, index) => {
+    els.bodyBlocks.appendChild(createInsertControl(index));
+    els.bodyBlocks.appendChild(node);
   });
-  if (!els.bodyBlocks.children.length) {
-    els.bodyBlocks.appendChild(createBodyBlock({ type: "markdown", content: "" }));
-  }
+  els.bodyBlocks.appendChild(createInsertControl(blockNodes.length));
+}
+
+function insertBodyBlockAt(index, type) {
+  const blockNodes = currentBodyBlocks();
+  const newBlock = createBodyBlock(defaultBlock(type));
+  const safeIndex = Math.max(0, Math.min(index, blockNodes.length));
+  blockNodes.splice(safeIndex, 0, newBlock);
+  renderBodyBlockNodes(blockNodes);
+}
+
+function renderBodyBlocks(blocks) {
+  const normalizedBlocks = blocks.length ? blocks : [defaultBlock("markdown")];
+  renderBodyBlockNodes(normalizedBlocks.map((block) => createBodyBlock(block)));
 }
 
 function startNewProject() {
@@ -1208,7 +1615,7 @@ function startNewProject() {
   els.form.reset();
   els.slug.disabled = false;
   renderImageOptions(state.imageOptions || [], "");
-  renderBodyBlocks([{ type: "markdown", content: "" }], []);
+  renderBodyBlocks([{ type: "markdown", content: "" }]);
   renderProjectList();
   showPanel("project");
 }
@@ -1351,7 +1758,21 @@ async function uploadFiles(files) {
     select.innerHTML = blockVideoOptions(current);
   });
   (result.new_blocks || []).forEach((block) => {
-    els.bodyBlocks.appendChild(createBodyBlock(block));
+    const insertAt = currentBodyBlocks().length;
+    insertBodyBlockAt(insertAt, block.type);
+    const inserted = currentBodyBlocks()[insertAt];
+    if (!inserted) return;
+    if (block.type === "image") {
+      const select = inserted.querySelector(".body-block-image");
+      const preview = inserted.querySelector(".body-block-preview");
+      if (select) {
+        select.value = block.path || "";
+        if (preview) updateImagePreview(select, preview);
+      }
+    } else if (block.type === "video") {
+      const select = inserted.querySelector(".body-block-video");
+      if (select) select.value = block.path || "";
+    }
   });
 }
 
@@ -1367,19 +1788,19 @@ els.saveHomeButton.addEventListener("click", saveHome);
 els.sidebarForm.addEventListener("submit", saveSidebar);
 els.homeImg.addEventListener("change", () => updateImagePreview(els.homeImg, els.homeImgPreview));
 els.addMarkdownBlock.addEventListener("click", () => {
-  els.bodyBlocks.appendChild(createBodyBlock({ type: "markdown", content: "" }));
+  insertBodyBlockAt(currentBodyBlocks().length, "markdown");
 });
 els.addImageBlock.addEventListener("click", () => {
-  els.bodyBlocks.appendChild(createBodyBlock({ type: "image", path: "" }));
+  insertBodyBlockAt(currentBodyBlocks().length, "image");
 });
 els.addImagePairBlock.addEventListener("click", () => {
-  els.bodyBlocks.appendChild(createBodyBlock({ type: "image_pair", left_path: "", right_path: "", split: "50" }));
+  insertBodyBlockAt(currentBodyBlocks().length, "image_pair");
 });
 els.addVideoBlock.addEventListener("click", () => {
-  els.bodyBlocks.appendChild(createBodyBlock({ type: "video", path: "" }));
+  insertBodyBlockAt(currentBodyBlocks().length, "video");
 });
 els.addYoutubeBlock.addEventListener("click", () => {
-  els.bodyBlocks.appendChild(createBodyBlock({ type: "youtube", value: "" }));
+  insertBodyBlockAt(currentBodyBlocks().length, "youtube");
 });
 
 ["dragenter", "dragover"].forEach((type) => {
@@ -1414,6 +1835,30 @@ refreshProjects().catch((error) => {
 
 class CMSHandler(BaseHTTPRequestHandler):
     server_version = "FerfolioCMS/0.1"
+
+    def handle(self) -> None:
+        try:
+            super().handle()
+        except Exception:
+            error_log = CMS_DIR / "server-errors.log"
+            error_log.parent.mkdir(parents=True, exist_ok=True)
+            with error_log.open("a", encoding="utf-8") as handle:
+                handle.write(traceback.format_exc())
+                handle.write("\n")
+            raise
+
+    def log_message(self, format: str, *args) -> None:
+        try:
+            message = "%s - - [%s] %s\n" % (
+                self.address_string(),
+                self.log_date_time_string(),
+                format % args,
+            )
+            print(message, end="", flush=True)
+        except Exception:
+            # Avoid breaking responses if the process was launched without a
+            # usable console stream, which can happen on Windows.
+            pass
 
     def _send(self, status=HTTPStatus.OK, body="", content_type="text/plain; charset=utf-8"):
         if isinstance(body, str):

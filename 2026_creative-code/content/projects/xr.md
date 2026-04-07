@@ -1,15 +1,15 @@
 +++
 draft = false
 title = "XR and Spatial "
-home_img = ""
-home_title = "XR / Spatial Work"
-home_subtitle = "Tilt Brush, Supernatural"
+home_img = "projects/raymarching/vlcsnap-2026-01-26-16h59m06s373.jpg"
+home_title = "XR / Spatial Work for Tilt Brush, Supernatural and Independent Projects"
+home_subtitle = "XR Prototyping, Unity"
 side = """
 Skills:
 XR Development
 Unity
 """
-description = "This is a summary of Spatial-specific work I’ve done around prototyping, rendering and experimental UX."
+description = "This is a summary of XR+Spatial-specific work I’ve done around prototyping, rendering and experimental immersive play."
 +++
 
 {{< img "projects/xr/image(1).jpg" "" >}}
@@ -20,17 +20,19 @@ I was part of a contractor R&D team working on new XR prototypes for Meta’s Su
 - Creative shaders, “Beauty” passes, Tech Art
 - Iterating on new forms of movement
 
+---
+
 {{< youtube "4bQf1ZI3zeA" >}}
 
 ## Tilt Brush, Google (2018)
 
-I worked on R&D prototypes for new features for Tilt Brush, ncluding:
+I worked on R&D prototypes for new features for the VR drawing app [Tilt Brush](https://www.youtube.com/watch?v=TckqNdrdbgk) as a contractor at Google, including:
 
 - Audio Reactive brushes
 - Drawing Volumetric rigid bodies
 - Procedural strokes
 - Interactive Storytelling
-- Open-source toolset for artists to use their drawings in Unity
+- An [open-source toolset](https://github.com/googlevr/tilt-brush-toolkit) for artists to use their drawings in Unity
 
 {{< imgpair "projects/xr/tb_stamps.gif" "projects/xr/tb_toolkit1.gif" "50" >}}
 
@@ -39,15 +41,11 @@ I worked on R&D prototypes for new features for Tilt Brush, ncluding:
 {{< youtube "VZ2q4uBli1k" >}}
 
 ## Panoramical VR, Independent Project (2017)
-I created experimental interfaces for an audiovisual environment, as a “Vjay” of the world around you.
+I created a prototype for an immersive audiovisual environment, where you play as a “VJ" of the world around you.
 
-I often explore and implement the artistic possibilities of novel rendering methods.
-
-- Custom rendering passes, using equations instead of polygons
-- Non photorealistic rendering, Splats
-- Visually interesting shader work
+---
 
 {{< video "projects/xr/raymarching_vr_2.mp4" >}}
 
-## Realtime Raymarching
+## Realtime Raymarching (2026)
 I experimented with the possibilities of using equations instead of polygons to create 3D shapes in VR using a technique called Raymarching.

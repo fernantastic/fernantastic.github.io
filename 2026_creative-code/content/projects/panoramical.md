@@ -2,12 +2,14 @@
 draft = false
 title = "PANORAMICAL"
 home_img = "projects/panoramical/pano1.jpg"
-home_title = "Panoramical - Arthouse Game"
-home_subtitle = "Immersive experience, shown in 50+ exhibits"
+home_title = "Panoramical - Immersive experience shown in 50+ exhibits"
+home_subtitle = "Game Development, Art Direction, Exhibit Display"
 side = """
 Roles:
-Game Design
 Game Development
+Art Direction
+Technical Art
+Exhibit Display
 """
 description = """
 Panoramical (2015) is a collection of playful interactive landscapes: part art installation, part musical instrument.
@@ -16,7 +18,8 @@ Panoramical (2015) is a collection of playful interactive landscapes: part art i
 - Released on Steam as a downloadable game
 - Shaders, particle VFX, lots of custom Technical Art
 
-* [Exhibition website, with all the 52+ exhibits](https://byfernando.com/panoramical_2025/)
+For more information:
+* [Full Exhibition Website, with all the 52+ exhibits](https://byfernando.com/panoramical_2025/)
 """
 +++
 

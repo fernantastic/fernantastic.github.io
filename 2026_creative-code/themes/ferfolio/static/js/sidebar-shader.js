@@ -75,6 +75,15 @@
       const positionLocation = gl.getAttribLocation(program, "a_position");
       const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
       const timeLocation = gl.getUniformLocation(program, "u_time");
+      const scrollLocation = gl.getUniformLocation(program, "u_scroll");
+
+      const scrollProgress = () => {
+        const maxScroll = Math.max(
+          1,
+          document.documentElement.scrollHeight - window.innerHeight
+        );
+        return window.scrollY / maxScroll;
+      };
 
       const render = (time) => {
         resize();
@@ -88,6 +97,9 @@
         }
         if (timeLocation) {
           gl.uniform1f(timeLocation, time * 0.001);
+        }
+        if (scrollLocation) {
+          gl.uniform1f(scrollLocation, scrollProgress());
         }
 
         gl.drawArrays(gl.TRIANGLES, 0, 6);

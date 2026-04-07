@@ -2,6 +2,7 @@ precision mediump float;
 
 varying vec2 v_uv;
 uniform float u_time;
+uniform float u_scroll;
 
 vec3 tanh_approx(vec3 x) {
   vec3 a = exp(x);
@@ -14,9 +15,9 @@ void main() {
   vec3 c = vec3(0,0,0);
   for(int i = 0; i < 36; i++)
   {
-    c.x += uv.x ;
+    c.x += uv.x;
     c.y += sin(uv.y + u_time * 0.2) * 0.8;
-    c.z += cos(uv.x + .4 + u_time * 0.3) * .6;
+    c.z += cos(uv.x + .4 + u_time * 0.3 + u_scroll * 2.6) * .6;
     
   }
   c = tanh_approx(c * c / 4e2);

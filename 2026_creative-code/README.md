@@ -39,6 +39,32 @@ Build production output:
 hugo --gc --minify
 ```
 
+Prepare generated static assets:
+
+```bash
+./prepare-static-assets.sh
+```
+
+Run the local CMS helper:
+
+```bash
+./run-cms.sh
+```
+
+## Windows
+
+The asset/build scripts still use the bash versions as the source of truth, but the CMS launcher uses native Windows Python so it behaves reliably on Windows.
+
+Use these from `cmd.exe` or PowerShell:
+
+```bat
+prepare-static-assets.bat
+run-cms.bat
+build.bat
+```
+
+`prepare-static-assets.bat` and `build.bat` need Git Bash. If Git Bash is not in the default Git for Windows install location, add its `bash.exe` to your `PATH`.
+
 Generated output goes to `public/`.
 
 ## Project Structure

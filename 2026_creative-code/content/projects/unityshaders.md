@@ -6,17 +6,20 @@ home_title = "Creative Graphics and Realtime Visual Effects"
 home_subtitle = "Shader Programming, Technical Art, Custom Tools"
 side = """
 Skills:
+Technical Art
 Graphics Programming
 Compute Shaders
 GLSL
 Unity
 """
 description = """
-I enjoy Graphics Programming with an eye for aesthetics. I work on custom tools and implement rendering effects.
+I enjoy Graphics Programming with an eye for aesthetics. 
 
-- Non Photorealistic Rendering
+I work on custom tools and implement custom rendering effects in GLSL, Unity and Three.JS/WebGPU.
+
 - Shader based Effects for Games
-- Atmospheric Effects, Fog
+- Non Photorealistic Rendering
+- Custom Art Pipelines and Editors
 """
 +++
 
@@ -31,5 +34,3 @@ I enjoy Graphics Programming with an eye for aesthetics. I work on custom tools 
 {{< img "projects/raymarching/chara.gif" "" >}}
 
 {{< imgpair "projects/raymarching/raymarching1.png" "projects/unityshaders/outline.gif" "47" >}}
-
-{{< img "projects/raymarching/vlcsnap-2026-01-26-16h59m06s373.jpg" "" >}}
