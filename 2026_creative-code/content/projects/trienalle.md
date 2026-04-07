@@ -1,7 +1,7 @@
 +++
 draft = false
 title = "Trienalle Game Collection: Vol. 2 (2022)"
-home_img = "projects/queerspace/qs.gif"
+home_img = "projects/queerspace/qs.jpg"
 home_title = "Arthouse Game for the Trienalle di Milano Interactive Exhibit"
 home_subtitle = "Visual Effects, Songwriting, Mobile Game Development"
 side = """
