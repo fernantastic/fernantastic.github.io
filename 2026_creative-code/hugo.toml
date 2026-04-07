@@ -2,4 +2,4 @@ languageCode = 'en-us'
 title = 'Fernando Ramallo'
 theme = 'ferfolio'
 disableKinds = ['taxonomy', 'term']
-relativeURLs = true
+relativeURLs = false

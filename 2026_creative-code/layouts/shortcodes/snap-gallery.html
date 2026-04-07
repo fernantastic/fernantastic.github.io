@@ -11,7 +11,7 @@
   {{ with resources.Get "css/snap-gallery.css" }}
   <link rel="stylesheet" href="{{ .RelPermalink }}" crossorigin="anonymous">
   {{ end }}
-  <script src="/js/snap-gallery.js"></script>
+  <script src="{{ "js/snap-gallery.js" | relURL }}"></script>
 {{- end -}}
 
 {{/*  Initialise index of this gallery  */}}

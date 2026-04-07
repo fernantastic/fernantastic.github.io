@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-hugo build --gc --minify --baseURL "https://byfernando.com/2026/"
+hugo build --gc --minify --config "hugo.toml,hugo.github.toml"
