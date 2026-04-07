@@ -29,8 +29,8 @@ body {
 
 .shell {
   width: 100%;
-  margin: 0 0 0 0;
-  padding: 0rem 1.5rem 4rem;
+  margin: 0 0 2rem 4;
+  padding: 0rem 1.5rem 0rem;
   display: grid;
   grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
   gap: 3rem;
@@ -54,13 +54,27 @@ body {
 }
 
 .sidebar-inner {
-  max-height: 100vh;
   padding: 1.2rem 0;
-  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-content {
   font-size: 1.1rem;
+}
+
+.sidebar-footer-row {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sidebar-footer-row ul {
+  margin: 0;
+  min-width: 0;
 }
 
 .sidebar-shader-link {
@@ -85,6 +99,20 @@ body {
   min-width: 0;
   max-width: 100%;
   padding: 1.5rem 0 6rem;
+}
+
+.corner-gif {
+  width: 6.5rem;
+  pointer-events: none;
+  padding-right: 2rem;
+}
+
+.corner-gif-canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: auto;
+  opacity: 0.3;
 }
 
 .stack > * + * {
@@ -128,8 +156,24 @@ ul {
   padding-left: 2.5rem;
   line-height: 1.7rem;
 }
+
+ul li {
+  position: relative;
+}
+
 ul li::marker {
-  content: "🞑  ";
+  content: "";
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  left: -1.25rem;
+  top: 0.48em;
+  width: 0.62rem;
+  height: 0.62rem;
+  border: 0.2rem solid currentColor;
+  box-sizing: border-box;
 }
 
 .content > :first-child {
@@ -345,6 +389,14 @@ img {
     padding-top: 0;
   }
 
+  .corner-gif {
+    width: 4rem;
+  }
+
+  .sidebar-footer-row {
+    gap: 0.5rem;
+  }
+
   .project-summary {
     grid-template-columns: 1fr;
     gap: 1rem;
@@ -354,15 +406,4 @@ img {
     grid-template-columns: 1fr;
   }
 
-  .project-pagination {
-    grid-template-columns: 1fr;
-  }
-
-  .project-pagination-slot-right {
-    text-align: left;
-  }
-
-  .project-pagination-link-next {
-    align-items: flex-start;
-  }
 }

@@ -2,12 +2,21 @@
 <html lang="{{ site.Language.LanguageCode | default `en` }}">
   {{ $sidebar := site.GetPage "/_sidebar" }}
   {{ $homeURL := "/" | relURL }}
+  {{ $cornerGifs := slice }}
+  {{ with readDir "static/corner" }}
+    {{ range . }}
+      {{ if and (not .IsDir) (eq (lower (path.Ext .Name)) ".gif") }}
+        {{ $cornerGifs = $cornerGifs | append (printf "corner/%s" .Name) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} | {{ site.Title }}{{ end }}</title>
+    <title>{{ site.Title }}</title>
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
     <script src="{{ "js/sidebar-shader.js" | relURL }}" defer></script>
+    <script src="{{ "js/sidebar-corner.js" | relURL }}" defer></script>
   </head>
   <body>
     <div class="shell">
@@ -29,6 +38,15 @@
           {{ else }}
             <div class="sidebar-content">
               <p>Sidebar content not found.</p>
+            </div>
+          {{ end }}
+          {{ if gt (len $cornerGifs) 0 }}
+            <div
+              class="corner-gif"
+              data-corner-gifs='{{ jsonify $cornerGifs }}'
+              aria-hidden="true"
+            >
+              <canvas class="corner-gif-canvas"></canvas>
             </div>
           {{ end }}
         </div>
