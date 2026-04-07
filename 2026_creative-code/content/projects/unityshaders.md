@@ -1,7 +1,7 @@
 +++
 draft = false
 title = "Creative Graphics and Realtime Visual Effects"
-home_img = "projects/unityshaders/terrain.gif"
+home_img = "projects/unityshaders/Oct-11-2025 15-56-57.gif"
 home_title = "Creative Graphics and Realtime Visual Effects"
 home_subtitle = "Shader Programming, Technical Art, Custom Tools"
 side = """
