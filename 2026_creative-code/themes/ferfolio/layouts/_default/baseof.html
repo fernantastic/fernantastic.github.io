@@ -14,6 +14,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ site.Title }}</title>
+    <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
+    <link rel="icon" type="image/png" href="{{ "favicon.png" | relURL }}">
     <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
     <script src="{{ "js/sidebar-shader.js" | relURL }}" defer></script>
     <script src="{{ "js/sidebar-corner.js" | relURL }}" defer></script>
@@ -27,7 +29,6 @@
             <div class="sidebar-shader-frame">
               <canvas
                 class="sidebar-shader-canvas"
-                data-sidebar-shader="{{ "shaders/sidebar.frag" | relURL }}"
               ></canvas>
             </div>
           </a>

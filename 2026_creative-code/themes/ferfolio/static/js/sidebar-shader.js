@@ -1,4 +1,5 @@
 (() => {
+  const scriptURL = document.currentScript ? new URL(document.currentScript.src, window.location.href) : null;
   const canvas = document.querySelector(".sidebar-shader-canvas");
   if (!canvas) return;
 
@@ -40,7 +41,9 @@
     }
   };
 
-  fetch(canvas.dataset.sidebarShader)
+  const shaderURL = scriptURL ? new URL("../shaders/sidebar.frag", scriptURL).href : "shaders/sidebar.frag";
+
+  fetch(shaderURL)
     .then((response) => response.text())
     .then((fragmentSource) => {
       const vertexShader = compileShader(gl.VERTEX_SHADER, vertexSource);
