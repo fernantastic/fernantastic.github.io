@@ -22,6 +22,16 @@ cleanup() {
 # Register the cleanup trap
 trap cleanup EXIT SIGINT SIGTERM
 
+should_prepare_static_assets() {
+  local hugo_env="${HUGO_ENVIRONMENT:-${HUGO_ENV:-production}}"
+
+  if [[ -n "${CI:-}" || -n "${CF_PAGES:-}" || -n "${CLOUDFLARE_ACCOUNT_ID:-}" ]]; then
+    return 1
+  fi
+
+  [[ "${hugo_env}" == "development" ]]
+}
+
 main() {
   # Define tool versions
   DART_SASS_VERSION=1.98.0
@@ -83,7 +93,12 @@ main() {
 
   # Build the site
   echo "Building the site..."
-  bash ./prepare-static-assets.sh
+  if should_prepare_static_assets; then
+    echo "Running local development asset preparation..."
+    bash ./prepare-static-assets.sh
+  else
+    echo "Skipping asset preparation for non-local or non-development build."
+  fi
   hugo build --gc --minify
 }
 
