@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.LanguageCode | default `en` }}">
   {{ $sidebar := site.GetPage "/_sidebar" }}
-  {{ $homeURL := "/" | relURL }}
+  {{ $homeURL := site.Home.RelPermalink }}
   {{ $cornerGifs := slice }}
   {{ with readDir "static/corner" }}
     {{ range . }}
