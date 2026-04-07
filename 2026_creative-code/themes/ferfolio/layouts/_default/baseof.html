@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.LanguageCode | default `en` }}">
   {{ $sidebar := site.GetPage "/_sidebar" }}
-  {{ $homeURL := "/" | relURL }}
+  {{ $homeURL := site.Home.RelPermalink }}
   {{ $cornerGifs := slice }}
   {{ with readDir "static/corner" }}
     {{ range . }}
       {{ if and (not .IsDir) (eq (lower (path.Ext .Name)) ".gif") }}
-        {{ $cornerGifs = $cornerGifs | append (printf "corner/%s" .Name) }}
+        {{ $cornerGifs = $cornerGifs | append ((printf "corner/%s" .Name) | absURL) }}
       {{ end }}
     {{ end }}
   {{ end }}
@@ -14,11 +14,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ site.Title }}</title>
-    <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
-    <link rel="icon" type="image/png" href="{{ "favicon.png" | relURL }}">
-    <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
-    <script src="{{ "js/sidebar-shader.js" | relURL }}" defer></script>
-    <script src="{{ "js/sidebar-corner.js" | relURL }}" defer></script>
+    <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="any">
+    <link rel="icon" type="image/png" href="{{ "favicon.png" | absURL }}">
+    <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
+    <script src="{{ "js/sidebar-shader.js" | absURL }}" defer></script>
+    <script src="{{ "js/sidebar-corner.js" | absURL }}" defer></script>
   </head>
   <body>
     <div class="shell">
@@ -29,6 +29,7 @@
             <div class="sidebar-shader-frame">
               <canvas
                 class="sidebar-shader-canvas"
+                data-sidebar-shader='{{ "shaders/sidebar.frag" | absURL }}'
               ></canvas>
             </div>
           </a>

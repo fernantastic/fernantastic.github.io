@@ -2,6 +2,16 @@
   const cornerRoot = document.querySelector(".corner-gif");
   const sidebarContent = document.querySelector(".sidebar-content");
 
+  const showStaticCornerGif = (canvas, path) => {
+    if (!canvas) return;
+    const img = document.createElement("img");
+    img.src = path;
+    img.alt = "";
+    img.className = "corner-gif-canvas";
+    img.decoding = "async";
+    canvas.replaceWith(img);
+  };
+
   if (cornerRoot && sidebarContent) {
     const footerList = sidebarContent.querySelector("ul:last-of-type");
     if (footerList) {
@@ -43,15 +53,21 @@
       chosenIndex = hash % gifPaths.length;
     }
     const chosenPath = gifPaths[chosenIndex];
-    const response = await fetch(chosenPath.startsWith("/") ? chosenPath : `/${chosenPath}`);
+    const response = await fetch(chosenPath);
     if (!response.ok) {
       throw new Error(`Failed to load ${chosenPath}`);
     }
 
     const bytes = await response.arrayBuffer();
     const type = response.headers.get("content-type") || "image/gif";
-    const decoder = new ImageDecoder({ data: bytes, type });
-    await decoder.tracks.ready;
+    let decoder;
+    try {
+      decoder = new ImageDecoder({ data: bytes, type });
+      await decoder.tracks.ready;
+    } catch (_error) {
+      showStaticCornerGif(canvas, chosenPath);
+      return;
+    }
 
     const track = decoder.tracks.selectedTrack;
     const frameCount = Math.max(1, track.frameCount || 1);
@@ -91,5 +107,16 @@
 
   setupCornerGif().catch((error) => {
     console.error("Failed to set up corner gif", error);
+    const canvas = cornerRoot ? cornerRoot.querySelector(".corner-gif-canvas") : null;
+    if (canvas && cornerRoot?.dataset.cornerGifs) {
+      try {
+        const gifPaths = JSON.parse(cornerRoot.dataset.cornerGifs || "[]");
+        if (gifPaths.length > 0) {
+          showStaticCornerGif(canvas, gifPaths[0]);
+          return;
+        }
+      } catch (_ignored) {
+      }
+    }
   });
 })();
