@@ -5,9 +5,9 @@ url = "/"
 
 {{< homeproject "unityshaders" >}}
 
-{{< homeproject "doodleworld" >}}
-
 {{< homeproject "vibecoding" >}}
+
+{{< homeproject "doodleworld" >}}
 
 {{< homeproject "panoramical" >}}
 

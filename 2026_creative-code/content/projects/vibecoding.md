@@ -1,7 +1,7 @@
 +++
 draft = false
 title = "How I work with LLMs"
-home_img = "projects/misc/projector_2.png"
+home_img = "projects/vibecoding/planegame2.png"
 home_title = "LLM-Powered Work"
 home_subtitle = "Custom Software, Agentic Coding Workflows"
 side = """
@@ -16,6 +16,27 @@ I use LLMs and agents as part of my daily coding workflow for making creative so
 I've been making lifestyle software from tiny tools to shippable products.
 """
 +++
+
+### World Editing Tools
+
+A suite of editors for prototying a planetary exploration game. A world map is projected onto a spherical world the player can fly around in.
+
+Includes:
+* WebGPU in-browser shader editor
+* Three.js-based 2D map visualizations
+* Custom Data Format Serialization, synchronized across editors
+* 3D  object placement tools.
+* Unity plugin
+
+{{< imgpair "projects/vibecoding/planegame3.png" "projects/vibecoding/planegame5.png" "62" >}}
+
+{{< img "projects/vibecoding/planegame1.png" "" >}}
+
+{{< img "projects/vibecoding/planegame2.png" "" >}}
+
+{{< img "projects/vibecoding/planegame4.png" "" >}}
+
+---
 
 ### Media Center with CRT Filters
 
@@ -45,3 +66,5 @@ Warps the image of your display when casting to a projector, to correct the pers
 My projector doesn't have keystone controls and I wanted a simple way to warp the image myself.
 
 {{< img "projects/projectorfix/scr2.jpg" "" >}}
+
+---
