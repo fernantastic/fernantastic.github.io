@@ -29,7 +29,7 @@
       <description>&lt;figure class=&#34;project-image&#34;&gt;&#xA;  &lt;img&#xA;    src=&#34;//localhost:1313/projects/lookingglass/lkg_aquarium.jpg&#34;&#xA;    alt=&#34;projects/lookingglass/lkg_aquarium.jpg&#34;&#xA;    style=&#34;width:100%; height:auto; display:block; margin:auto;&#34;&#xA;  &gt;&#xA;  &#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&lt;figure class=&#34;project-image&#34;&gt;&#xA;  &lt;img&#xA;    src=&#34;//localhost:1313/projects/lookingglass/aquarium.webp&#34;&#xA;    alt=&#34;projects/lookingglass/aquarium.webp&#34;&#xA;    style=&#34;width:100%; height:auto; display:block; margin:auto;&#34;&#xA;  &gt;&#xA;  &#xA;&lt;/figure&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;  &#xA;  &#xA;&#xA;  &#xA;  &#xA;&#xA;  &#xA;  &#xA;    &#xA;  &#xA;&#xA;  &#xA;  &#xA;&#xA;  &#xA;  &#xA;&#xA;&#xA;&lt;figure class=&#34;project-video&#34;&gt;&#xA;  &lt;video controls playsinline preload=&#34;metadata&#34;&gt;&#xA;    &#xA;      &#xA;      &#xA;      &#xA;      &#xA;      &#xA;      &#xA;      &#xA;      &lt;source src=&#34;//localhost:1313/projects/lookingglass/diorama.mp4&#34; type=&#34;video/mp4&#34;&gt;&#xA;    &#xA;    Your browser does not support the video tag.&#xA;  &lt;/video&gt;&#xA;&lt;/figure&gt;</description>
     </item>
     <item>
-      <title>How I work with LLMs</title>
+      <title>LLM-Powered Coding </title>
       <link>//localhost:1313/projects/vibecoding/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//localhost:1313/projects/vibecoding/</guid>

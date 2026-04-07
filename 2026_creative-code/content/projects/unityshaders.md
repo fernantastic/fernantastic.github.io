@@ -9,15 +9,16 @@ Skills:
 Technical Art
 Graphics Programming
 Compute Shaders
-GLSL
+GLSL/HLSL
 Unity
+Three.js
 """
 description = """
-I enjoy Graphics Programming with an eye for aesthetics. 
+I enjoy Graphics Programming and building tools with an eye for aesthetics and creativity. 
 
-I work on custom tools and implement custom rendering effects in GLSL, Unity and Three.JS/WebGPU.
+I'm thrilled by the possibilities of realtime rendering and creative software, including building:
 
-- Shader based Effects for Games
+- Shader based Effects
 - Non Photorealistic Rendering
 - Custom Art Pipelines and Editors
 """

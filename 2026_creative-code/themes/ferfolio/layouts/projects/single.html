@@ -1,6 +1,19 @@
 {{ define "main" }}
-  {{ $pages := where site.RegularPages "Section" "projects" }}
-  {{ $sorted := $pages.ByTitle }}
+  {{ $homePage := site.GetPage "/" }}
+  {{ $ordered := slice }}
+  {{ with $homePage }}
+    {{ $matches := findRE `\{\{<\s*homeproject\s+"([^"]+)"\s*>\}\}` .RawContent }}
+    {{ range $matches }}
+      {{ $slug := replaceRE `^\{\{<\s*homeproject\s+"([^"]+)"\s*>\}\}$` "$1" . }}
+      {{ with site.GetPage (printf "/projects/%s" $slug) }}
+        {{ $ordered = $ordered | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ $sorted := $ordered }}
+  {{ if eq (len $sorted) 0 }}
+    {{ $sorted = (where site.RegularPages "Section" "projects").ByTitle }}
+  {{ end }}
   {{ $currentIndex := -1 }}
   {{ range $index, $page := $sorted }}
     {{ if eq $page.RelPermalink $.RelPermalink }}
@@ -9,9 +22,7 @@
   {{ end }}
   {{ $next := false }}
   {{ if ge $currentIndex 0 }}
-    {{ if lt (add $currentIndex 1) (len $sorted) }}
-      {{ $next = index $sorted (add $currentIndex 1) }}
-    {{ end }}
+    {{ $next = index $sorted (mod (add $currentIndex 1) (len $sorted)) }}
   {{ end }}
   <article class="stack">
   

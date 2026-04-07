@@ -1,6 +1,6 @@
 +++
 draft = false
-title = "How I work with LLMs"
+title = "LLM-Powered Coding "
 home_img = "projects/vibecoding/planegame2.png"
 home_title = "LLM-Powered Work"
 home_subtitle = "Custom Software, Agentic Coding Workflows"
