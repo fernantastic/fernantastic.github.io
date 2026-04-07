@@ -40,8 +40,8 @@ body {
 .sidebar {
   min-width: 0;
   position: sticky;
-  top: 0;
-  align-self: start;
+  bottom: 0;
+  align-self: end;
 }
 
 .sidebar-name {
@@ -98,7 +98,7 @@ body {
 .page {
   min-width: 0;
   max-width: 100%;
-  padding: 1.5rem 0 6rem;
+  padding: 1.5rem 0 3rem;
 }
 
 .corner-gif {
