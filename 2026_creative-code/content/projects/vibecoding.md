@@ -1,9 +1,9 @@
 +++
 draft = false
-title = "LLM-Powered Coding "
+title = "Agentic Coding "
 home_img = "projects/vibecoding/planegame2.png"
-home_title = "LLM-Powered Work"
-home_subtitle = "Custom Software, Agentic Coding Workflows"
+home_title = "Agentic Coding"
+home_subtitle = "Custom Software using Codex/GPT5.4"
 side = """
 Software:
 GPT 5.4
