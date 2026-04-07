@@ -1,5 +1,4 @@
 (() => {
-  const scriptURL = document.currentScript ? new URL(document.currentScript.src, window.location.href) : null;
   const canvas = document.querySelector(".sidebar-shader-canvas");
   if (!canvas) return;
 
@@ -41,10 +40,16 @@
     }
   };
 
-  const shaderURL = scriptURL ? new URL("../shaders/sidebar.frag", scriptURL).href : "shaders/sidebar.frag";
+  const shaderURL = canvas.dataset.sidebarShader;
+  if (!shaderURL) return;
 
   fetch(shaderURL)
-    .then((response) => response.text())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to load shader: ${response.status} ${response.statusText}`);
+      }
+      return response.text();
+    })
     .then((fragmentSource) => {
       const vertexShader = compileShader(gl.VERTEX_SHADER, vertexSource);
       const fragmentShader = compileShader(gl.FRAGMENT_SHADER, fragmentSource);

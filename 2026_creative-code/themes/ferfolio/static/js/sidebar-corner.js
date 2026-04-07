@@ -43,7 +43,7 @@
       chosenIndex = hash % gifPaths.length;
     }
     const chosenPath = gifPaths[chosenIndex];
-    const response = await fetch(chosenPath.startsWith("/") ? chosenPath : `/${chosenPath}`);
+    const response = await fetch(chosenPath);
     if (!response.ok) {
       throw new Error(`Failed to load ${chosenPath}`);
     }

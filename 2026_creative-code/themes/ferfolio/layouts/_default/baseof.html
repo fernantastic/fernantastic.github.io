@@ -6,7 +6,7 @@
   {{ with readDir "static/corner" }}
     {{ range . }}
       {{ if and (not .IsDir) (eq (lower (path.Ext .Name)) ".gif") }}
-        {{ $cornerGifs = $cornerGifs | append (printf "corner/%s" .Name) }}
+        {{ $cornerGifs = $cornerGifs | append ((printf "corner/%s" .Name) | relURL) }}
       {{ end }}
     {{ end }}
   {{ end }}
@@ -29,6 +29,7 @@
             <div class="sidebar-shader-frame">
               <canvas
                 class="sidebar-shader-canvas"
+                data-sidebar-shader='{{ "shaders/sidebar.frag" | relURL }}'
               ></canvas>
             </div>
           </a>

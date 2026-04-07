@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "Google Sans";
-  src: url("/fonts/GoogleSans-Regular.ttf") format("truetype");
+  src: url("../fonts/GoogleSans-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
