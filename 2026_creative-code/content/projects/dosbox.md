@@ -18,3 +18,9 @@ With the help of Codex/GPT5.4 I was able to iterate quickly on gameplay, physics
 +++
 
 {{< img "projects/dosbox/dosbox.gif" "" >}}
+
+{{< img "projects/dosbox/FrameScrubber-20260408-132638-516.jpg" "" >}}
+
+{{< img "projects/dosbox/FrameScrubber-20260408-132714-710.jpg" "" >}}
+
+
