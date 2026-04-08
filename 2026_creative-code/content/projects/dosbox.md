@@ -12,9 +12,14 @@ Codex
 [UnityHawk](https://github.com/plunderludics/unity-hawk)
 """
 description = """
+What if you could play old DOS games in orbit?   
+**DOS JUNK** is an experiment: part emulator front-end, part chaotic art piece.
+
 A small art project to test the possibilities of browsing an entire DOS games library in new ways.
 
-Multiple DOS emulators are run simultaneously and shown floating in space. Features a fully working IBM PC keyboard.
+DOS emulators run simultaneously and the player switches between them on an PC-Keyboard spacecraft.
+
+
 """
 +++
 
@@ -23,5 +28,7 @@ Multiple DOS emulators are run simultaneously and shown floating in space. Featu
 {{< img "projects/dosbox/FrameScrubber-20260408-132638-516.jpg" "" >}}
 
 {{< img "projects/dosbox/FrameScrubber-20260408-132714-710.jpg" "" >}}
+
+{{< img "projects/dosbox/FrameScrubber-20260408-131831-425.jpg" "" >}}
 
 
