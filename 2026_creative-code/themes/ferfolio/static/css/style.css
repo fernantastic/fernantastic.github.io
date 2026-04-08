@@ -29,19 +29,21 @@ body {
 
 .shell {
   width: 100%;
-  margin: 0 0 2rem 4;
+  margin: 0 auto 2rem auto;
   padding: 0rem 1.5rem 0rem;
   display: grid;
   grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
   gap: 3rem;
   align-items: start;
+  max-width: 100rem;
 }
 
 .sidebar {
   min-width: 0;
   position: sticky;
-  bottom: 0;
-  align-self: end;
+  top: 0;
+  align-self: start;
+  padding-bottom: 2rem;
 }
 
 .sidebar-name {
@@ -368,7 +370,7 @@ img {
   letter-spacing: 0.04em;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 49rem) {
   .shell {
     grid-template-columns: 1fr;
     gap: 2rem;
