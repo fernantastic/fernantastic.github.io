@@ -9,11 +9,12 @@ Skills:
 Technical Art
 Unity
 Codex
+[UnityHawk](https://github.com/plunderludics/unity-hawk)
 """
 description = """
 A small art project to test the possibilities of browsing an entire DOS games library in new ways.
 
-With the help of Codex/GPT5.4 I was able to iterate quickly on gameplay, physics and backend work and have more time for art direction.
+Multiple DOS emulators are run simultaneously and shown floating in space. Features a fully working IBM PC keyboard.
 """
 +++
 

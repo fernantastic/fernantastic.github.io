@@ -33,7 +33,7 @@
           <div class="project-description project-content">{{ . | markdownify }}</div>
         {{ end }}
         {{ with .Params.side }}
-          <div class="project-side">{{ . | strings.TrimSpace | replaceRE "\r?\n" "<br>" | safeHTML }}</div>
+          <div class="project-side">{{ . | replaceRE "\r?\n" "  \n" | markdownify }}</div>
         {{ end }}
       </div>
     </header>
