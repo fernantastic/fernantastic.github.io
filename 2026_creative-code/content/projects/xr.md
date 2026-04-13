@@ -7,6 +7,7 @@ home_subtitle = "XR Prototyping, Unity"
 side = """
 Skills:
 XR Development
+Mixed Reality
 Unity
 """
 description = "This is a summary of XR+Spatial-specific work I’ve done around prototyping, rendering and experimental immersive play."
@@ -49,3 +50,10 @@ I created a prototype for an immersive audiovisual environment, where you play a
 
 ## Realtime Raymarching (2026)
 I experimented with the possibilities of using equations instead of polygons to create 3D shapes in VR using a technique called Raymarching.
+
+---
+
+## Other XR Work
+
+- Prototypes for Multiplayer title [Half + Half](www.meta.com/experiences/half-half/2035353573194060/)
+- Technical Art and Mixed Reality development for [Stranger Things VR](https://www.meta.com/experiences/half-half/2035353573194060/)

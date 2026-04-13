@@ -4,15 +4,17 @@ render = "never"
 list = "never"
 +++
 
-I'm an expert **Creative Technologist** and **Technical Artist**.
+Expert **Creative Technologist** and **Technical Artist**.
 
-With 15+ years of experience in Games, XR and Creative Tech, I work on exhibition displays, art installations, videogames and creative software.
+With 15+ years of experience in **videogames, XR and creative software**, his work also includes interactive exhibits, art installations, realtime shaders and tools.
 
-I work in Unity, Three.js, WebGPU, and more.
+He works in Unity, Three.js, WebGPU, and more.
 
-My work was featured in museums and festivals worldwide (Bozar, SF MoMA, SIGGRAPH) and I collaborated with companies like CTRL-Labs, Google, and Meta on R&D, Realtime Demos and Tools.
+His work was featured in museums and festivals worldwide (Bozar, SF MoMA, SIGGRAPH).
 
-I'm Berlin-based and always open to chat about collaborations and opportunities.
+Collaborations include teams at CTRL-Labs, Google, and Meta on R&D, realtime demos and tools.
+
+Berlin-based and always open to chat about freelance and full-time opportunities.
 
 Reach out at fernando.ramallo@gmail.com.
 
