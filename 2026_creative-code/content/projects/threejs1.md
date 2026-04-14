@@ -6,14 +6,11 @@ home_title = "Three.js experiments"
 home_subtitle = "XR Prototyping, Unity"
 side = """
 Skills:
-XR Development
-Unity
+Three.js
+Shader Programming
 """
-description = "!!"
+description = "Examples of three.js work."
 +++
-
-
-Examples of three.js work.
 
 ---
 
