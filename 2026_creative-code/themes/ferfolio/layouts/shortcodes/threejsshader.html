@@ -1,0 +1,322 @@
+
+{{ $shaderName := "threejsexample" }}
+{{ if .IsNamedParams }}
+    {{ with .Get "shader" }}
+        {{ $shaderName = . }}
+    {{ end }}
+{{ else if gt (len .Params) 0 }}
+    {{ $shaderName = .Get 0 }}
+{{ end }}
+{{ $shaderName = replaceRE "[^A-Za-z0-9_-]" "" $shaderName }}
+{{ if eq $shaderName "" }}
+    {{ $shaderName = "threejsexample" }}
+{{ end }}
+{{ $tex1Name := "noise1" }}
+{{ if .IsNamedParams }}
+    {{ with .Get "tex1" }}
+        {{ $tex1Name = . }}
+    {{ end }}
+{{ else if gt (len .Params) 1 }}
+    {{ $tex1Name = .Get 1 }}
+{{ end }}
+{{ $tex1Name = lower (replaceRE "[^A-Za-z0-9_-]" "" $tex1Name) }}
+{{ if eq $tex1Name "" }}
+    {{ $tex1Name = "noise1" }}
+{{ end }}
+{{ $tex2Name := "noise1" }}
+{{ if .IsNamedParams }}
+    {{ with .Get "tex2" }}
+        {{ $tex2Name = . }}
+    {{ end }}
+{{ else if gt (len .Params) 2 }}
+    {{ $tex2Name = .Get 2 }}
+{{ end }}
+{{ $tex2Name = lower (replaceRE "[^A-Za-z0-9_-]" "" $tex2Name) }}
+{{ if eq $tex2Name "" }}
+    {{ $tex2Name = "noise1" }}
+{{ end }}
+{{ $maskName := "noise1" }}
+{{ if .IsNamedParams }}
+    {{ with .Get "mask" }}
+        {{ $maskName = . }}
+    {{ end }}
+{{ else if gt (len .Params) 3 }}
+    {{ $maskName = .Get 3 }}
+{{ end }}
+{{ $maskName = lower (replaceRE "[^A-Za-z0-9_-]" "" $maskName) }}
+{{ if eq $maskName "" }}
+    {{ $maskName = "noise1" }}
+{{ end }}
+{{ $bloomEnabled := false }}
+{{ if .IsNamedParams }}
+    {{ with .Get "bloom" }}
+        {{ $bloomEnabled = eq (lower .) "true" }}
+    {{ end }}
+{{ else if gt (len .Params) 4 }}
+    {{ $bloomEnabled = eq (lower (.Get 4)) "true" }}
+{{ end }}
+{{ $fragmentShaderUrl := printf "/shaders/threejs/%s.frag" $shaderName }}
+{{ $containerId := printf "tjscontainer-%d" .Ordinal }}
+{{ $vertexShaderId := printf "vertexShader-%d" .Ordinal }}
+
+<div id="{{ $containerId }}"></div>
+
+<style>
+    #{{ $containerId }} {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
+    #{{ $containerId }} canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<script id="{{ $vertexShaderId }}" type="x-shader/x-vertex">
+
+    varying vec2 vUv;
+
+    void main()	{
+
+        vUv = uv;
+
+        gl_Position = vec4( position, 1.0 );
+
+    }
+
+</script>
+
+<script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@latest/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@latest/examples/jsm/"
+        }
+    }
+</script>
+
+<script type="module">
+
+    import * as THREE from 'three';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+    import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+    const fragmentShaderUrl = {{ printf "%q" $fragmentShaderUrl | safeJS }};
+    const tex1Source = {{ printf "%q" $tex1Name | safeJS }};
+    const tex2Source = {{ printf "%q" $tex2Name | safeJS }};
+    const maskSource = {{ printf "%q" $maskName | safeJS }};
+    const bloomEnabled = {{ $bloomEnabled }};
+    const containerId = {{ printf "%q" $containerId | safeJS }};
+    const vertexShaderId = {{ printf "%q" $vertexShaderId | safeJS }};
+
+    let camera, scene, renderer, composer, bloomPass, tjscontainer, resizeObserver, webcamStream, webcamTexturePromise;
+
+    let uniforms;
+
+    init().catch( ( error ) => {
+        console.error( error );
+        tjscontainer.textContent = 'Could not load shader.';
+    } );
+
+    async function init() {
+
+        tjscontainer = document.getElementById( containerId );
+        const [ fragmentShader, tex1, tex2, mask ] = await Promise.all( [
+            loadFragmentShader( fragmentShaderUrl ),
+            loadTextureSource( tex1Source ),
+            loadTextureSource( tex2Source ),
+            loadTextureSource( maskSource )
+        ] );
+
+        camera = new THREE.OrthographicCamera( - 1, 1, 1, - 1, 0, 1 );
+
+        scene = new THREE.Scene();
+
+        const geometry = new THREE.PlaneGeometry( 2, 2 );
+
+        uniforms = {
+            time: { value: 1.0 },
+            _Tex1: { value: tex1 },
+            _Tex2: { value: tex2 },
+            _mouse: { value: new THREE.Vector2( 0.0, 0.0 ) },
+            resolution: { value: new THREE.Vector2( 1.0, 1.0 ) },
+            _mask: { value: mask }
+        };
+
+        const material = new THREE.ShaderMaterial( {
+
+            uniforms: uniforms,
+            vertexShader: document.getElementById( vertexShaderId ).textContent,
+            fragmentShader: fragmentShader
+
+        } );
+
+        const mesh = new THREE.Mesh( geometry, material );
+        scene.add( mesh );
+
+        renderer = new THREE.WebGLRenderer();
+        renderer.setPixelRatio( window.devicePixelRatio );
+        renderer.toneMapping = THREE.ReinhardToneMapping;
+        resizeRenderer();
+        tjscontainer.appendChild( renderer.domElement );
+
+        if ( bloomEnabled ) {
+            const renderPass = new RenderPass( scene, camera );
+            bloomPass = new UnrealBloomPass(
+                new THREE.Vector2( tjscontainer.clientWidth, tjscontainer.clientHeight ),
+                0.01,
+                0.05,
+                0.85
+            );
+            const outputPass = new OutputPass();
+
+            composer = new EffectComposer( renderer );
+            composer.addPass( renderPass );
+            composer.addPass( bloomPass );
+            composer.addPass( outputPass );
+            resizeRenderer();
+        }
+
+        renderer.setAnimationLoop( animate );
+
+        if ( 'ResizeObserver' in window ) {
+            resizeObserver = new ResizeObserver( resizeRenderer );
+            resizeObserver.observe( tjscontainer );
+        } else {
+            window.addEventListener( 'resize', resizeRenderer );
+        }
+
+        tjscontainer.addEventListener( 'pointermove', onPointerMove );
+        window.addEventListener( 'pagehide', cleanup );
+        window.addEventListener( 'beforeunload', cleanup );
+
+    }
+
+    async function loadFragmentShader( url ) {
+
+        const response = await fetch( url );
+
+        if ( ! response.ok ) {
+            throw new Error( `Could not load fragment shader: ${ url }` );
+        }
+
+        return response.text();
+
+    }
+
+    async function loadTextureSource( source ) {
+
+        if ( source === 'webcam' ) {
+            webcamTexturePromise = webcamTexturePromise || loadWebcamTexture();
+            return webcamTexturePromise;
+        }
+
+        const allowedTextures = new Set( [ 'noise1', 'noise2', 'noise3' ] );
+        const textureName = allowedTextures.has( source ) ? source : 'noise1';
+        const texture = await new THREE.TextureLoader().loadAsync( `/shaders/threejs/${ textureName }.jpg` );
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.RepeatWrapping;
+        texture.minFilter = THREE.LinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+
+        return texture;
+
+    }
+
+    async function loadWebcamTexture() {
+
+        webcamStream = await navigator.mediaDevices.getUserMedia( { video: true, audio: false } );
+
+        const video = document.createElement( 'video' );
+        video.srcObject = webcamStream;
+        video.muted = true;
+        video.playsInline = true;
+        await video.play();
+
+        const texture = new THREE.VideoTexture( video );
+        texture.wrapS = THREE.ClampToEdgeWrapping;
+        texture.wrapT = THREE.ClampToEdgeWrapping;
+        texture.minFilter = THREE.LinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+
+        return texture;
+
+    }
+
+    function onPointerMove( event ) {
+
+        const rect = tjscontainer.getBoundingClientRect();
+        const x = ( event.clientX - rect.left ) / rect.width;
+        const y = 1.0 - ( event.clientY - rect.top ) / rect.height;
+
+        uniforms._mouse.value.set(
+            THREE.MathUtils.clamp( x, 0.0, 1.0 ),
+            THREE.MathUtils.clamp( y, 0.0, 1.0 )
+        );
+
+    }
+
+    function cleanup() {
+
+        if ( resizeObserver ) {
+            resizeObserver.disconnect();
+        }
+
+        if ( webcamStream ) {
+            webcamStream.getTracks().forEach( ( track ) => track.stop() );
+            webcamStream = null;
+        }
+
+        if ( renderer ) {
+            renderer.setAnimationLoop( null );
+            renderer.dispose();
+        }
+
+        if ( composer ) {
+            composer.dispose();
+        }
+
+    }
+
+    function resizeRenderer() {
+
+        const width = tjscontainer.clientWidth;
+        const height = tjscontainer.clientHeight;
+
+        if ( width === 0 || height === 0 ) return;
+
+        if ( uniforms && uniforms.resolution ) {
+            uniforms.resolution.value.set( width, height );
+        }
+
+        renderer.setSize( width, height, false );
+
+        if ( composer ) {
+            composer.setSize( width, height );
+        }
+
+        if ( bloomPass ) {
+            bloomPass.resolution.set( width, height );
+        }
+
+    }
+
+    //
+
+    function animate() {
+
+        uniforms[ 'time' ].value = performance.now() / 1000;
+
+        if ( composer ) {
+            composer.render();
+        } else {
+            renderer.render( scene, camera );
+        }
+
+    }
+
+</script>
