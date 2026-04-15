@@ -57,12 +57,13 @@ As part of my work on the VR drawing app [Tilt Brush](https://www.youtube.com/wa
 
 I made an experimental interactive audiovisual piece called [*We Are Poems*](/projects/trienalle).
 
-I worked in Ableton to record and mix the music. Stems are exported separately and combined dynamically in Unity.
+I played and recorded fully improvised songs with a vocalist, while I played Keys and Bass Guitar, then arranged. 
 
-* A dynamic soundscape of whispers and hums that change as you move.
-* Multiple songs with player-controlled FX.
-* Songwriting, Playing Keys and Bass, Arrangements, Recording.
+I worked in Ableton to record and mix the music. Stems are exported separately and combined dynamically in Unity with custom scripts.
 
+Finally, I made a dynamic soundscape of whispers and hums that change as the player moves.
+
+The songs are "performed" by the player by affecting the stems with realtime FX.
 
 {{< youtube "YZ14PZozDGo" >}}
 
