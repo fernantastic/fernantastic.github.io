@@ -13,7 +13,7 @@ These are examples of my work related to generative audio & procedural music.
 
 ---
 
-## CTRL-Labs: Music visualizer using neural interface and EKG
+## CTRL-Labs: EKG visualizer using neural interface
 
 As contract work for **Ctrl-Labs (acquired by Meta)**, I prototyped visualizers that parsed realtime EKG data from the user's wristband onto beautiful responsive audiovisual artwork.
 
