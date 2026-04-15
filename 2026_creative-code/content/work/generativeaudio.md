@@ -21,10 +21,10 @@ As contract work for **Ctrl-Labs (acquired by Meta)**, I prototyped visualizers 
 ## Audio Systems for Panoramical, Arthouse Game (2017)
 
 I worked on the musical systems for my indie immersive audiovisual title [Panoramical](/projects/panoramical), including:
-* Working with a musician working in Ableton
-* Custom Unity scripts for triggering samples, pitch-bending and mixing
-* 18 constant loops + Filters + One-offs
-* Debugging Unity audio issues cross-platform for release
+* Working with musician David Kanaga who arranged multi-channel audio in Ableton
+* Made custom Unity scripts for triggering samples, pitch-bending and mixing
+* Implemented 18 constant loops + Filters + One-offs
+* Debugged Unity audio issues cross-platform for release
 
 The result is a multi-channel audio orchestration setup that responds to the player's controller input and creates seamless interactive soundscapes.
 
@@ -33,7 +33,7 @@ The result is a multi-channel audio orchestration setup that responds to the pla
 
 
 ### VR version
-I made VR prototype of the game controlled with spatial UX, using the same audio-mixing and sample based soundscapes.
+I made a VR version of the game, this time controlled with spatial UX. It uses the same audio-mixing and sample based soundscapes.
 
 {{< youtube "VZ2q4uBli1k" >}}
 
@@ -55,11 +55,11 @@ As part of my work on the VR drawing app [Tilt Brush](https://www.youtube.com/wa
 
 ### Songwriting and Audio Systems for arthouse title
 
-I made an experimental interactive audiovisual piece called [*We Are Poems*](/projects/trienalle).
+I made an experimental interactive audiovisual piece called [*We Are Poems*](/projects/trienalle) where players roam around a dynamic environment scattered with faeries and interactive songs.
 
-I played and recorded fully improvised songs with a vocalist, while I played Keys and Bass Guitar, then arranged. 
+I played and recorded fully improvised songs along with a vocalist, while I played Keys and Bass Guitar. 
 
-I worked in Ableton to record and mix the music. Stems are exported separately and combined dynamically in Unity with custom scripts.
+I worked in Ableton to record and mix the music. Stems were exported separately and combined dynamically in Unity with custom scripts.
 
 Finally, I made a dynamic soundscape of whispers and hums that change as the player moves.
 

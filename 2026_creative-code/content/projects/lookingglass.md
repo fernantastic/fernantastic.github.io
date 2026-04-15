@@ -1,6 +1,6 @@
 +++
 draft = false
-title = "Holographic Demos(2018)"
+title = "Holographic Demos (2018)"
 home_img = "projects/lookingglass/aquarium.webp"
 home_title = "Holographic Demos for Looking Glass"
 home_subtitle = "Art Direction, Realtime VFX"
