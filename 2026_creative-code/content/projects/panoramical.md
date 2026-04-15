@@ -19,7 +19,7 @@ Panoramical (2015) is a collection of playful interactive landscapes: part art i
 - Shaders, particle VFX, lots of custom Technical Art
 
 For more information:
-* [Full Exhibition Website, with all the 52+ exhibits](https://byfernando.com/panoramical_2025/)
+* [Full Exhibition Website, with all the 52+ exhibits](https://panoramical.pages.dev/)
 """
 +++
 
