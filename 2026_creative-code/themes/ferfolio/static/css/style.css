@@ -306,7 +306,7 @@ img {
 
 .project-youtube {
     width: 100%;
-    margin: 3rem 0 0;
+    margin: 2rem 0 2rem 0;
     display: block;
 }
 
@@ -327,15 +327,15 @@ img {
 .project-summary {
   padding-top: 1.7rem;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem);
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 13.5rem);
   gap: 2rem;
   align-items: start;
 }
 
 .project-side {
-  font-size: 1.1rem;
+  font-size: minmax(0.2rem, 1.1rem);
   border-left: 0.25rem solid var(--muted);
-  padding-left: 1.4rem;
+  padding-left: 1.1rem;
 }
 
 .project-pagination {
@@ -370,7 +370,7 @@ img {
   letter-spacing: 0.04em;
 }
 
-@media (max-width: 49rem) {
+@media (max-width: 53rem) {
   .shell {
     grid-template-columns: 1fr;
     gap: 2rem;

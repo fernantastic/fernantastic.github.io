@@ -1,9 +1,23 @@
 {{ define "main" }}
   <article class="stack">
-    <header class="stack">
-      <h1>{{ .Title }}</h1>
-    </header>
-    <section class="content">
+    {{ if or .Params.description .Params.side }}
+      <header class="stack project-header">
+        <div class="project-title">{{ .Title | markdownify }}</div>
+        <div class="project-summary">
+          {{ with .Params.description }}
+            <div class="project-description project-content">{{ . | markdownify }}</div>
+          {{ end }}
+          {{ with .Params.side }}
+            <div class="project-side">{{ . | replaceRE "\r?\n" "  \n" | markdownify }}</div>
+          {{ end }}
+        </div>
+      </header>
+    {{ else }}
+      <header class="stack">
+        <h1>{{ .Title }}</h1>
+      </header>
+    {{ end }}
+    <section class="content project-content">
       {{ .Content }}
     </section>
   </article>
