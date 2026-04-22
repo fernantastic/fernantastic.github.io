@@ -17,7 +17,9 @@ What if you could play old DOS games in orbit?
 
 A small art project to test the possibilities of browsing an entire DOS games library in new ways.
 
-DOS emulators run simultaneously and the player switches between them on an PC-Keyboard spacecraft.
+DOS emulators run simultaneously and the player explores them inside a PC space debris ballet.
+
+* For updates, [follow the project on itch.io](https://fernantastic.itch.io/dosberg)
 
 
 """
