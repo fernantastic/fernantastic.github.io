@@ -27,13 +27,17 @@ For more information:
 
 {{< youtube "ym5ybqkCVX8" >}}
 
+{{< img "projects/panoramical/bozar1.jpg" "Photo: BOZAR" >}}
+
 {{< img "projects/panoramical/pano1.jpg" "" >}}
 
-{{< img "projects/panoramical/image.jpg" "" >}}
+{{< img "projects/panoramical/image.jpg" "Photo: Fantastic Arcade" >}}
 
 {{< img "projects/panoramical/pano2.jpg" "" >}}
 
 {{< img "projects/panoramical/pano3.jpg" "" >}}
+
+{{< img "projects/panoramical/bozar2.jpg" "Photo: BOZAR" >}}
 
 {{< img "projects/panoramical/pano_wip1.jpg" "" >}}
 
