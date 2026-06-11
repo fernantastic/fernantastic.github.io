@@ -2,7 +2,7 @@
 draft = false
 title = "Running DOS emulators as TVs floating in space"
 home_img = "projects/dosbox/dosbox.gif"
-home_title = "Running DOS emulators as TVs floating in space"
+home_title = "Dosberg - An interactive exhibit of DOS games set in space"
 home_subtitle = "Unity, Codex"
 side = """
 Skills:

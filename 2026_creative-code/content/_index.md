@@ -5,11 +5,11 @@ url = "/"
 
 {{< homeproject "unityshaders" >}}
 
+{{< homeproject "panoramical" >}}
+
 {{< homeproject "vibecoding" >}}
 
 {{< homeproject "doodleworld" >}}
-
-{{< homeproject "panoramical" >}}
 
 {{< homeproject "dosbox" >}}
 

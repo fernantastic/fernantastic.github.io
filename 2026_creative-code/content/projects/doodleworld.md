@@ -2,7 +2,7 @@
 draft = false
 title = "Doodle Studio - Art Maker for iOS and Unity"
 home_img = "projects/doodleworld/doodleworld.gif"
-home_title = "Doodle Studio - Art Maker for iOS and Unity"
+home_title = "Doodle Studio - Art Maker on Mobile and PC"
 home_subtitle = "Mobile Prototyping, UX Design, Unity Plugin Development"
 side = """
 Roles:
