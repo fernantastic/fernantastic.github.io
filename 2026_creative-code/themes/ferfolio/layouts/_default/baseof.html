@@ -17,12 +17,14 @@
     <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="any">
     <link rel="icon" type="image/png" href="{{ "favicon.png" | absURL }}">
     <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
+    {{ block "extra_head" . }}{{ end }}
     <script src="{{ "js/sidebar-shader.js" | absURL }}" defer></script>
     <script src="{{ "js/sidebar-corner.js" | absURL }}" defer></script>
     <script src="{{ "js/sidebar-sticky-mode.js" | absURL }}" defer></script>
   </head>
   <body>
-    <div class="shell">
+    <div class="shell{{ if .Params.no_sidebar }} shell-no-sidebar{{ end }}">
+      {{ if not .Params.no_sidebar }}
       <aside class="sidebar">
         <div class="sidebar-inner">
           <div class="sidebar-name"><a href="{{ $homeURL }}"><p>Fernando Ramallo</p></a></div>
@@ -54,6 +56,7 @@
           {{ end }}
         </div>
       </aside>
+      {{ end }}
       <main class="page">
         {{ block "main" . }}{{ end }}
       </main>

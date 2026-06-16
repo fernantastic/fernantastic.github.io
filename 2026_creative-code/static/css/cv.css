@@ -1,0 +1,77 @@
+/* CV-specific styles */
+.shell-no-sidebar {
+  grid-template-columns: 1fr;
+}
+
+.cv-content {
+  max-width: 100%;
+}
+
+.cv-content h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 1.5rem 0 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--fg, #111);
+}
+
+.cv-content h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 1.8rem 0 0.8rem;
+  color: var(--fg, #111);
+}
+
+.cv-content h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 1.2rem 0 0.4rem;
+  color: var(--fg, #111);
+}
+
+.cv-content p {
+  margin: 0 0 0.6rem;
+  line-height: 1.6;
+}
+
+.cv-content ul {
+  padding-left: 1.5rem;
+  margin: 0.4rem 0 0.8rem;
+  list-style: none;
+}
+
+.cv-content ul li {
+  position: relative;
+  margin-bottom: 0.2rem;
+  padding-left: 0.4rem;
+}
+
+.cv-content ul li::before {
+  content: "–";
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  color: var(--muted, #666);
+}
+
+.cv-content a {
+  font-weight: 600;
+}
+
+.cv-content strong {
+  font-weight: 700;
+}
+
+.cv-content hr {
+  margin: 2rem 0;
+  border: 0;
+  height: 1px;
+  background: var(--border, #e5e5e5);
+}
+
+.cv-content blockquote {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--muted, #666);
+  color: var(--muted, #666);
+}

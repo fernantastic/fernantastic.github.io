@@ -1,0 +1,26 @@
+{{ define "extra_head" }}
+  <link rel="stylesheet" href="{{ "css/cv.css" | absURL }}">
+{{ end }}
+
+{{ define "main" }}
+  <article class="stack">
+    {{ if or .Title .Params.description .Params.side }}
+      <header class="stack project-header">
+        {{ with .Title }}<div class="project-title">{{ . | markdownify }}</div>{{ end }}
+        {{ if or .Params.description .Params.side }}
+          <div class="project-summary">
+            {{ with .Params.description }}
+              <div class="project-description project-content">{{ . | markdownify }}</div>
+            {{ end }}
+            {{ with .Params.side }}
+              <div class="project-side">{{ . | replaceRE "\r?\n" "  \n" | markdownify }}</div>
+            {{ end }}
+          </div>
+        {{ end }}
+      </header>
+    {{ end }}
+    <section class="content cv-content">
+      {{ .Content }}
+    </section>
+  </article>
+{{ end }}
