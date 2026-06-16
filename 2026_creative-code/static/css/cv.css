@@ -58,8 +58,8 @@
     gap: 10mm;
     align-items: start;
     margin-bottom: 6mm;
-    padding-bottom: 4mm;
-    border-bottom: 2px solid #111;
+    padding-bottom: 2mm;
+    /*border-bottom: 1px solid #111;*/
 }
 
 .cv-content .cv-header-name {
@@ -133,9 +133,8 @@
 
 .cv-content .cv-skills ul {
     padding-left: 2mm;
-    margin: 01mm 0 0mm;
+    margin: 1mm 0 0mm;
     list-style: none;
-    line-height: 1.4;
 }
 
 .cv-content .cv-skills ul li {
@@ -156,24 +155,76 @@
     border-radius: 0;
 }
 
-/* ── Typography ── */
+/* ── CV Entry (Experience / Projects) ── */
 
-.cv-content h1 {
-    font-size: 13pt;
-    font-weight: 700;
-    line-height: 1.15;
-    margin: 7mm 0 4mm;
-    color: #111;
-    border-bottom: 2px solid #111;
+.cv-content .cv-entry {
+    margin: 0 0 3.5mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
 }
 
-.cv-content h2 {
-    font-size: 13pt;
+.cv-content .cv-entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 5mm;
+}
+
+.cv-content .cv-entry-title {
+    font-size: 10.5pt;
     font-weight: 700;
-    line-height: 1.15;
-    margin: 7mm 0 4mm;
     color: #111;
-    border-bottom: 2px solid #111;
+}
+
+.cv-content .cv-entry-date {
+    flex-shrink: 0;
+    font-size: 9pt;
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap;
+}
+
+.cv-content .cv-entry-org {
+    font-size: 9pt;
+    font-weight: 600;
+    color: #444;
+    margin-top: 0.4mm;
+}
+
+.cv-content .cv-entry-org a {
+    font-weight: 600;
+}
+
+.cv-content .cv-entry-body {
+    margin-top: 1mm;
+}
+
+.cv-content .cv-entry-body > p {
+    margin: 0 0 1.5mm;
+}
+
+.cv-content .cv-entry-body > p:last-child,
+.cv-content .cv-entry-body > ul:last-child {
+    margin-bottom: 0;
+}
+
+/* ── Typography ── */
+
+.cv-content h1,
+.cv-content h2 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin: 6mm 0 4mm;
+    padding-bottom: 1.2mm;
+    color: #111;
+    border-bottom: 1.5px solid #111;
+}
+
+.cv-content h1:first-of-type {
+    margin-top: 5mm;
 }
 
 .cv-content h3 {
@@ -187,6 +238,9 @@
 .cv-content p {
     margin: 0 0 2mm;
     /*line-height: 1.5;*/
+}
+.cv-content div {
+    line-height: 1.6;
 }
 
 .cv-content ul {

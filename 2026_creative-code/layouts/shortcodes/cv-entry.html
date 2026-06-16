@@ -1,0 +1,8 @@
+<div class="cv-entry">
+  <div class="cv-entry-head">
+    <span class="cv-entry-title">{{ .Get "title" | markdownify }}</span>
+    {{ with .Get "date" }}<span class="cv-entry-date">{{ . | markdownify }}</span>{{ end }}
+  </div>
+  {{ with .Get "org" }}<div class="cv-entry-org">{{ . | markdownify }}</div>{{ end }}
+  {{ with .Inner }}<div class="cv-entry-body">{{ . | markdownify }}</div>{{ end }}
+</div>
