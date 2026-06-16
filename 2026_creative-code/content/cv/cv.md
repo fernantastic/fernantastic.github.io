@@ -206,7 +206,7 @@ I worked as a Game Designer, involved in over 18 published game projects for PC,
 # TEACHING
 
 **Class - Shaders Demystified: Graphics code as material for visual artists** - 2026  
-*School for Poetic Computation*, Online [Syllabus](https://docs.google.com/document/d/16ke5wh2Y4fNhdk2Cvqo_5nPw9pt13BHWr1lsWbldQPo/edit?tab=t.0)
+*School for Poetic Computation*, Online ([Syllabus](https://docs.google.com/document/d/16ke5wh2Y4fNhdk2Cvqo_5nPw9pt13BHWr1lsWbldQPo/edit?tab=t.0))
 
 **Workshop - Making games with Doodle Studio 95** - 2018  
 *Now Play This*, London
