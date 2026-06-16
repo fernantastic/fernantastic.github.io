@@ -2,46 +2,29 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Hugo: dev server",
+      "label": "dev",
       "type": "shell",
-      "command": "bash ./prepare-static-assets.sh && hugo server -D --disableFastRender",
+      "command": "hugo server",
       "options": {
         "cwd": "${workspaceFolder}"
       },
-      "isBackground": true,
       "problemMatcher": [],
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
       "presentation": {
         "reveal": "always",
         "panel": "dedicated"
       }
     },
     {
-      "label": "Hugo: build",
+      "label": "build",
       "type": "shell",
-      "command": "bash ./prepare-static-assets.sh && hugo --gc --minify",
+      "command": "hugo build --gc --minify",
       "options": {
         "cwd": "${workspaceFolder}"
       },
-      "group": "build",
+      "problemMatcher": [],
       "presentation": {
         "reveal": "always",
         "panel": "dedicated"
-      }
-    },
-    {
-      "label": "Hugo: clean generated files",
-      "type": "shell",
-      "command": "rm -rf public resources/_gen .hugo_build.lock",
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "presentation": {
-        "reveal": "always",
-        "panel": "shared"
       }
     }
   ]

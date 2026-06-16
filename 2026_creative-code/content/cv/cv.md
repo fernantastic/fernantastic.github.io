@@ -1,15 +1,23 @@
 +++
 draft = false
 title = ""
+url = "/cv/"
 no_sidebar = true
 side = """
 """
 description = """"""
 +++
 
-
-| Fernando Ramallo Technical Artist, Creative Technologist, Designer | fernando.ramallo@gmail.com Herrfurtstr. 8 12049 Berlin [Portfolio](http://fernantastic.github.io) [Linkedin](https://www.linkedin.com/in/fernando-ramallo-b27b12291/) \- [github](https://github.com/fernantastic)   |
-| :---- | ----: |
+{{< cv-header
+  name="Fernando Ramallo"
+  role="Technical Artist, Creative Technologist, Designer"
+>}}
+fernando.ramallo@gmail.com
+Herrfurtstr. 8, 12049 Berlin
+* [Portfolio: byfernando.com](http://byfernando.com)
+* [linkedin.com/in/fernando-ramallo-b27b12291/](https://www.linkedin.com/in/fernando-ramallo-b27b12291/)
+* [github.com/fernantastic](https://github.com/fernantastic)
+{{< /cv-header >}}
 
 I'm an expert **Games Developer and Technical Artist** with 15+ years of experience in the **Games, XR and Tech** industry developing museum displays, art installations, videogames and creative software.   
 My work was featured in museums and festivals worldwide and I've collaborated with companies like **CTRL-Labs, Google, and Meta** to develop new creative experiences.
@@ -23,8 +31,7 @@ I also enjoy fitness and travel and had rich experiences living in Buenos Aires,
 
 ## SKILLS
 
-| Game Development, Unity (Expert) Houdini, Unreal (Basic) UX, UI Design Programming (C\#, GLSL, Javascript, Python) Game Design and Prototyping Graphic Design & Art Direction | Shaders and Technical Art (Expert) Adobe CS, After Effects, Resolve, Affinity Processing, P5, openframeworks  3D Modeling and Animation (Blender) Git, Subversion, Github Actions Bash, RegExp Arduino, Microcontrollers  |
-| :---- | :---- |
+{{< cv-skills left="Game Development; Unity (Expert); Houdini, Unreal (Basic); UX, UI Design; Programming (C#, GLSL, Javascript, Python); Game Design and Prototyping; Graphic Design & Art Direction" right="Shaders and Technical Art (Expert); Adobe CS, After Effects, Resolve, Affinity; Processing, P5, openframeworks; 3D Modeling and Animation (Blender); Git, Subversion, Github Actions; Bash, RegExp; Arduino, Microcontrollers" >}}
 
 ## EXPERIENCE
 
@@ -129,7 +136,6 @@ I worked as a Game Designer, involved in over 18 published game projects for PC,
 
 ## SPEAKER EXPERIENCE
 
-* **Workshop:  Now Play This, London, 2018**. **"**"Making games with Doodle Studio 95"  
 * **Panelist:  GDC Games Developer Conference, San Francisco, 2018**. "Tech Toolbox" ([Video](https://www.gdcvault.com/play/1025002/Tech)).  
 * **Talk: Fantastic Arcade, Austin, 2017**. "Doodle Studio Pro 95: an Animation Tool"  
 * **Panelist: Killscreen Festival, New York, 2016\.** "Musical Manipulation in Videogames"  
@@ -141,9 +147,27 @@ I worked as a Game Designer, involved in over 18 published game projects for PC,
 * **Guest speaker**: **NYU Game Center, New York**. Prof. Toni Pizza's class.  
 * **Guest speaker**: **Parsons School Of Design, New York**. Prof. Coleen Macklin's class.
 
+## TEACHING
+
+* **Workshop:  Now Play This, London, 2018**. **"**"Making games with Doodle Studio 95"  
+
+
+(Upcoming) Shaders Demystified: Graphics code as material for visual artists. Six-week course, School for Poetic Computation, New York (online).
+
+“Experimental interfaces for interactive works” workshop. Virgin Media Game Space, London, 2013
+“Throw Some Shade: Shaders For Dummies” workshop, Screenshake, Antwerp, 2015
+“Making games with Doodle Studio 95” workshop, Now Play This, London, 2018
+“Scrapism” class, Teaching Assistant for Prof. Sam Levigne, School for Poetic Computation, New York, 2018-2019
+	Syllabus: https://github.com/antiboredom/sfpc-scrapism
+The Malleable Computer”, workshop on “Subversive software, computers as a malleable material, Tool-making as creative practice”, School for Poetic Computation, New York, 2019
+	Syllabus: https://github.com/fernantastic/sfpc-malleable-computer-fall-2019
+
+
 ## EDUCATION
 
 Houdini Beginner Production Masterclass, @ Everything Procedural Conference 2025, Breda, NL, Apr 2025\.
+
+School For Poetic Computation, New York. Multidisciplinary Six-week Program. 2017. New York.
 
 *Universidad de Palermo, Buenos Aires, Argentina*  
 **Audiovisual Designer** (Bachelor's), 2009\.

@@ -1,0 +1,16 @@
+[
+  {
+    "label": "dev",
+    "command": "hugo server",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "build",
+    "command": "hugo build --gc --minify",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  }
+]

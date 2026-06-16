@@ -1,0 +1,8 @@
+<div class="cv-skills">
+  {{ with .Get "left" }}
+    <ul class="cv-skills-col">{{ range split . "; " }}<li>{{ . }}</li>{{ end }}</ul>
+  {{ end }}
+  {{ with .Get "right" }}
+    <ul class="cv-skills-col">{{ range split . "; " }}<li>{{ . }}</li>{{ end }}</ul>
+  {{ end }}
+</div>

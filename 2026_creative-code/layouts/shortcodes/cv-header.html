@@ -1,0 +1,9 @@
+<div class="cv-header">
+  <div class="cv-header-left">
+    <div class="cv-header-name">{{ .Get "name" | markdownify }}</div>
+    {{ with .Get "role" }}<div class="cv-header-role">{{ . | markdownify }}</div>{{ end }}
+  </div>
+  <div class="cv-header-right">
+    {{ .Inner | markdownify }}
+  </div>
+</div>
