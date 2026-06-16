@@ -10,13 +10,13 @@ description = """"""
 
 {{< cv-header
   name="Fernando Ramallo"
-  role="Technical Artist, Creative Technologist, Designer"
+  role="Technical Artist, Creative Technologist"
 >}}
-fernando.ramallo@gmail.com
-Herrfurtstr. 8, 12049 Berlin
-* [Portfolio: byfernando.com](http://byfernando.com)
-* [linkedin.com/in/fernando-ramallo-b27b12291/](https://www.linkedin.com/in/fernando-ramallo-b27b12291/)
-* [github.com/fernantastic](https://github.com/fernantastic)
+Email:&emsp;&emsp;fernando.ramallo@gmail.com  
+<!--Herrfurtstr. 8, 12049 Berlin  -->
+Website:&emsp;[byfernando.com](http://byfernando.com)  
+LinkedIn:&emsp;[fernando-ramallo-b27b12291](https://www.linkedin.com/in/fernando-ramallo-b27b12291/)  
+[github.com/fernantastic](https://github.com/fernantastic)
 {{< /cv-header >}}
 
 I'm an expert **Games Developer and Technical Artist** with 15+ years of experience in the **Games, XR and Tech** industry developing museum displays, art installations, videogames and creative software.   
@@ -27,13 +27,16 @@ My background as a visual artist, musician and dancer makes my work playful, exp
 
 I'm self-directed and a quick learner. I love people and sharing skills. I strive to be patient, approachable and a positive presence.
 
-I also enjoy fitness and travel and had rich experiences living in Buenos Aires, Mexico, New York and Berlin.
+I enjoy fitness and travel and had rich experiences living in Buenos Aires, Mexico, New York and Berlin.
 
-## SKILLS
+# SKILLS
 
-{{< cv-skills left="Game Development; Unity (Expert); Houdini, Unreal (Basic); UX, UI Design; Programming (C#, GLSL, Javascript, Python); Game Design and Prototyping; Graphic Design & Art Direction" right="Shaders and Technical Art (Expert); Adobe CS, After Effects, Resolve, Affinity; Processing, P5, openframeworks; 3D Modeling and Animation (Blender); Git, Subversion, Github Actions; Bash, RegExp; Arduino, Microcontrollers" >}}
+{{< 
+cv-skills left="Shaders and Technical Art (Expert); Programming (C#, TypeScript, GLSL, Javascript, Python); Three.js, WebGL, WebGPU, Vite;   UX, UI, Interaction Design; Game Design and Prototyping; Game Development; Graphic Design & Art Direction" 
+right="Unity (Expert); Houdini, Unreal (Basic);  Adobe CS, After Effects, Resolve, Affinity; 3D Modeling and Animation (Blender);  Git, Subversion, Github Actions, CL/CI; Processing, P5, openframeworks; Bash, RegExp; Arduino, Microcontrollers" 
+>}}
 
-## EXPERIENCE
+# EXPERIENCE
 
 ### **Technical Art for Supernatural XR @ Meta (2024-2025)**
 
@@ -132,46 +135,75 @@ I showcased work at multiple festivals and games events around the world and rel
 
 I worked as a Game Designer, involved in over 18 published game projects for PC, Web and Consoles. My roles included generating pitches and Design Documents, developing prototypes, creating tools and scripts to simplify production and balancing difficulty and scores.
 
-## 
 
-## SPEAKER EXPERIENCE
+# SPEAKER EXPERIENCE
 
-* **Panelist:  GDC Games Developer Conference, San Francisco, 2018**. "Tech Toolbox" ([Video](https://www.gdcvault.com/play/1025002/Tech)).  
-* **Talk: Fantastic Arcade, Austin, 2017**. "Doodle Studio Pro 95: an Animation Tool"  
-* **Panelist: Killscreen Festival, New York, 2016\.** "Musical Manipulation in Videogames"  
-* **Talk: Indiecade East, New York, 2016\.** "Playful Tools For Abstract Worlds: Creating PANORAMICAL"  
-* **Talk: SIGGRAPH, Los Angeles, 2015\.** "Discovering the audiochromatic cosmology of PANORAMICAL"  
-* **Workshop: Screenshake, Antwerp, 2015\.** "Basic shaders and prototyping in Shadertoy.com"  
-* **Workshop: Virgin Media Game Space, London, 2013\.** "Experimental interfaces for interactive work"  
-* **Guest speaker**: **USC School of Cinematic Arts, Los Angeles**. Prof. Richard Lemarchand's class.  
-* **Guest speaker**: **NYU Game Center, New York**. Prof. Toni Pizza's class.  
-* **Guest speaker**: **Parsons School Of Design, New York**. Prof. Coleen Macklin's class.
+**Panelist - Tech Toolbox** - 2018  
+*GDC Games Developer Conference*, San Francisco, CA. ([Video](https://www.gdcvault.com/play/1025002/Tech))
 
-## TEACHING
+**Talk - Doodle Studio Pro 95: an Animation Tool** - 2017  
+*Fantastic Arcade*, Austin, TX
 
-* **Workshop:  Now Play This, London, 2018**. **"**"Making games with Doodle Studio 95"  
+**Panelist - Musical Manipulation in Videogames** - 2016  
+*Killscreen Festival*, New York
+
+**Talk - Playful Tools For Abstract Worlds: Creating PANORAMICAL** - 2016  
+*Indiecade East*, New York
+
+**Talk - Discovering the audiochromatic cosmology of PANORAMICAL** - 2015  
+*SIGGRAPH*, Los Angeles
+
+**Workshop - Basic shaders and prototyping in Shadertoy.com** - 2015  
+*Screenshake*, Antwerp
+
+**Workshop - Experimental interfaces for interactive work** - 2013  
+*Virgin Media Game Space*, London
+
+**Guest Speaker - USC School of Cinematic Arts**  
+*Los Angeles*. Prof. Richard Lemarchand's class.
+
+**Guest Speaker - NYU Game Center**  
+*New York*. Prof. Toni Pizza's class.
+
+**Guest Speaker - Parsons School Of Design**  
+*New York*. Prof. Coleen Macklin's class.
+
+# TEACHING
+
+**Class - Shaders Demystified: Graphics code as material for visual artists** - 2026  
+*School for Poetic Computation*, Online
+
+**Workshop - Making games with Doodle Studio 95** - 2018  
+*Now Play This*, London
+
+**Workshop - Experimental interfaces for interactive works** - 2013  
+*Virgin Media Game Space*, London
+
+**Workshop - Throw Some Shade: Shaders For Dummies** - 2015  
+*Screenshake*, Antwerp
+
+**Workshop - Making games with Doodle Studio 95** - 2018  
+*Now Play This*, London
+
+**Workshop - The Malleable Computer** - 2019  
+*School for Poetic Computation*, New York. ([Syllabus](https://github.com/fernantastic/sfpc-malleable-computer-fall-2019))
+
+**Teaching Assistant - Scrapism** - 2018-2019  
+*School for Poetic Computation*, New York. Prof. Sam Levigne. ([Syllabus](https://github.com/antiboredom/sfpc-scrapism))
 
 
-(Upcoming) Shaders Demystified: Graphics code as material for visual artists. Six-week course, School for Poetic Computation, New York (online).
 
-“Experimental interfaces for interactive works” workshop. Virgin Media Game Space, London, 2013
-“Throw Some Shade: Shaders For Dummies” workshop, Screenshake, Antwerp, 2015
-“Making games with Doodle Studio 95” workshop, Now Play This, London, 2018
-“Scrapism” class, Teaching Assistant for Prof. Sam Levigne, School for Poetic Computation, New York, 2018-2019
-	Syllabus: https://github.com/antiboredom/sfpc-scrapism
-The Malleable Computer”, workshop on “Subversive software, computers as a malleable material, Tool-making as creative practice”, School for Poetic Computation, New York, 2019
-	Syllabus: https://github.com/fernantastic/sfpc-malleable-computer-fall-2019
+# EDUCATION
 
+### **Bachelor's in Audiovisual Design** (2009-2014)
+*Universidad de Palermo*. Buenos Aires, Argentina
 
-## EDUCATION
+**Houdini Beginner, Production Masterclass** - 2025  
+*Everything Procedural Conference*.  Breda, The Netherlands
 
-Houdini Beginner Production Masterclass, @ Everything Procedural Conference 2025, Breda, NL, Apr 2025\.
+**Multidisciplinary Six-week Arts Program** - 2017  
+*School For Poetic Computation*. New York
 
-School For Poetic Computation, New York. Multidisciplinary Six-week Program. 2017. New York.
-
-*Universidad de Palermo, Buenos Aires, Argentina*  
-**Audiovisual Designer** (Bachelor's), 2009\.
-
-## MISC
+# MISC
 
 I'm authorized to live and work in the United States and the EU.
