@@ -7,13 +7,13 @@ url = "/"
 
 {{< homeproject "panoramical" >}}
 
-{{< homeproject "vibecoding" >}}
+{{< homeproject "lookingglass" >}}
+
+<!--{{< homeproject "vibecoding" >}}-->
 
 {{< homeproject "doodleworld" >}}
 
 {{< homeproject "dosbox" >}}
-
-{{< homeproject "lookingglass" >}}
 
 {{< homeproject "trienalle" >}}
 
