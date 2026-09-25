@@ -1,0 +1,11 @@
+{{ $name := .Get 0 }}
+{{ $caption := .Get 1 }}
+{{ $base := printf "projects/shaderclass/%s" $name }}
+<figure class="project-video">
+  <video autoplay muted loop playsinline preload="none" poster="{{ printf "%s-poster.jpg" $base | relURL }}" aria-label="{{ $caption }}">
+    <source src="{{ printf "%s.webm" $base | relURL }}" type="video/webm">
+    <source src="{{ printf "%s.mp4" $base | relURL }}" type="video/mp4">
+    <img src="{{ printf "%s-poster.jpg" $base | relURL }}" alt="{{ $caption }}">
+  </video>
+  <figcaption class="caption">{{ $caption }}</figcaption>
+</figure>
