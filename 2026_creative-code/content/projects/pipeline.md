@@ -13,13 +13,6 @@ Codex
 """
 +++
 
-<!--{{< video "projects/pipeline/editing_shader.mp4" >}}-->
-
-<!--{{< video "projects/pipeline/choosing_palettes.mp4" >}}-->
-
-<!--{{< palette-comparison >}}-->
-
-
 As part of a tech art test, I implemented an art pipeline that includes:
 
 - An asset importer and processor that applies shaders and metadata to 3D Models
