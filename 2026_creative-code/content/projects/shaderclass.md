@@ -52,7 +52,7 @@ Features:
 
 Students can edit GLSL code on a browser editor on one side and see the immediate resulting image on the other, with live parameters generated automatically.
 
-{{< loopvideo "rings" "An animated study in distance and repetition, with its code and controls alongside it." >}}
+{{< loopvideo "rings" "" >}}
 
 The editor uses Monaco and a custom WebGL2 renderer, resolving GLSL via an automatic compiler with errors shown clearly on top of the image and highlighted on the code.
 
@@ -67,7 +67,7 @@ The sketches are collected in a library. Teachers can categorize examples for st
 
 Special collaborative rooms let students edit a shader together and see everyone's changes in real time. They can pair with another student to learn together, specially when working online.
 
-{{< loopvideo "sphere" "Repeated forms in a 3D shader, live in the editor." >}}
+{{< loopvideo "sphere" "" >}}
 
 ## A learning platform 
 
