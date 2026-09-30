@@ -3,7 +3,7 @@ draft = false
 title = "Case Study: A Stylized Art Pipeline for Unity"
 home_img = "projects/pipeline/cameras/Main_Camera__Corner_Colorful.asset.jpg"
 home_title = "Case Study: A Stylized Art Pipeline for Unity"
-home_subtitle = "A stylized art pipeline with custom lighting and artist controlled looks"
+home_subtitle = "Unity Editor Extensions, Shaders, Art Pipeline"
 description = "I designed and implemented an artist-friendly stylized art pipeline with custom lighting and interchangeable palette assets."
 side = """
 Skills:
