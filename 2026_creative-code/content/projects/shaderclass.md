@@ -1,15 +1,14 @@
 +++
 draft = false
-title = "Rest of Us - A Collaborative Shader Sketchbook"
-home_img = "projects/shaderclass/shader-gallery.jpg"
-home_title = "Rest of Us - Collaborative Shader Sketchbook"
-home_subtitle = "Creative Tools, Graphics Programming, Teaching"
+title = "Class and Online Shader Editor"
+home_img = "projects/shaderclass/shadereditor.png"
+home_title = "Class and Online Shader Editor: Shaders for the Rest of Us"
+home_subtitle = "Teaching, Creative Software, Three/WebGL"
 side = """
 Roles:
+Teaching
 Creative Tool Development
 Graphics Programming
-Interface Design
-Teaching
 
 Tools:
 GLSL / WebGL2
@@ -22,7 +21,7 @@ D1 / Durable Objects / R2
 description = """
 I created a live visual coding sketchbook where students can **edit GLSL code that render an image and collaborate on visual sketches in the browser.**
 
-Built for my class **Shaders Demystified: Graphics code as material for visual artists** at the [School for Poetic Computation](https://sfpc.study), Fall 2026.
+I built for my class **Shaders Demystified: Graphics code as material for visual artists** at the [School for Poetic Computation](https://sfpc.study), Fall 2026.
 
 It started as a tool for my shader experiments and grew into a classroom app with student galleries, multiplayer editing and a full creative coding toolset.
 
@@ -43,7 +42,7 @@ Features:
 """
 +++
 
-{{< img "projects/shaderclass/shader-gallery.jpg" "" >}}
+<!--{{< img "projects/shaderclass/shader-gallery.jpg" "" >}}-->
 
 <!--I enjoy making creative tools where you can quickly try an idea and see what happens. For this class I wanted students to open a shader they liked, change a few things, and start finding their own images in it.-->
 
@@ -79,3 +78,7 @@ The platform also includes classroom material and articles so students have acce
 Creating the page was possible with LLMs for creating the scaffolding, with targeted prompts based on my experience building tools and creative software. 
 
 {{< loopvideo "palette" "" >}}
+
+## Find out more
+
+ - [Syllabus for **Shaders Demystified: Graphics code as material for visual artists** ](https://docs.google.com/document/d/16ke5wh2Y4fNhdk2Cvqo_5nPw9pt13BHWr1lsWbldQPo/edit?usp=sharing)

@@ -18,7 +18,7 @@ LinkedIn:&emsp;[fernando-ramallo-b27b12291](https://www.linkedin.com/in/fernando
 Website:&emsp;[http://byfernando.com](http://byfernando.com)  
 {{< /cv-header >}}
 
-I'm a Berlin-based expert **Games Developer and Technical Artist** with 15+ years of experience in the **Games, XR and Creative Tech** industries developing realtime audiovisual experiences, museum displays, art installations, videogames and creative software.
+I'm an expert **Games Developer and Technical Artist** with 15+ years of experience in the **Games, XR and Creative Tech** industries developing realtime audiovisual experiences, museum displays, art installations, videogames and creative software.
 
 My work has been featured in museums and festivals worldwide and I collaborated with companies like **CTRL-Labs, Google, and Meta** to develop new creative experiences.
 
@@ -236,7 +236,7 @@ I worked as a Game Designer, involved in over 18 published game projects for PC,
 **Houdini Beginner, Production Masterclass** - 2025  
 *Everything Procedural Conference*.  Breda, The Netherlands
 
-**Multidisciplinary Six-week Arts Program** - 2017  
+**Multidisciplinary Arts Program** - 2017  
 *School For Poetic Computation*. New York
 
 # MISC

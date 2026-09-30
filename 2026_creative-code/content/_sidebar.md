@@ -21,4 +21,4 @@ Reach out at fernando.ramallo@gmail.com.
 * [Instagram](https://www.instagram.com/fernantastic/)
 * [Github](https://github.com/fernantastic)
 * [LinkedIn](https://www.linkedin.com/in/fernando-ramallo-b27b12291/)
-* [CV](http://fernantastic.github.io/2025/Fernando%20Ramallo%20-%20CV%20Technical%20Artist.pdf)
+* [CV](/cv/Fernando%20Ramallo%20-%20CV%20Technical%20Artist.pdf)

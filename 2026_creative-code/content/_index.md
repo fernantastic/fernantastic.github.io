@@ -5,6 +5,10 @@ url = "/"
 
 {{< homeproject "unityshaders" >}}
 
+{{< homeproject "shaderclass" >}}
+
+{{< homeproject "pipeline" >}}
+
 {{< homeproject "panoramical" >}}
 
 {{< homeproject "lookingglass" >}}
