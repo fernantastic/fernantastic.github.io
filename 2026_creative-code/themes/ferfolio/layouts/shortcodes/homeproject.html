@@ -15,7 +15,7 @@
       <img src="{{ . | relURL }}" alt="{{ $title }}">
     {{- end }}
   </a>
-  <h2 class="home-project-title">{{ $title }}</h2>
+  <a href="{{ $page.RelPermalink }}"><h2 class="home-project-title">{{ $title }}</h2></a>
   {{- with $subtitle }}
     <p class="home-project-subtitle">{{ . }}</p>
   {{- end }}

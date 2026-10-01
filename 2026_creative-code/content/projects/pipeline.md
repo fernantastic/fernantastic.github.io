@@ -27,10 +27,10 @@ As part of a tech art test, I implemented an art pipeline that includes:
 
 ### tl;dr
 
-1. Drag a model to the project, a custom importer applies the custom pipeline automatically.
+1. Drag a model to the project, a custom importer applies the pipeline automatically.
 2. Use an in-editor tool to assign palette indices to meshes. 
 3. Create Palette assets for specific looks. 
-4. No need for multiple materials: an ubershader handles the entire look. The entire shading is artist controlled.
+4. An ubershader handles the entire look. The entire shading is artist controlled.
 
 
 ### More information
@@ -40,19 +40,18 @@ As part of a tech art test, I implemented an art pipeline that includes:
 
 ## About 
 
-#### Cycling through Palette objects
-{{< img "projects/pipeline/choosing.gif" "" >}}
-
-
 #### Editing a Palette’s shader lighting
 
 {{< img "projects/pipeline/shader.gif" "" >}}
+
+#### Cycling through Palette objects
+{{< img "projects/pipeline/choosing.gif" "" >}}
 
 #### Editing a Palette
 
 {{< img "projects/pipeline/tweaking.gif" "" >}}
 
-#### Uber shader
+#### Customizable ubershader
 
 {{< img "projects/pipeline/shader.png" "" >}}
 
