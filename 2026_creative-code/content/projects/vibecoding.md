@@ -19,7 +19,7 @@ I've been making lifestyle software from tiny tools to shippable products.
 
 ### World Editing Tools
 
-A suite of editors for prototying a planetary exploration game. A world map is projected onto a spherical world the player can fly around in.
+A suite of editors for prototyping a planetary exploration game. A world map is projected onto a spherical world the player can fly around in.
 
 Includes:
 * WebGPU in-browser shader editor

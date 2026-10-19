@@ -22,7 +22,7 @@ As part of a tech art test, I implemented an art pipeline that includes:
 - A custom ubershader with a full custom recoloring, fog, lighting solution
 - Editor tools for assigning color palettes to models interactively
 - A color palette system with interchangeable palette assets for different looks
-- No need for custom materials. A single drawcall renders the entire scene.
+- No need for custom materials. A single draw call renders the entire scene.
 
 
 ### tl;dr

@@ -19,7 +19,7 @@ Cloudflare Pages
 D1 / Durable Objects / R2
 """
 description = """
-I created a live visual coding sketchbook where students can **edit GLSL code that render an image and collaborate on visual sketches in the browser.**
+I created a live visual coding sketchbook where students can **edit GLSL code that renders an image and collaborate on visual sketches in the browser.**
 
 I built for my class **Shaders Demystified: Graphics code as material for visual artists** at the [School for Poetic Computation](https://sfpc.study), Fall 2026.
 
@@ -34,7 +34,7 @@ Features:
 * Account, class and category administration
 * Cloud saves
 * Categorized teaching examples and student galleries
-* Create avariation of an artwork with source credits and ancestry
+* Create a variation of an artwork with source credits and ancestry
 * Hosted library of textures or live webcam feed
 * Image, GIF and video capture
 * Adjustable resolution, aspect ratios and full screen display

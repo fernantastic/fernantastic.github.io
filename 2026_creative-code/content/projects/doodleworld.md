@@ -45,12 +45,12 @@ In 2018 I released a commercial plugin for drawing inside of the Unity 3D editor
 
 
 
-A highlight was having one of my favorite game designers Stephen Thecatamites use it to create his award-winnind surrealist horror-comedy series [Anthology of the Killer](https://store.steampowered.com/app/3212530/Anthology_Of_The_Killer/), available on PC, Mac, PS5 and Switch.
+A highlight was having one of my favorite game designers Stephen Thecatamites use it to create his award-winning surrealist horror-comedy series [Anthology of the Killer](https://store.steampowered.com/app/3212530/Anthology_Of_The_Killer/), available on PC, Mac, PS5 and Switch.
 
 {{< youtube "BNnDrUnKaHw" >}}
 
 
-Doodle Studio was used in many other games, specially on game jams.
+Doodle Studio was used in many other games, especially on game jams.
 
 * [A full list of games that used Doodle Studio is available on itch.io](https://itch.io/games/made-with-doodle-studio-95).
 

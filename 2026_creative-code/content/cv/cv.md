@@ -65,9 +65,9 @@ I provided visual effects for an XR experience for the Meta Quest 2/3 VR headset
 I provided Technical Art work for the independent virtual-band videogame [*We Are OFK.*](https://www.ofk.cool) I created an interactive music video with visual effects, Timeline animation and gameplay programming.
 {{< /cv-entry >}}
 
-{{< cv-entry title="Interactive Mobile Artwork — Trienalle Game Collection" date="2022" >}}
-<!--### **Interactive Piece for Trienalle Game Collection (2022)**-->
-I was invited to produce an expressive, experimental game for the [Milan-based Trienalle interactive exhibit](https://www.milanogamefestival.com/collection/). My piece *We Are Poems* is "a swim through the queerest region of deep space where its inhabitants float and gravitate in bountiful joyous explosions of light".
+{{< cv-entry title="Interactive Mobile Artwork — Triennale Game Collection" date="2022" >}}
+<!--### **Interactive Piece for Triennale Game Collection (2022)**-->
+I was invited to produce an expressive, experimental game for the [Milan-based Triennale interactive exhibit](https://www.milanogamefestival.com/collection/). My piece *We Are Poems* is "a swim through the queerest region of deep space where its inhabitants float and gravitate in bountiful joyous explosions of light".
 {{< /cv-entry >}}
 
 {{< cv-entry title="VR Interactive Storytelling — Scatter" org="" date="2023" >}}
