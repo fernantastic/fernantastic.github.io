@@ -1,6 +1,6 @@
 +++
 draft = false
-title = "Class and Online Shader Editor"
+title = "Educational Platform for Learning Shaders"
 home_img = "projects/shaderclass/shadereditor.png"
 home_title = "Class and Online Shader Editor: Shaders for the Rest of Us"
 home_subtitle = "Teaching, Creative Software, Three/WebGL"
@@ -19,25 +19,24 @@ Cloudflare Pages
 D1 / Durable Objects / R2
 """
 description = """
-I created a live visual coding sketchbook where students can **edit GLSL code that renders an image and collaborate on visual sketches in the browser.**
+I created a live visual coding sketchbook where students can **edit GLSL code and collaborate on visual sketches in the browser.**
 
-I built for my class **Shaders Demystified: Graphics code as material for visual artists** at the [School for Poetic Computation](https://sfpc.study), Fall 2026.
+Built for my 10-week shader class **Shaders Demystified: Graphics code as material for visual artists** at the [School for Poetic Computation](https://sfpc.study), Fall 2026.
 
-It started as a tool for my shader experiments and grew into a classroom app with student galleries, multiplayer editing and a full creative coding toolset.
+It started as a tool for my experiments and grew into a classroom app with student galleries, collaborative editing and creative coding tools.
 
-Features:
+## Live Demo
+### Play with an online version of the platform here:
+  - [https://shaderclass-demo.pages.dev](https://shaderclass-demo.pages.dev)
 
-* Live GLSL editing and WebGL2 preview
-* A control panel for values generated from code
-* Class sharing, edit permissions and revocable public links
-* Multiplayer code editing
-* Account, class and category administration
-* Cloud saves
+### Features
+
+* Live GLSL editing with instant preview
+* Control panel for tweaking values
+* Collaborative editing
+* Accounts and class material administration
 * Categorized teaching examples and student galleries
-* Create a variation of an artwork with source credits and ancestry
-* Hosted library of textures or live webcam feed
-* Image, GIF and video capture
-* Adjustable resolution, aspect ratios and full screen display
+* And more...
 
 """
 +++
@@ -63,7 +62,7 @@ The sketches are collected in a library. Teachers can categorize examples for st
 {{< img "projects/shaderclass/shader-library.jpg" "" >}}
 
 
-## Multiplayer shader editing
+## Collaborative shader editing
 
 Special collaborative rooms let students edit a shader together and see everyone's changes in real time. They can pair with another student to learn together, specially when working online.
 
