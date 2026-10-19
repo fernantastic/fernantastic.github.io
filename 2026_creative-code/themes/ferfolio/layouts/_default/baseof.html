@@ -16,6 +16,7 @@
     <title>{{ site.Title }}</title>
     <link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="any">
     <link rel="icon" type="image/png" href="{{ "favicon.png" | absURL }}">
+    <link rel="preload" href="{{ "fonts/GoogleSans-Regular.woff2" | absURL }}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
     {{ block "extra_head" . }}{{ end }}
     <script src="{{ "js/sidebar-shader.js" | absURL }}" defer></script>
