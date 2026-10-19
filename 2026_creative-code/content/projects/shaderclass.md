@@ -27,7 +27,7 @@ It started as a tool for my experiments and grew into a classroom app with stude
 
 ## Live Demo
 ### Play with an online version of the platform here:
-  - [https://shaderclass-demo.pages.dev](https://shaderclass-demo.pages.dev)
+  - [https://shaderclass-demo.pages.dev](https://shaderclass-demo.pages.dev/browse?list=professor)
 
 ### Features
 
