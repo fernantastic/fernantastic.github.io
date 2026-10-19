@@ -13,7 +13,8 @@
        url("../fonts/GoogleSans-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  /* Keep the first visible render from changing shape when Google Sans arrives. */
+  font-display: block;
 }
 
 * {
